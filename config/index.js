@@ -13,7 +13,8 @@ module.exports = {
     components: path.resolve(__dirname, '../src/components'),
     services: path.resolve(__dirname, '../src/services'),
     layouts: path.resolve(__dirname, '../src/layouts'),
-    store: path.resolve(__dirname, '../src/store')
+    store: path.resolve(__dirname, '../src/store'),
+    models: path.resolve(__dirname, '../src/models')
   },
 
   // Progress Bar Webpack plugin format

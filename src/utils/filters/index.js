@@ -6,3 +6,8 @@ Vue.filter('spImage', function (value) {
     return `${baseApiURL}${value.replace('/it', '/lt')}`
   }
 })
+Vue.filter('spFieldType', function (value) {
+  if (value) {
+    return `${baseApiURL}${value.replace('/it', '/lt')}`
+  }
+})

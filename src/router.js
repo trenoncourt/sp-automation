@@ -11,7 +11,6 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'private',
       component: Private,
       children: [
         {

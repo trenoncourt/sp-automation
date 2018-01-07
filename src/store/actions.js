@@ -13,5 +13,11 @@ export default {
       .then(response => {
         commit(types.UPDATE_LISTS, response.data.value)
       })
+  },
+  [types.UPDATE_LIST_FIELDS_IN_LISTS] ({commit}, list) {
+    return Vue.$http.api.get(`lists(guid'${list.Id}')/fields`)
+      .then(response => {
+        commit(types.UPDATE_LIST_FIELDS_IN_LISTS, {id: list.Id, fields: response.data.value})
+      })
   }
 }

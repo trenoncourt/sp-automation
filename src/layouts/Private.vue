@@ -16,9 +16,9 @@
       <q-list no-border link inset-separator>
         <q-list-header>
         </q-list-header>
-        <q-side-link item :to="{name: 'RecruitmentAuth'}">
-          <q-item-side icon="build"/>
-          <q-item-main label="Recrutement" sublabel="Autorisation de recrutement"/>
+        <q-side-link item :to="{name: 'home'}">
+          <q-item-side icon="list"/>
+          <q-item-main label="Lists" sublabel="Listes"/>
         </q-side-link>
       </q-list>
     </div>
