@@ -1,20 +1,15 @@
 import store from 'store'
-import {UPDATE_TOKEN} from 'store/mutation-types'
+import { UPDATE_TOKEN } from 'store/mutation-types'
 
 export default (http) => {
   // https://github.com/mzabriskie/axios#interceptors
 
-  http.interceptors.request.use(config => {
-    debugger
-    console.log(store)
+  http.interceptors.request.use(async config => {
     if (!store.getters.isTokenValid) {
       console.log('renew token')
-      store.dispatch(UPDATE_TOKEN)
-        .then(() => {
-          config.headers.common['X-RequestDigest'] = store.state.token.FormDigestValue
-        })
+      await store.dispatch(UPDATE_TOKEN)
     }
-    config.headers.common['X-RequestDigest'] = store.state.token.FormDigestValue
+    config.headers['X-RequestDigest'] = store.state.token.FormDigestValue
     return config
   })
 

@@ -7,5 +7,11 @@ export default {
       .then(response => {
         commit(types.UPDATE_TOKEN, response.data)
       })
+  },
+  [types.UPDATE_LISTS] ({commit}) {
+    return Vue.$http.api.get('lists')
+      .then(response => {
+        commit(types.UPDATE_LISTS, response.data.value)
+      })
   }
 }

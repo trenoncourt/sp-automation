@@ -6,5 +6,9 @@ export const isTokenValid = state => {
   if (!dateString) {
     return false
   }
-  return state.token && new Date(dateString) > new Date()
+  return state.token && new Date(dateString).setSeconds(state.token.FormDigestTimeoutSeconds) >= new Date()
+}
+
+export const visibleLists = state => {
+  return state.lists.filter(i => !i.Hidden)
 }

@@ -1,13 +1,13 @@
 import axios from 'axios'
 import interceptors from './interceptors'
-import {apiURL} from 'src/utils/config/index'
+import { apiURL } from 'src/utils/config/index'
 
 const axiosInstanceSite = axios.create()
-const axiosInstanceApi = axios.create({baseURL: apiURL, withCredentials: true})
+const axiosInstanceApi = axios.create({baseURL: `${apiURL}web/`, withCredentials: true})
 const axiosInstanceApiContextInfo = axios.create({baseURL: apiURL, withCredentials: true})
 
 let apis = {
-  site: axiosInstanceSite,
+  list: axiosInstanceSite,
   api: axiosInstanceApi,
   apiContextInfo: axiosInstanceApiContextInfo
 }

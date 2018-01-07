@@ -10,5 +10,11 @@ export const mutations = {
   [types.RESET_STATE] (state) {
     state.me = null
     state.token = null
+  },
+  [types.UPDATE_LISTS] (state, lists) {
+    state.lists = lists
+  },
+  [types.UPDATE_JSON_LISTS] (state, jsonLists) {
+    state.jsonLists = jsonLists
   }
 }

@@ -49,9 +49,6 @@ function createWindow () {
     width: 800,
     height: 600,
     icon: path.join(__dirname, '../icons/icon.png'),
-    'web-preferences': {
-      'web-security': false
-    },
     webPreferences: {webSecurity: false}
   })
 
@@ -60,8 +57,10 @@ function createWindow () {
       ? `file://${__dirname}/index.html`
       : `http://localhost:${process.env.PORT || require('../../config').dev.port}`
   )
-  mainWindow.webContents.session.allowNTLMCredentialsForDomains('*')
-
+  mainWindow.webContents.session.webRequest.onBeforeSendHeaders((details, callback) => {
+    details.requestHeaders['Origin'] = ''
+    callback({cancel: false, requestHeaders: details.requestHeaders})
+  })
   if (process.env.NODE_ENV === 'development') {
     BrowserWindow.addDevToolsExtension(path.join(__dirname, '../node_modules/devtron'))
 

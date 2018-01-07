@@ -11,6 +11,7 @@ import router from './router'
 import 'quasar-extras/material-icons'
 import store from 'store'
 import http from 'utils/http'
+import 'utils/filters'
 
 Vue.config.productionTip = false
 Vue.use(Quasar)
