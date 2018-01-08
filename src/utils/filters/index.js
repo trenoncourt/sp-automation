@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { baseApiURL } from 'utils/config'
+import { fieldType } from '../enums'
 
 Vue.filter('spImage', function (value) {
   if (value) {
@@ -8,6 +9,9 @@ Vue.filter('spImage', function (value) {
 })
 Vue.filter('spFieldType', function (value) {
   if (value) {
-    return `${baseApiURL}${value.replace('/it', '/lt')}`
+    const type = fieldType.find(value)
+    if (type) {
+      return type.label
+    }
   }
 })

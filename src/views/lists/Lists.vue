@@ -10,6 +10,9 @@
       <div class="col-3">
         <q-checkbox label="Afficher les fields en lecture seule" v-model="showReadonlyFields"></q-checkbox>
       </div>
+      <div class="col-3">
+        <q-checkbox label="Afficher les fields de base" v-model="showFromBaseTypeFields"></q-checkbox>
+      </div>
     </div>
     <div class="row">
       <div class="col-3" v-for="list in lists" v-if="!onlyListItems || list.BaseTemplate == 100" :key="list.Id">
@@ -27,7 +30,7 @@
           <q-card-title>
             {{list.Title}}
             <div slot="right" class="row items-center">
-              <q-icon name="euro_symbol"/>
+              <q-icon name="equalizer"/>
               {{list.ItemCount}} item(s)
             </div>
           </q-card-title>
@@ -43,10 +46,10 @@
                 <q-list link separator class="scroll" style="min-width: 100px">
                   <q-item
                     v-for="field in list.fields"
-                    v-if="(showHiddenFields || !field.Hidden) && (showReadonlyFields || !field.ReadOnlyField)"
+                    v-if="(showHiddenFields || !field.Hidden) && (showReadonlyFields || !field.ReadOnlyField) && (showFromBaseTypeFields || !field.FromBaseType)"
                     :key="field.title"
                   >
-                    <q-item-main :label="field.EntityPropertyName" :sublabel="field.type"/>
+                    <q-item-main :label="field.EntityPropertyName" :sublabel="field.FieldTypeKind | spFieldType"/>
                   </q-item>
                 </q-list>
               </q-popover>
@@ -58,7 +61,7 @@
     <div class="row">
       <div class="col-3" v-for="list in jsonLists" :key="list.Id">
         <q-card>
-          <q-card-media class="bg-warning">
+          <q-card-media :class="listExistToBackgroundConverter(list)">
             <div class="row items-stretch">
               <div class="col-6">
                 <img :src="'/_layouts/15/images/ltgen.png?rev=40' | spImage">
@@ -101,6 +104,34 @@
         </q-card>
       </div>
     </div>
+
+    <q-fixed-position corner="bottom-right" :offset="[86, 18]">
+      <q-btn round color="primary" @click="method">
+        <q-icon name="mail" />
+      </q-btn>
+    </q-fixed-position>
+    <q-fixed-position corner="bottom-right" :offset="[18, 18]">
+      <q-fab
+        color="primary"
+        active-icon="keyboard_arrow_down"
+        direction="up"
+      >
+        <q-tooltip
+          slot="tooltip"
+          anchor="center left"
+          self="center right"
+          :offset="[20, 0]"
+        >
+          Tooltip in FAB
+        </q-tooltip>
+        <q-fab-action color="purple" @click="toast('mail')" icon="mail">
+          <q-tooltip anchor="center left" self="center right" :offset="[20, 0]">Mail</q-tooltip>
+        </q-fab-action>
+        <q-fab-action color="secondary" @click="toast('alarm')" icon="alarm">
+          <q-tooltip anchor="center left" self="center right" :offset="[20, 0]">Alarm</q-tooltip>
+        </q-fab-action>
+      </q-fab>
+    </q-fixed-position>
   </div>
 </template>
 
@@ -113,13 +144,13 @@
     QCardMain,
     QCardMedia,
     QCardSeparator,
-    QCardTitle, QCheckbox,
+    QCardTitle, QCheckbox, QFab, QFabAction,
     QFixedPosition,
     QIcon, QItem, QItemMain, QList, QPopover, QTooltip
   } from 'quasar-framework'
-  import {UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS} from 'store/mutation-types'
+  import { UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS } from 'store/mutation-types'
   import List from 'models/List'
-  import {CREATE_LIST} from '../../store/mutation-types'
+  import { CREATE_LIST } from '../../store/mutation-types'
 
   export default {
     components: {
@@ -137,13 +168,16 @@
       QPopover,
       QList,
       QItem,
-      QItemMain
+      QItemMain,
+      QFab,
+      QFabAction
     },
     data () {
       return {
         onlyListItems: false,
         showHiddenFields: false,
-        showReadonlyFields: false
+        showReadonlyFields: false,
+        showFromBaseTypeFields: false
       }
     },
     methods: {
@@ -172,6 +206,15 @@
             }
           ]
         })
+      },
+      // converters
+      listExistToBackgroundConverter (list) {
+        if (this.lists.some(l => l.Title === list.title)) {
+          return 'bg-positive'
+        }
+        else {
+          return 'bg-negative'
+        }
       }
     },
     computed: {
