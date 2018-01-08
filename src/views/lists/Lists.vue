@@ -4,6 +4,12 @@
       <div class="col-3">
         <q-checkbox label="Liste items uniquement" v-model="onlyListItems"></q-checkbox>
       </div>
+      <div class="col-3">
+        <q-checkbox label="Afficher les fields cachés" v-model="showHiddenFields"></q-checkbox>
+      </div>
+      <div class="col-3">
+        <q-checkbox label="Afficher les fields en lecture seule" v-model="showReadonlyFields"></q-checkbox>
+      </div>
     </div>
     <div class="row">
       <div class="col-3" v-for="list in lists" v-if="!onlyListItems || list.BaseTemplate == 100" :key="list.Id">
@@ -37,9 +43,10 @@
                 <q-list link separator class="scroll" style="min-width: 100px">
                   <q-item
                     v-for="field in list.fields"
+                    v-if="(showHiddenFields || !field.Hidden) && (showReadonlyFields || !field.ReadOnlyField)"
                     :key="field.title"
                   >
-                    <q-item-main :label="field.title" :sublabel="field.type"/>
+                    <q-item-main :label="field.EntityPropertyName" :sublabel="field.type"/>
                   </q-item>
                 </q-list>
               </q-popover>
@@ -110,8 +117,9 @@
     QFixedPosition,
     QIcon, QItem, QItemMain, QList, QPopover, QTooltip
   } from 'quasar-framework'
-  import { UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS } from 'store/mutation-types'
+  import {UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS} from 'store/mutation-types'
   import List from 'models/List'
+  import {CREATE_LIST} from '../../store/mutation-types'
 
   export default {
     components: {
@@ -133,7 +141,9 @@
     },
     data () {
       return {
-        onlyListItems: false
+        onlyListItems: false,
+        showHiddenFields: false,
+        showReadonlyFields: false
       }
     },
     methods: {
@@ -156,9 +166,8 @@
               label: 'Oui',
               color: 'positive',
               handler () {
-                console.log(vm.$store)
-                const l = new List(list.title, list.description)
-                console.log(JSON.stringify(l))
+                const l = new List(list.title, list.description, list.fields)
+                vm.$store.dispatch(CREATE_LIST, l)
               }
             }
           ]
