@@ -63,7 +63,8 @@
                     v-if="(showHiddenFields || !field.Hidden) && (showReadonlyFields || !field.ReadOnlyField) && (showFromBaseTypeFields || !field.FromBaseType)"
                     :key="field.title"
                   >
-                    <q-item-main :label="field.EntityPropertyName" :sublabel="field.FieldTypeKind | spFieldType"/>
+                    <q-item-main :label="field.Title + ' (' + field.EntityPropertyName + ')'"
+                                 :sublabel="field.FieldTypeKind | spFieldType"/>
                   </q-item>
                 </q-list>
               </q-popover>
@@ -126,8 +127,8 @@
     </div>
 
     <q-fixed-position corner="bottom-right" :offset="[86, 18]">
-      <q-btn round color="primary">
-        <q-icon name="mail"/>
+      <q-btn round color="primary" @click="refresh">
+        <q-icon name="sync"/>
       </q-btn>
     </q-fixed-position>
     <q-fixed-position corner="bottom-right" :offset="[18, 18]">
@@ -168,9 +169,9 @@
     QFixedPosition,
     QIcon, QItem, QItemMain, QList, QPopover, QTooltip, Loading, Toast
   } from 'quasar-framework'
-  import { UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS } from 'store/mutation-types'
+  import {UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS} from 'store/mutation-types'
   import List from 'models/List'
-  import { CREATE_LIST, CREATE_LIST_FIELDS } from '../../store/mutation-types'
+  import {CREATE_LIST, CREATE_LIST_FIELDS} from '../../store/mutation-types'
 
   export default {
     components: {
@@ -220,6 +221,14 @@
               label: 'Oui',
               color: 'positive',
               handler () {
+                // check if dependencies exists
+                const dependencies = [...new Set(list.fields
+                  .filter(f => f.lookupList && !vm.lists.some(l => l.Title === f.lookupList))
+                  .map(f => f.lookupList))]
+                if (dependencies.length) {
+                  Toast.create.negative(`Impossible de trouver les listes <b>${dependencies.join(', ')}</b>`)
+                  return
+                }
                 const l = new List(list.title, list.description, list.fields)
                 Loading.show({message: `Création de la liste ${list.title}`})
                 vm.$store.dispatch(CREATE_LIST, l)
@@ -239,6 +248,9 @@
       // converters
       listExist (list) {
         return this.lists.some(l => l.Title === list.title)
+      },
+      refresh () {
+        this.$store.dispatch(UPDATE_LISTS)
       }
     },
     computed: {

@@ -1,13 +1,29 @@
 {
-  "title": "AttachmentType",
+  "title": "Customers",
   "fields": [
     {
-      "title": "label",
+      "title": "title",
       "type": "text"
     },
     {
-      "title": "value",
-      "type": "integer"
+      "title": "name",
+      "type": "text"
+    },
+    {
+      "title": "address",
+      "type": "text"
+    },
+    {
+      "title": "address2",
+      "type": "text"
+    },
+    {
+      "title": "address3",
+      "type": "text"
+    },
+    {
+      "title": "billingAddress",
+      "type": "text"
     }
   ]
 }
