@@ -1,0 +1,1099 @@
+{
+  "title": "Studies",
+  "fields": [
+    {
+      "title": "id",
+      "type": "integer"
+    },
+    {
+      "title": "assistant",
+      "type": "user"
+    },
+    {
+      "title": "packagingAdviser",
+      "type": "user"
+    },
+    {
+      "title": "claimer",
+      "type": "user"
+    },
+    // customer
+    {
+      "title": "customer",
+      "type": "lookup",
+      "lookupField": "ID"
+    },
+    {
+      "title": "customer:title",
+      "type": "lookup",
+      "lookupField": "Title"
+    },
+    {
+      "title": "customer:address",
+      "type": "lookup",
+      "lookupField": "address"
+    },
+    {
+      "title": "customer:name",
+      "type": "lookup",
+      "lookupField": "name"
+    },
+    // fields
+    {
+      "title": "simIndex",
+      "type": "text"
+    },
+    {
+      "title": "semIndex",
+      "type": "text"
+    },
+    {
+      "title": "labIndex",
+      "type": "text"
+    },
+    {
+      "title": "quoteIndex",
+      "type": "text"
+    },
+    {
+      "title": "additionnalGrooving",
+      "type": "text"
+    },
+    {
+      "title": "bandAid",
+      "type": "integer"
+    },
+    {
+      "title": "batIsRepere",
+      "type": "boolean"
+    },
+    {
+      "title": "batIsVarnish",
+      "type": "boolean"
+    },
+    {
+      "title": "batNumberOfColors",
+      "type": "text"
+    },
+    {
+      "title": "batOtherVarnishValue",
+      "type": "text"
+    },
+    {
+      "title": "batPrintType",
+      "type": "text"
+    },
+    {
+      "title": "batVarnish",
+      "type": "text"
+    },
+    {
+      "title": "clientModeleDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "costEmbQuantity",
+      "type": "text"
+    },
+    {
+      "title": "costIsRepere",
+      "type": "boolean"
+    },
+    {
+      "title": "costIsVarnish",
+      "type": "boolean"
+    },
+    {
+      "title": "costNumberOfColors",
+      "type": "text"
+    },
+    {
+      "title": "costOtherVarnishValue",
+      "type": "text"
+    },
+    {
+      "title": "costPrintType",
+      "type": "text"
+    },
+    {
+      "title": "costSerieOf",
+      "type": "text"
+    },
+    {
+      "title": "costVarnish",
+      "type": "text"
+    },
+    {
+      "title": "creationDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "cutouts",
+      "type": "text"
+    },
+    {
+      "title": "deComId",
+      "type": "integer"
+    },
+    {
+      "title": "deComIndex",
+      "type": "text"
+    },
+    {
+      "title": "deQuoteId",
+      "type": "integer"
+    },
+    {
+      "title": "deLabId",
+      "type": "integer"
+    },
+    {
+      "title": "deSemId",
+      "type": "integer"
+    },
+    {
+      "title": "detParentIndex",
+      "type": "text"
+    },
+    {
+      "title": "detServiceIndex",
+      "type": "text"
+    },
+    {
+      "title": "date",
+      "type": "dateTime"
+    },
+    {
+      "title": "deliveryPlace",
+      "type": "text"
+    },
+    {
+      "title": "deliveryPlace2",
+      "type": "text"
+    },
+    {
+      "title": "deliveryPlaceField",
+      "type": "text"
+    },
+    {
+      "title": "deliveryPlaceField2",
+      "type": "integer"
+    },
+    {
+      "title": "deliverySerie1",
+      "type": "integer"
+    },
+    {
+      "title": "deliverySerie2",
+      "type": "integer"
+    },
+    {
+      "title": "deliverySerie3",
+      "type": "integer"
+    },
+    {
+      "title": "deliverySerie4",
+      "type": "integer"
+    },
+    {
+      "title": "deliverySerie5",
+      "type": "integer"
+    },
+    {
+      "title": "requestType",
+      "type": "text"
+    },
+    {
+      "title": "labDeliveryPlace",
+      "type": "text"
+    },
+    {
+      "title": "labDurationOfStorage",
+      "type": "integer"
+    },
+    {
+      "title": "labEmpilement",
+      "type": "text"
+    },
+    {
+      "title": "labEmpilementTwo",
+      "type": "text"
+    },
+    {
+      "title": "labEmpilementTwoLength",
+      "type": "text"
+    },
+    {
+      "title": "labEmpilementTwoWidth",
+      "type": "text"
+    },
+    {
+      "title": "labHygrometry",
+      "type": "text"
+    },
+    {
+      "title": "labMaxWeight",
+      "type": "text"
+    },
+    {
+      "title": "labNumber",
+      "type": "text"
+    },
+    {
+      "title": "labNumberOfLayersForPalette",
+      "type": "text"
+    },
+    {
+      "title": "labOtherDetails",
+      "type": "text"
+    },
+    {
+      "title": "labStackingOfPaletteOtherValue",
+      "type": "text"
+    },
+    {
+      "title": "labStackingOfPaletteOtherValueStorage",
+      "type": "text"
+    },
+    {
+      "title": "labStackingOfPaletteValue",
+      "type": "text"
+    },
+    {
+      "title": "labStackingOfPaletteValueStorage",
+      "type": "text"
+    },
+    {
+      "title": "labStoringOtherDetails",
+      "type": "text"
+    },
+    {
+      "title": "labStrates",
+      "type": "integer"
+    },
+    {
+      "title": "labTransportDistance",
+      "type": "text"
+    },
+    {
+      "title": "labTransportDuration",
+      "type": "text"
+    },
+    {
+      "title": "labTransportOtherDetails",
+      "type": "text"
+    },
+    {
+      "title": "labTransportType",
+      "type": "text"
+    },
+    {
+      "title": "flapsFullComplement",
+      "type": "text"
+    },
+    {
+      "title": "flapsImposed",
+      "type": "text"
+    },
+    {
+      "title": "flapsOthers",
+      "type": "text"
+    },
+    {
+      "title": "flapsStraddling",
+      "type": "text"
+    },
+    {
+      "title": "flexographicColorsCount",
+      "type": "text"
+    },
+    {
+      "title": "flexographicEmbQuantity",
+      "type": "text"
+    },
+    {
+      "title": "flexographicIsRepere",
+      "type": "boolean"
+    },
+    {
+      "title": "flexographicIsVarnish",
+      "type": "boolean"
+    },
+    {
+      "title": "flexographicOtherVarnishValue",
+      "type": "text"
+    },
+    {
+      "title": "flexographicSerieOf",
+      "type": "text"
+    },
+    {
+      "title": "flexographicVarnish",
+      "type": "text"
+    },
+    {
+      "title": "gMGNumberOfGMG",
+      "type": "integer"
+    },
+    {
+      "title": "handles",
+      "type": "text"
+    },
+    {
+      "title": "hueClicheType",
+      "type": "text"
+    },
+    {
+      "title": "imperativeQty",
+      "type": "text"
+    },
+    {
+      "title": "initiator",
+      "type": "text"
+    },
+    {
+      "title": "inking",
+      "type": "text"
+    },
+    {
+      "title": "interiorPrintValue",
+      "type": "text"
+    },
+    {
+      "title": "isAdditionnalGrooving",
+      "type": "boolean"
+    },
+    {
+      "title": "isBandAid",
+      "type": "boolean"
+    },
+    {
+      "title": "isBat",
+      "type": "boolean"
+    },
+    {
+      "title": "isCallOffer",
+      "type": "boolean"
+    },
+    {
+      "title": "isCustomerModel",
+      "type": "boolean"
+    },
+    {
+      "title": "isPosterPrice",
+      "type": "boolean"
+    },
+    {
+      "title": "isCutouts",
+      "type": "boolean"
+    },
+    {
+      "title": "isOverFlow0",
+      "type": "boolean"
+    },
+    {
+      "title": "isOverFlow1",
+      "type": "boolean"
+    },
+    {
+      "title": "isOverFlow2",
+      "type": "boolean"
+    },
+    {
+      "title": "isQuote",
+      "type": "boolean"
+    },
+    {
+      "title": "isECT",
+      "type": "boolean"
+    },
+    {
+      "title": "isSample",
+      "type": "boolean"
+    },
+    {
+      "title": "isLabel",
+      "type": "boolean"
+    },
+    {
+      "title": "isCapePack",
+      "type": "boolean"
+    },
+    {
+      "title": "isPrint",
+      "type": "boolean"
+    },
+    {
+      "title": "isLabBulkBreaking",
+      "type": "boolean"
+    },
+    {
+      "title": "isExactQty",
+      "type": "boolean"
+    },
+    {
+      "title": "isFSC",
+      "type": "boolean"
+    },
+    {
+      "title": "isFSCPrintedPackage",
+      "type": "boolean"
+    },
+    {
+      "title": "isFabricationPlans",
+      "type": "boolean"
+    },
+    {
+      "title": "isFlaps",
+      "type": "boolean"
+    },
+    {
+      "title": "isFoodContact",
+      "type": "boolean"
+    },
+    {
+      "title": "isGMG",
+      "type": "boolean"
+    },
+    {
+      "title": "isHandles",
+      "type": "boolean"
+    },
+    {
+      "title": "isImposition",
+      "type": "boolean"
+    },
+    {
+      "title": "isInteriorPrint",
+      "type": "boolean"
+    },
+    {
+      "title": "isLNEStampPrint",
+      "type": "boolean"
+    },
+    {
+      "title": "isLabAnalysis",
+      "type": "boolean"
+    },
+    {
+      "title": "isLabStudy",
+      "type": "boolean"
+    },
+    {
+      "title": "isLaboOther",
+      "type": "boolean"
+    },
+    {
+      "title": "isMecanicPackage",
+      "type": "boolean"
+    },
+    {
+      "title": "isMecanicPackagePrintJet",
+      "type": "boolean"
+    },
+    {
+      "title": "isMecanicPackageFlap",
+      "type": "boolean"
+    },
+    {
+      "title": "isMetallicColor",
+      "type": "boolean"
+    },
+    {
+      "title": "isMini",
+      "type": "boolean"
+    },
+    {
+      "title": "isModifHueCliche",
+      "type": "boolean"
+    },
+    {
+      "title": "isONUAgreement",
+      "type": "boolean"
+    },
+    {
+      "title": "isOther",
+      "type": "boolean"
+    },
+    {
+      "title": "isOtherAgreement",
+      "type": "boolean"
+    },
+    {
+      "title": "isPackageAttachment",
+      "type": "boolean"
+    },
+    {
+      "title": "isPaperAnalysis",
+      "type": "boolean"
+    },
+    {
+      "title": "isPerforations",
+      "type": "boolean"
+    },
+    {
+      "title": "isPlanClient",
+      "type": "boolean"
+    },
+    {
+      "title": "isPlanRequestARDforSubContract",
+      "type": "boolean"
+    },
+    {
+      "title": "isPlanRequestAssembly3D",
+      "type": "boolean"
+    },
+    {
+      "title": "isPlanRequestCF2",
+      "type": "boolean"
+    },
+    {
+      "title": "isPlanRequestCustomer",
+      "type": "boolean"
+    },
+    {
+      "title": "isPlanRequestDFX",
+      "type": "boolean"
+    },
+    {
+      "title": "isPlanRequestGraphicImpl",
+      "type": "boolean"
+    },
+    {
+      "title": "isPreCutted",
+      "type": "boolean"
+    },
+    {
+      "title": "isPreStudy",
+      "type": "boolean"
+    },
+    {
+      "title": "isPrint",
+      "type": "boolean"
+    },
+    {
+      "title": "isQtyMountedPackaging",
+      "type": "boolean"
+    },
+    {
+      "title": "isQtyPairingImposedQty",
+      "type": "boolean"
+    },
+    {
+      "title": "isQtyPairingTogether",
+      "type": "boolean"
+    },
+    {
+      "title": "isQtySplitting",
+      "type": "boolean"
+    },
+    {
+      "title": "isQtyStorage",
+      "type": "boolean"
+    },
+    {
+      "title": "isQualityByCustomerNeeds",
+      "type": "boolean"
+    },
+    {
+      "title": "isRCV",
+      "type": "boolean"
+    },
+    {
+      "title": "isTuning",
+      "type": "boolean"
+    },
+    {
+      "title": "isReinforcementStrip",
+      "type": "boolean"
+    },
+    {
+      "title": "isSampleProposition",
+      "type": "boolean"
+    },
+    {
+      "title": "isSampleRouting",
+      "type": "boolean"
+    },
+    {
+      "title": "isSettings",
+      "type": "boolean"
+    },
+    {
+      "title": "isShaping",
+      "type": "boolean"
+    },
+    {
+      "title": "isStackingOfPalletLab",
+      "type": "boolean"
+    },
+    {
+      "title": "isStackingOfPalletLabStorage",
+      "type": "boolean"
+    },
+    {
+      "title": "isTearOffStrip",
+      "type": "boolean"
+    },
+    {
+      "title": "isTechSheet",
+      "type": "boolean"
+    },
+    {
+      "title": "isWitnessColor",
+      "type": "boolean"
+    },
+    {
+      "title": "isToCheck",
+      "type": "boolean"
+    },
+    {
+      "title": "isToFill",
+      "type": "boolean"
+    },
+    {
+      "title": "isToReceive",
+      "type": "boolean"
+    },
+    {
+      "title": "isTracer",
+      "type": "boolean"
+    },
+    {
+      "title": "lNEStampPrint",
+      "type": "text"
+    },
+    {
+      "title": "laboAnalyseOtherField",
+      "type": "text"
+    },
+    {
+      "title": "laboFileAttachmentId",
+      "type": "integer"
+    },
+    {
+      "title": "laboFileAttachmentLink",
+      "type": "text"
+    },
+    {
+      "title": "laboFileAttachmentType",
+      "type": "text"
+    },
+    {
+      "title": "laboOtherField",
+      "type": "text"
+    },
+    {
+      "title": "libelle",
+      "type": "text"
+    },
+    {
+      "title": "marketAnnualQuantity",
+      "type": "integer"
+    },
+    {
+      "title": "marketType",
+      "type": "text"
+    },
+    {
+      "title": "mecanicPackageClosed",
+      "type": "text"
+    },
+    {
+      "title": "mecanicPackageFormage",
+      "type": "text"
+    },
+    {
+      "title": "mecanicPackagePrintJetType",
+      "type": "text"
+    },
+    {
+      "title": "mecanicPackageRabatType",
+      "type": "text"
+    },
+    {
+      "title": "mecanicPackageRabatType2",
+      "type": "text"
+    },
+    {
+      "title": "mecanicPackageReference",
+      "type": "text"
+    },
+    {
+      "title": "mecanicPackageSpecification",
+      "type": "text"
+    },
+    {
+      "title": "mecanicPackageType",
+      "type": "text"
+    },
+    {
+      "title": "metallicColor",
+      "type": "text"
+    },
+    {
+      "title": "modified",
+      "type": "dateTime"
+    },
+    {
+      "title": "motifType",
+      "type": "text"
+    },
+    {
+      "title": "name",
+      "type": "text"
+    },
+    {
+      "title": "natureOfProduct",
+      "type": "text"
+    },
+    {
+      "title": "natureOfProductTwo",
+      "type": "text"
+    },
+    {
+      "title": "nb_quote",
+      "type": "integer"
+    },
+    {
+      "title": "numberOfColors",
+      "type": "text"
+    },
+    {
+      "title": "numericalColorType",
+      "type": "text"
+    },
+    {
+      "title": "numericalEmbQuantity",
+      "type": "text"
+    },
+    {
+      "title": "numericalSerieOf",
+      "type": "text"
+    },
+    {
+      "title": "offsetColorsCount",
+      "type": "text"
+    },
+    {
+      "title": "offsetEmbQuantity",
+      "type": "text"
+    },
+    {
+      "title": "offsetIsRepere",
+      "type": "boolean"
+    },
+    {
+      "title": "offsetIsVarnish",
+      "type": "boolean"
+    },
+    {
+      "title": "offsetOtherVarnishValue",
+      "type": "text"
+    },
+    {
+      "title": "offsetSerieOf",
+      "type": "text"
+    },
+    {
+      "title": "offsetVarnish",
+      "type": "text"
+    },
+    {
+      "title": "otherAgreementField",
+      "type": "text"
+    },
+    {
+      "title": "otherVarnishValue",
+      "type": "text"
+    },
+    {
+      "title": "packagePartsList",
+      "type": "text"
+    },
+    {
+      "title": "packagingAdviserName",
+      "type": "text"
+    },
+    {
+      "title": "paletteLength",
+      "type": "integer"
+    },
+    {
+      "title": "paletteLength0",
+      "type": "integer"
+    },
+    {
+      "title": "paletteLength1",
+      "type": "integer"
+    },
+    {
+      "title": "paletteLength2",
+      "type": "integer"
+    },
+    {
+      "title": "paletteMaxHeight0",
+      "type": "integer"
+    },
+    {
+      "title": "paletteMaxHeight1",
+      "type": "integer"
+    },
+    {
+      "title": "paletteMaxHeight2",
+      "type": "integer"
+    },
+    {
+      "title": "paletteWeight0",
+      "type": "integer"
+    },
+    {
+      "title": "paletteWeight1",
+      "type": "integer"
+    },
+    {
+      "title": "paletteWeight2",
+      "type": "integer"
+    },
+    {
+      "title": "paletteWidth",
+      "type": "integer"
+    },
+    {
+      "title": "paletteWidth0",
+      "type": "integer"
+    },
+    {
+      "title": "paletteWidth1",
+      "type": "integer"
+    },
+    {
+      "title": "paletteWidth2",
+      "type": "integer"
+    },
+    {
+      "title": "palletType",
+      "type": "text"
+    },
+    {
+      "title": "palletizationCounterPallet",
+      "type": "text"
+    },
+    {
+      "title": "palletizationHMax",
+      "type": "integer"
+    },
+    {
+      "title": "palletizationIsAuthorizedOverflow",
+      "type": "boolean"
+    },
+    {
+      "title": "PalletizationIsCounterPallet",
+      "type": "boolean"
+    },
+    {
+      "title": "PalletizationIsHMax",
+      "type": "boolean"
+    },
+    {
+      "title": "PalletizationIsParticularPacking",
+      "type": "boolean"
+    },
+    {
+      "title": "PalletizationIsRack",
+      "type": "boolean"
+    },
+    {
+      "title": "PalletizationIsStretchFilm",
+      "type": "boolean"
+    },
+    {
+      "title": "PalletizationOverflowDirection",
+      "type": "text"
+    },
+    {
+      "title": "PalletizationParticularPacking",
+      "type": "integer"
+    },
+    {
+      "title": "PalletizationQtyPerPallet",
+      "type": "integer"
+    },
+    {
+      "title": "PalletizationRackLength",
+      "type": "integer"
+    },
+    {
+      "title": "PalletizationRackWidth",
+      "type": "integer"
+    },
+    {
+      "title": "PalletizationTypeLength",
+      "type": "integer"
+    },
+    {
+      "title": "PalletizationTypeWidth",
+      "type": "integer"
+    },
+    {
+      "title": "ParticularityType",
+      "type": "text"
+    },
+    {
+      "title": "Perforations",
+      "type": "text"
+    },
+    {
+      "title": "PreStudyCreationField",
+      "type": "text"
+    },
+    {
+      "title": "PreStudyFunctionField",
+      "type": "text"
+    },
+    {
+      "title": "PreprintColorsCount",
+      "type": "text"
+    },
+    {
+      "title": "PreprintEmbQuantity",
+      "type": "text"
+    },
+    {
+      "title": "PreprintIsRepere",
+      "type": "boolean"
+    },
+    {
+      "title": "PreprintIsVarnish",
+      "type": "boolean"
+    },
+    {
+      "title": "PreprintOtherVarnishValue",
+      "type": "text"
+    },
+    {
+      "title": "PreprintSerieOf",
+      "type": "text"
+    },
+    {
+      "title": "PreprintVarnish",
+      "type": "text"
+    },
+    {
+      "title": "PrintCommentField",
+      "type": "text"
+    },
+    {
+      "title": "PrintType",
+      "type": "text"
+    },
+    {
+      "title": "ProductCapacity",
+      "type": "text"
+    },
+    {
+      "title": "ProductNature",
+      "type": "text"
+    },
+    {
+      "title": "Prospect",
+      "type": "text"
+    },
+    {
+      "title": "Quantity",
+      "type": "integer"
+    },
+    {
+      "title": "QuantityChoice",
+      "type": "text"
+    },
+    {
+      "title": "ReinforcementStrip",
+      "type": "integer"
+    },
+    {
+      "title": "SampleRouting",
+      "type": "text"
+    },
+    {
+      "title": "SampleRoutingAddress",
+      "type": "text"
+    },
+    {
+      "title": "SampleType",
+      "type": "text"
+    },
+    {
+      "title": "Status",
+      "type": "text"
+    },
+    {
+      "title": "StorageTime",
+      "type": "text"
+    },
+    {
+      "title": "StudySerie1",
+      "type": "integer"
+    },
+    {
+      "title": "StudySerie2",
+      "type": "integer"
+    },
+    {
+      "title": "TearOffStrip",
+      "type": "integer"
+    },
+    {
+      "title": "TintIsPms",
+      "type": "boolean"
+    },
+    {
+      "title": "TintPantone1",
+      "type": "text"
+    },
+    {
+      "title": "TintPantone2",
+      "type": "text"
+    },
+    {
+      "title": "TintPantoneType1",
+      "type": "text"
+    },
+    {
+      "title": "TintPantoneType2",
+      "type": "text"
+    },
+    {
+      "title": "TintSupportType",
+      "type": "text"
+    },
+    {
+      "title": "TracerNumberOfTracer",
+      "type": "integer"
+    },
+    {
+      "title": "TruckType",
+      "type": "text"
+    },
+    {
+      "title": "Varnish",
+      "type": "text"
+    },
+    {
+      "title": "comment",
+      "type": "text"
+    },
+    {
+      "title": "isCommentSentByEmail",
+      "type": "boolean"
+    },
+    {
+      "title": "workEndDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "workStartDate",
+      "type": "dateTime"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import {fieldType} from 'utils/enums'
+import { fieldType } from 'utils/enums'
 
 export default class ListField {
   constructor (title, type) {
@@ -8,8 +8,6 @@ export default class ListField {
   }
 
   toJSON () {
-    console.log(fieldType[this.type])
-    debugger
     return {
       Title: this.title,
       FieldTypeKind: fieldType[this.type].key
