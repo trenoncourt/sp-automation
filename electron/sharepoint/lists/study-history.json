@@ -1,0 +1,43 @@
+{
+  "title": "StudyHistory",
+  "fields": [
+    {
+      "title": "action",
+      "type": "lookup",
+      "lookupField": "value",
+      "lookupList": "StudyActionTypes"
+    },
+    {
+      "title": "action:label",
+      "type": "lookup",
+      "lookupField": "label",
+      "lookupList": "StudyActionTypes"
+    },
+    {
+      "title": "action:label2",
+      "type": "lookup",
+      "lookupField": "label2",
+      "lookupList": "StudyActionTypes2"
+    },
+    {
+      "title": "name",
+      "type": "text"
+    },
+    {
+      "title": "address",
+      "type": "text"
+    },
+    {
+      "title": "address2",
+      "type": "text"
+    },
+    {
+      "title": "address3",
+      "type": "text"
+    },
+    {
+      "title": "billingAddress",
+      "type": "text"
+    }
+  ]
+}
