@@ -35,5 +35,9 @@ export default {
       fieldsCalls.push(Vue.$http.api.post(`lists(guid'${list.id}')/fields`, f))
     }
     return Promise.all(fieldsCalls)
+  },
+  [types.CREATE_LIST_FIELD] ({commit}, list) {
+    const field = new ListField(list.field.title, list.field.type, list.field.lookupField, list.field.lookupList)
+    return Vue.$http.api.post(`lists(guid'${list.id}')/fields`, field)
   }
 }

@@ -12,7 +12,7 @@ export default class ListField {
     return {
       Title: this.title,
       FieldTypeKind: fieldType[this.type].key,
-      LookupFieldName: this.lookupField,
+      LookupField: this.lookupField,
       LookupListId: this.lookupListId
     }
   }

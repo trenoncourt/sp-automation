@@ -171,7 +171,7 @@
   } from 'quasar-framework'
   import {UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS} from 'store/mutation-types'
   import List from 'models/List'
-  import {CREATE_LIST, CREATE_LIST_FIELDS} from '../../store/mutation-types'
+  import {CREATE_LIST, CREATE_LIST_FIELD} from '../../store/mutation-types'
 
   export default {
     components: {
@@ -232,13 +232,12 @@
                 const l = new List(list.title, list.description, list.fields)
                 Loading.show({message: `Création de la liste ${list.title}`})
                 vm.$store.dispatch(CREATE_LIST, l)
-                  .then(id => {
-                    Loading.show({message: `Création des ${list.fields.length} champs de la liste ${list.title}`})
-                    vm.$store.dispatch(CREATE_LIST_FIELDS, {id: id, fields: l.fields})
-                      .then(() => {
-                        Loading.hide()
-                        Toast.create.positive(`Liste <b>${list.title}</b> créée avec ${list.fields.length} champs`)
-                      })
+                  .then(async id => {
+                    for (const f of l.fields) {
+                      Loading.show({message: `Création du champs ${l.title} dans la liste ${list.title}`})
+                      await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: f})
+                    }
+                    Loading.hide()
                   })
               }
             }
