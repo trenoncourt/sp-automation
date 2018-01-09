@@ -1,4 +1,4 @@
-import {fieldType} from 'utils/enums'
+import { fieldType } from 'utils/enums'
 
 export default class ListField {
   constructor (title, type, lookupField, lookupListId) {
