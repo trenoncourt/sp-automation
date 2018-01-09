@@ -1,0 +1,17 @@
+{
+  "title": "MetallicColorTypes",
+  "fields": [
+    {
+      "title": "ID",
+      "type": "integer"
+    },
+    {
+      "title": "label",
+      "type": "text"
+    },
+    {
+      "title": "value",
+      "type": "text"
+    }
+  ]
+}

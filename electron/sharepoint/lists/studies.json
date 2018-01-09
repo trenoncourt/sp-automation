@@ -2,7 +2,7 @@
   "title": "Studies",
   "fields": [
     {
-      "title": "id",
+      "title": "ID",
       "type": "integer"
     },
     {
@@ -17,28 +17,26 @@
       "title": "claimer",
       "type": "user"
     },
-    // customer
     {
-      "title": "customer",
+      "title": "customers",
       "type": "lookup",
       "lookupField": "ID"
     },
     {
-      "title": "customer:title",
+      "title": "customers:title",
       "type": "lookup",
       "lookupField": "Title"
     },
     {
-      "title": "customer:address",
+      "title": "customers:address",
       "type": "lookup",
       "lookupField": "address"
     },
     {
-      "title": "customer:name",
+      "title": "customers:name",
       "type": "lookup",
       "lookupField": "name"
     },
-    // fields
     {
       "title": "simIndex",
       "type": "text"
@@ -565,10 +563,6 @@
     },
     {
       "title": "isPreStudy",
-      "type": "boolean"
-    },
-    {
-      "title": "isPrint",
       "type": "boolean"
     },
     {
