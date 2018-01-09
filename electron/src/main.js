@@ -5,7 +5,7 @@ const
   path = require('path'),
   config = require('../config/electron'),
   app = electron.app,
-  // chokidar = require('chokidar'),
+  chokidar = require('chokidar'),
   fs = require('fs'),
   ipcMain = electron.ipcMain,
   BrowserWindow = electron.BrowserWindow
@@ -16,13 +16,15 @@ ipcMain.on('init', function (event, arg) {
   readFiles('sharepoint/lists', files => {
     console.log(files)
     event.sender.send('sp-sites-update', files)
-    // event.returnValue = files
   })
-  // const watcher = chokidar.watch('sharepoint', {persistent: true})
-  // console.log(watcher)
-  // watcher.on('all', (event, path) => {
-  //   console.log(event, path)
-  // })
+  const watcher = chokidar.watch('sharepoint', {persistent: true})
+  console.log(watcher)
+  watcher.on('all', (e, path) => {
+    readFiles('sharepoint/lists', files => {
+      console.log(files)
+      event.sender.send('sp-sites-update', files)
+    })
+  })
 })
 
 function readFiles (dirname, onFileContent, onError) {
@@ -89,6 +91,7 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
 
 app.on('activate', () => {
   if (mainWindow === null) {
