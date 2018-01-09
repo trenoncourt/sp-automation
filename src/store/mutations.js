@@ -15,6 +15,9 @@ export const mutations = {
   [types.UPDATE_LISTS] (state, lists) {
     state.lists = lists
   },
+  [types.CREATE_LIST] (state, list) {
+    state.lists.push(list)
+  },
   [types.UPDATE_JSON_LISTS] (state, jsonLists) {
     state.jsonLists = jsonLists
   },

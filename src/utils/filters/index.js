@@ -15,3 +15,9 @@ Vue.filter('spFieldType', function (value) {
     }
   }
 })
+Vue.filter('bool-to-background', function (value) {
+  if (value) {
+    return 'bg-positive'
+  }
+  return 'bg-negative'
+})

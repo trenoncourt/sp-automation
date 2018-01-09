@@ -24,13 +24,16 @@ export default {
   [types.CREATE_LIST] ({commit}, list) {
     return Vue.$http.api.post(`lists`, list)
       .then(response => {
-        const fieldsCalls = []
-        for (const field of list.fields) {
-          const f = new ListField(field.title, field.type)
-          fieldsCalls.push(Vue.$http.api.post(`lists(guid'${response.data.Id}')/fields`, f))
-        }
-        return Promise.all(fieldsCalls)
-        // commit(types.UPDATE_LIST_FIELDS_IN_LISTS, {id: list.Id, fields: response.data.value})
+        commit(types.CREATE_LIST, response.data)
+        return response.data.Id
       })
+  },
+  [types.CREATE_LIST_FIELDS] ({commit}, list) {
+    const fieldsCalls = []
+    for (const field of list.fields) {
+      const f = new ListField(field.title, field.type)
+      fieldsCalls.push(Vue.$http.api.post(`lists(guid'${list.id}')/fields`, f))
+    }
+    return Promise.all(fieldsCalls)
   }
 }
