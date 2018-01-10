@@ -1,6 +1,7 @@
 import * as types from './mutation-types'
 import Vue from 'vue'
 import Field from '../models/Field'
+import RandomItem from '../models/RandomItem'
 
 export default {
   [types.UPDATE_TOKEN] ({commit}) {
@@ -55,5 +56,15 @@ export default {
     else {
       return Vue.$http.api.post(`lists(guid'${list.id}')/fields`, list.field, {headers: {'Content-Type': 'application/json;odata=verbose'}})
     }
+  },
+
+  [types.CREATE_LIST_ITEMS] ({commit}, payload) {
+    const itemsCalls = []
+    for (let i = 0; i < payload.count; i++) {
+      const randomItem = new RandomItem(payload.list.Title)
+      randomItem.setField(payload.list.fields)
+      itemsCalls.push(Vue.$http.api.post(`lists(guid'${payload.list.Id}')/items`, randomItem, {headers: {'Content-Type': 'application/json;odata=verbose'}}))
+    }
+    return Promise.all(itemsCalls)
   }
 }
