@@ -2,10 +2,6 @@
   "title": "Studies",
   "fields": [
     {
-      "title": "ID",
-      "type": "integer"
-    },
-    {
       "title": "assistant",
       "type": "user"
     },

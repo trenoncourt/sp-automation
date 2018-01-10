@@ -2,10 +2,6 @@
   "title": "TenColorTypes",
   "fields": [
     {
-      "title": "ID",
-      "type": "integer"
-    },
-    {
       "title": "label",
       "type": "text"
     },
