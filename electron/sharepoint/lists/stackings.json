@@ -2,10 +2,6 @@
   "title": "Stackings",
   "fields": [
     {
-      "title": "ID",
-      "type": "integer"
-    },
-    {
       "title": "label",
       "type": "text"
     },

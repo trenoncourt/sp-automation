@@ -2,10 +2,6 @@
   "title": "ProductNatures2",
   "fields": [
     {
-      "title": "ID",
-      "type": "integer"
-    },
-    {
       "title": "label",
       "type": "text"
     },
