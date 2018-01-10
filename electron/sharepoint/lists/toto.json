@@ -1,0 +1,57 @@
+{
+  "title": "Toto",
+  "fields": [
+    {
+      "title": "label",
+      "type": "text"
+    },
+    {
+      "title": "value",
+      "type": "integer"
+    },
+    {
+      "title": "value1",
+      "type": "integer"
+    },
+    {
+      "title": "value2",
+      "type": "integer"
+    },
+    {
+      "title": "value3",
+      "type": "integer"
+    },
+    {
+      "title": "value4",
+      "type": "integer"
+    },
+    {
+      "title": "value5",
+      "type": "integer"
+    },
+    {
+      "title": "value6",
+      "type": "integer"
+    },
+    {
+      "title": "value7",
+      "type": "integer"
+    },
+    {
+      "title": "value8",
+      "type": "integer"
+    },
+    {
+      "title": "value9",
+      "type": "integer"
+    },
+    {
+      "title": "value10",
+      "type": "integer"
+    },
+    {
+      "title": "value11",
+      "type": "integer"
+    }
+  ]
+}

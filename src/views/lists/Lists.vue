@@ -176,6 +176,7 @@
   import PrimaryLookupField from '../../models/PrimaryLookupField'
   import SecondaryLookupField from '../../models/SecondaryLookupField'
   import Field from '../../models/Field'
+  import { fieldType } from '../../utils/enums'
 
   export default {
     components: {
@@ -199,7 +200,7 @@
     },
     data () {
       return {
-        onlyListItems: false,
+        onlyListItems: true,
         showHiddenFields: false,
         showReadonlyFields: false,
         showFromBaseTypeFields: false
@@ -245,7 +246,7 @@
                         const primaryLookupFieldId = await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: field})
                         for (const sf of f.fields) {
                           Loading.show({message: `Création du champs ${sf.title} dans la liste ${list.title}`})
-                          const subField = new SecondaryLookupField(sf.title, sf.type, sf.lookupField, lookupListId, primaryLookupFieldId)
+                          const subField = new SecondaryLookupField(sf.title, fieldType.lookup.label, sf.lookupField, lookupListId, primaryLookupFieldId)
                           await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: subField})
                         }
                       }

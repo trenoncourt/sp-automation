@@ -18,24 +18,28 @@
       "type": "user"
     },
     {
-      "title": "customers",
+      "title": "customer",
       "type": "lookup",
-      "lookupField": "ID"
-    },
-    {
-      "title": "customers:title",
-      "type": "lookup",
-      "lookupField": "Title"
-    },
-    {
-      "title": "customers:address",
-      "type": "lookup",
-      "lookupField": "address"
-    },
-    {
-      "title": "customers:name",
-      "type": "lookup",
-      "lookupField": "name"
+      "lookupField": "Id",
+      "lookupList": "Customers",
+      "fields": [
+        {
+          "title": "customers:title",
+          "lookupField": "Title"
+        },
+        {
+          "title": "customers:address",
+          "lookupField": "address"
+        },
+        {
+          "title": "customers:name",
+          "lookupField": "name"
+        },
+        {
+          "title": "customers:address",
+          "lookupField": "address"
+        }
+      ]
     },
     {
       "title": "simIndex",

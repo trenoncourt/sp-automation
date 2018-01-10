@@ -1,6 +1,6 @@
 import * as types from './mutation-types'
 import Vue from 'vue'
-import ListField from '../models/ListField'
+import Field from '../models/Field'
 
 export default {
   [types.UPDATE_TOKEN] ({commit}) {
@@ -31,7 +31,7 @@ export default {
   [types.CREATE_LIST_FIELDS] ({commit}, list) {
     const fieldsCalls = []
     for (const field of list.fields) {
-      const f = new ListField(field.title, field.type)
+      const f = new Field(field.title, field.type)
       fieldsCalls.push(Vue.$http.api.post(`lists(guid'${list.id}')/fields`, f, {headers: {'Content-Type': 'application/json;odata=verbose'}}))
     }
     return Promise.all(fieldsCalls)
