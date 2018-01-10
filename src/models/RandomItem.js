@@ -21,7 +21,7 @@ export default class RandomItem {
       }
       switch (f.FieldTypeKind) {
         case fieldType.integer.key:
-          item[f.Title] = Math.floor(Math.random() * 10) + 1
+          item[f.EntityPropertyName] = Math.floor(Math.random() * 10) + 1
           break
         case fieldType.text.key:
           const letters = 'abcde fghij klmno pqrst uvwxyz'
@@ -29,17 +29,17 @@ export default class RandomItem {
           for (var i = 0; i < 5; i++) {
             text += letters.charAt(Math.floor(Math.random() * letters.length))
           }
-          item[f.Title] = text
+          item[f.EntityPropertyName] = text
           break
         case fieldType.dateTime.key:
           const year = new Date().getFullYear()
-          item[f.Title] = new Date(new Date() + Math.random() * (new Date(year, 0, 1) - new Date())).toJSON()
+          item[f.EntityPropertyName] = new Date(new Date() + Math.random() * (new Date(year, 0, 1) - new Date())).toJSON()
           break
         case fieldType.boolean.key:
-          item[f.Title] = Math.random() >= 0.5
+          item[f.EntityPropertyName] = Math.random() >= 0.5
           break
         case fieldType.number.key:
-          item[f.Title] = (Math.random() * 10 + 1)
+          item[f.EntityPropertyName] = (Math.random() * 10 + 1)
           break
         case fieldType.lookup.key:
           break

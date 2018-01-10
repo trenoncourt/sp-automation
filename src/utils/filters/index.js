@@ -19,7 +19,7 @@ Vue.filter('spFieldTypeWithId', function (value) {
   if (value) {
     const type = fieldType.find(value.FieldTypeKind)
     if (type) {
-      return `${type.label} (value.Id)`
+      return `${type.label} (${value.Id})`
     }
   }
 })
