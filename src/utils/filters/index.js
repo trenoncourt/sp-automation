@@ -15,6 +15,14 @@ Vue.filter('spFieldType', function (value) {
     }
   }
 })
+Vue.filter('spFieldTypeWithId', function (value) {
+  if (value) {
+    const type = fieldType.find(value.FieldTypeKind)
+    if (type) {
+      return `${type.label} (value.Id)`
+    }
+  }
+})
 Vue.filter('bool-to-background', function (value) {
   if (value) {
     return 'bg-positive'

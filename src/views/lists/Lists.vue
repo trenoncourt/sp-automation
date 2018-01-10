@@ -19,10 +19,11 @@
         <q-card>
           <q-card-media class="bg-primary">
             <div class="row items-stretch">
-              <div class="col-6">
+              <div class="col-auto">
                 <img :src="list.ImageUrl | spImage">
               </div>
-              <div class="col-6">
+              <div class="col self-center text-light">
+                <small>{{list.Id}}</small>
                 <!-- todo: type de liste -->
               </div>
             </div>
@@ -64,7 +65,7 @@
                     :key="field.title"
                   >
                     <q-item-main :label="field.Title + ' (' + field.EntityPropertyName + ')'"
-                                 :sublabel="field.FieldTypeKind | spFieldType"/>
+                                 :sublabel="field.FieldTypeKind | spFieldTypeWithId"/>
                   </q-item>
                 </q-list>
               </q-popover>
@@ -169,9 +170,13 @@
     QFixedPosition,
     QIcon, QItem, QItemMain, QList, QPopover, QTooltip, Loading, Toast
   } from 'quasar-framework'
-  import {UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS} from 'store/mutation-types'
+  import { UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS } from 'store/mutation-types'
   import List from 'models/List'
-  import {CREATE_LIST, CREATE_LIST_FIELDS} from '../../store/mutation-types'
+  import { CREATE_LIST, CREATE_LIST_FIELD } from '../../store/mutation-types'
+  import PrimaryLookupField from '../../models/PrimaryLookupField'
+  import SecondaryLookupField from '../../models/SecondaryLookupField'
+  import Field from '../../models/Field'
+  import { fieldType } from '../../utils/enums'
 
   export default {
     components: {
@@ -195,7 +200,7 @@
     },
     data () {
       return {
-        onlyListItems: false,
+        onlyListItems: true,
         showHiddenFields: false,
         showReadonlyFields: false,
         showFromBaseTypeFields: false
@@ -229,16 +234,28 @@
                   Toast.create.negative(`Impossible de trouver les listes <b>${dependencies.join(', ')}</b>`)
                   return
                 }
-                const l = new List(list.title, list.description, list.fields)
+                const l = new List(list.title, list.description)
                 Loading.show({message: `Création de la liste ${list.title}`})
                 vm.$store.dispatch(CREATE_LIST, l)
-                  .then(id => {
-                    Loading.show({message: `Création des ${list.fields.length} champs de la liste ${list.title}`})
-                    vm.$store.dispatch(CREATE_LIST_FIELDS, {id: id, fields: l.fields})
-                      .then(() => {
-                        Loading.hide()
-                        Toast.create.positive(`Liste <b>${list.title}</b> créée avec ${list.fields.length} champs`)
-                      })
+                  .then(async id => {
+                    for (const f of list.fields) {
+                      Loading.show({message: `Création du champs ${f.title} dans la liste ${list.title}`})
+                      if (f.lookupList) {
+                        const lookupListId = vm.lists.find(l => l.Title === f.lookupList).Id
+                        const field = new PrimaryLookupField(f.title, f.type, f.lookupField, lookupListId)
+                        const primaryLookupFieldId = await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: field})
+                        for (const sf of f.fields) {
+                          Loading.show({message: `Création du champs ${sf.title} dans la liste ${list.title}`})
+                          const subField = new SecondaryLookupField(sf.title, fieldType.lookup.label, sf.lookupField, lookupListId, primaryLookupFieldId)
+                          await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: subField})
+                        }
+                      }
+                      else {
+                        const field = new Field(f.title, f.type)
+                        await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: field})
+                      }
+                    }
+                    Loading.hide()
                   })
               }
             }
