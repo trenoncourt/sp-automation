@@ -80,12 +80,6 @@ function createWindow () {
 
 app.on('ready', createWindow)
 
-app.on('login', (event, webContents, request, authInfo, callback) => {
-  console.log(request)
-  event.preventDefault()
-  callback('simon', 'Penis!!')
-})
-
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
