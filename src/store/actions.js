@@ -22,7 +22,7 @@ export default {
       })
   },
   [types.CREATE_LIST] ({commit}, list) {
-    return Vue.$http.api.post(`lists`, list)
+    return Vue.$http.api.post(`lists`, list, {headers: {'Content-Type': 'application/json;odata=verbose'}})
       .then(response => {
         commit(types.CREATE_LIST, response.data)
         return response.data.Id
@@ -32,12 +32,28 @@ export default {
     const fieldsCalls = []
     for (const field of list.fields) {
       const f = new ListField(field.title, field.type)
-      fieldsCalls.push(Vue.$http.api.post(`lists(guid'${list.id}')/fields`, f))
+      fieldsCalls.push(Vue.$http.api.post(`lists(guid'${list.id}')/fields`, f, {headers: {'Content-Type': 'application/json;odata=verbose'}}))
     }
     return Promise.all(fieldsCalls)
   },
   [types.CREATE_LIST_FIELD] ({commit}, list) {
-    const field = new ListField(list.field.title, list.field.type, list.field.lookupField, list.field.lookupList)
-    return Vue.$http.api.post(`lists(guid'${list.id}')/fields`, field)
+    if (list.field.lookupListId) {
+      if (list.field.primaryLookupFieldId) {
+        return Vue.$http.api.post(`lists(guid'${list.id}')/fields/adddependentlookupfield(displayname='${list.field.title}', primarylookupfieldid='${list.field.primaryLookupFieldId}', showfield='${list.field.lookupField}')`
+          , {}, {headers: {'Content-Type': 'application/json;odata=verbose'}})
+          .then(response => {
+            return response.data.Id
+          })
+      }
+      else {
+        return Vue.$http.api.post(`lists(guid'${list.id}')/fields/addfield`, list.field, {headers: {'Content-Type': 'application/json;odata=verbose'}})
+          .then(response => {
+            return response.data.Id
+          })
+      }
+    }
+    else {
+      return Vue.$http.api.post(`lists(guid'${list.id}')/fields`, list.field, {headers: {'Content-Type': 'application/json;odata=verbose'}})
+    }
   }
 }

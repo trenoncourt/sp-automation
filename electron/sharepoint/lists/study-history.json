@@ -5,13 +5,14 @@
       "title": "action",
       "type": "lookup",
       "lookupField": "value",
-      "lookupList": "StudyActionTypes"
-    },
-    {
-      "title": "action:label",
-      "type": "lookup",
-      "lookupField": "label",
-      "lookupList": "StudyActionTypes"
+      "lookupList": "StudyActionTypes",
+      "fields": [
+        {
+          "title": "action:label",
+          "type": "lookup",
+          "lookupField": "label"
+        }
+      ]
     },
     {
       "title": "name",
