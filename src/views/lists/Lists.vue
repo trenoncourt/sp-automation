@@ -290,8 +290,17 @@
         return this.lists.some(l => l.Title === list.title)
       },
       generateRandomItems (list, count) {
-        console.log(list, count)
+        if (count === 1) {
+          Loading.show({message: `Ajout d'un élément dans la liste ${list.Title}`})
+        }
+        else {
+          Loading.show({message: `Ajout de ${count} éléments simultanément dans la liste ${list.Title}`})
+        }
         this.$store.dispatch(CREATE_LIST_ITEMS, {list, count})
+          .then(() => {
+            Loading.hide()
+            Toast.create.positive(`Ajout réalisé avec succès`)
+          })
       },
       refresh () {
         this.$store.dispatch(UPDATE_LISTS)
