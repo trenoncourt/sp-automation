@@ -42,6 +42,29 @@
           <q-card-separator/>
           <q-card-actions align="end">
             <q-btn color="primary" @click="updateListFields(list)">
+              <q-icon name="shuffle"/>
+              <q-popover :ref="'popover-random-items-' + list.Id">
+                <q-list link separator class="scroll" style="min-width: 100px">
+                  <q-item @click="generateRandomItems(list, 1), $refs['popover-random-items-' + list.Id][0].close()">
+                    <q-item-main label="Créer 1 item"/>
+                  </q-item>
+                  <q-item @click="generateRandomItems(list, 10), $refs['popover-random-items-' + list.Id][0].close()">
+                    <q-item-main label="Créer 10 items"/>
+                  </q-item>
+                  <q-item @click="generateRandomItems(list, 100), $refs['popover-random-items-' + list.Id][0].close()">
+                    <q-item-main label="Créer 100 items"/>
+                  </q-item>
+                  <q-item @click="generateRandomItems(list, 1000), $refs['popover-random-items-' + list.Id][0].close()">
+                    <q-item-main label="Créer 1000 items"/>
+                  </q-item>
+                  <q-item
+                    @click="generateRandomItems(list, 10000), $refs['popover-random-items-' + list.Id][0].close()">
+                    <q-item-main label="Créer 10000 items"/>
+                  </q-item>
+                </q-list>
+              </q-popover>
+            </q-btn>
+            <q-btn color="primary" @click="updateListFields(list)">
               <q-icon name="file_download"/>
               <q-popover ref="popover-json-lists">
                 <q-list link separator class="scroll" style="min-width: 100px">
@@ -50,7 +73,7 @@
                     v-if="(showHiddenFields || !field.Hidden) && (showReadonlyFields || !field.ReadOnlyField) && (showFromBaseTypeFields || !field.FromBaseType)"
                     :key="field.title"
                   >
-                    <q-item-main :label="field.EntityPropertyName" :sublabel="field.FieldTypeKind | spFieldType"/>
+                    <q-item-main :label="field.EntityPropertyName" :sublabel="field | spFieldTypeWithId"/>
                   </q-item>
                 </q-list>
               </q-popover>
@@ -170,13 +193,13 @@
     QFixedPosition,
     QIcon, QItem, QItemMain, QList, QPopover, QTooltip, Loading, Toast
   } from 'quasar-framework'
-  import { UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS } from 'store/mutation-types'
+  import {UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS} from 'store/mutation-types'
   import List from 'models/List'
-  import { CREATE_LIST, CREATE_LIST_FIELD } from '../../store/mutation-types'
+  import {CREATE_LIST, CREATE_LIST_FIELD, CREATE_LIST_ITEMS} from '../../store/mutation-types'
   import PrimaryLookupField from '../../models/PrimaryLookupField'
   import SecondaryLookupField from '../../models/SecondaryLookupField'
   import Field from '../../models/Field'
-  import { fieldType } from '../../utils/enums'
+  import {fieldType} from '../../utils/enums'
 
   export default {
     components: {
@@ -265,6 +288,21 @@
       // converters
       listExist (list) {
         return this.lists.some(l => l.Title === list.title)
+      },
+      generateRandomItems (list, count) {
+        const groups = [...new Set(list.fields.filter(f => f.FieldTypeKind === fieldType.user.key).map(f => f.group))]
+        console.log(groups)
+        if (count === 1) {
+          Loading.show({message: `Ajout d'un élément dans la liste ${list.Title}`})
+        }
+        else {
+          Loading.show({message: `Ajout de ${count} éléments simultanément dans la liste ${list.Title}`})
+        }
+        this.$store.dispatch(CREATE_LIST_ITEMS, {list, count})
+          .then(() => {
+            Loading.hide()
+            Toast.create.positive(`Ajout réalisé avec succès`)
+          })
       },
       refresh () {
         this.$store.dispatch(UPDATE_LISTS)

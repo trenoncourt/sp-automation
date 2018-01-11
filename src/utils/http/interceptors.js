@@ -17,9 +17,13 @@ export default (http) => {
     response => response,
     (error) => {
       const {response} = error
+      if (!response) {
+        return Promise.reject(error)
+      }
       if ([403].indexOf(response.status) > -1) {
         return store.dispatch(UPDATE_TOKEN)
       }
+      console.error(response)
       return Promise.reject(error)
     }
   )
