@@ -3,15 +3,25 @@
   "fields": [
     {
       "title": "assistant",
-      "type": "user"
+      "type": "user",
+      "groups": [
+        "Groupe Assistants"
+      ]
     },
     {
       "title": "packagingAdviser",
-      "type": "user"
+      "type": "user",
+      "groups": [
+        "Service Commercial"
+      ]
     },
     {
       "title": "claimer",
-      "type": "user"
+      "type": "user",
+      "groups": [
+        "Service Commercial",
+        "Service Etude"
+      ]
     },
     {
       "title": "customer",
