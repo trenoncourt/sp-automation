@@ -6,7 +6,7 @@
       "type": "user"
     },
     {
-      "title": "packagingAdviser",
+      "title": "packagingAdvisorId",
       "type": "user"
     },
     {
@@ -874,203 +874,203 @@
       "type": "text"
     },
     {
-      "title": "palletizationHMax",
+      "title": "palletization_h_max",
       "type": "integer"
     },
     {
-      "title": "palletizationIsAuthorizedOverflow",
+      "title": "palletization_is_authorized_overflow",
       "type": "boolean"
     },
     {
-      "title": "PalletizationIsCounterPallet",
+      "title": "palletizationIsCounterPallet",
       "type": "boolean"
     },
     {
-      "title": "PalletizationIsHMax",
+      "title": "palletizationIsHMax",
       "type": "boolean"
     },
     {
-      "title": "PalletizationIsParticularPacking",
+      "title": "palletizationIsParticularPacking",
       "type": "boolean"
     },
     {
-      "title": "PalletizationIsRack",
+      "title": "palletizationIsRack",
       "type": "boolean"
     },
     {
-      "title": "PalletizationIsStretchFilm",
+      "title": "palletizationIsStretchFilm",
       "type": "boolean"
     },
     {
-      "title": "PalletizationOverflowDirection",
+      "title": "palletizationOverflowDirection",
       "type": "text"
     },
     {
-      "title": "PalletizationParticularPacking",
+      "title": "palletizationParticularPacking",
       "type": "integer"
     },
     {
-      "title": "PalletizationQtyPerPallet",
+      "title": "palletizationQtyPerPallet",
       "type": "integer"
     },
     {
-      "title": "PalletizationRackLength",
+      "title": "palletizationRackLength",
       "type": "integer"
     },
     {
-      "title": "PalletizationRackWidth",
+      "title": "palletizationRackWidth",
       "type": "integer"
     },
     {
-      "title": "PalletizationTypeLength",
+      "title": "palletizationTypeLength",
       "type": "integer"
     },
     {
-      "title": "PalletizationTypeWidth",
+      "title": "palletizationTypeWidth",
       "type": "integer"
     },
     {
-      "title": "ParticularityType",
+      "title": "particularityType",
       "type": "text"
     },
     {
-      "title": "Perforations",
+      "title": "perforations",
       "type": "text"
     },
     {
-      "title": "PreStudyCreationField",
+      "title": "preStudyCreationField",
       "type": "text"
     },
     {
-      "title": "PreStudyFunctionField",
+      "title": "preStudyFunctionField",
       "type": "text"
     },
     {
-      "title": "PreprintColorsCount",
+      "title": "preprintColorsCount",
       "type": "text"
     },
     {
-      "title": "PreprintEmbQuantity",
+      "title": "preprintEmbQuantity",
       "type": "text"
     },
     {
-      "title": "PreprintIsRepere",
+      "title": "preprintIsRepere",
       "type": "boolean"
     },
     {
-      "title": "PreprintIsVarnish",
+      "title": "preprintIsVarnish",
       "type": "boolean"
     },
     {
-      "title": "PreprintOtherVarnishValue",
+      "title": "preprintOtherVarnishValue",
       "type": "text"
     },
     {
-      "title": "PreprintSerieOf",
+      "title": "preprintSerieOf",
       "type": "text"
     },
     {
-      "title": "PreprintVarnish",
+      "title": "preprintVarnish",
       "type": "text"
     },
     {
-      "title": "PrintCommentField",
+      "title": "printCommentField",
       "type": "text"
     },
     {
-      "title": "PrintType",
+      "title": "printType",
       "type": "text"
     },
     {
-      "title": "ProductCapacity",
+      "title": "productCapacity",
       "type": "text"
     },
     {
-      "title": "ProductNature",
+      "title": "productNature",
       "type": "text"
     },
     {
-      "title": "Prospect",
+      "title": "prospect",
       "type": "text"
     },
     {
-      "title": "Quantity",
+      "title": "quantity",
       "type": "integer"
     },
     {
-      "title": "QuantityChoice",
+      "title": "quantityChoice",
       "type": "text"
     },
     {
-      "title": "ReinforcementStrip",
+      "title": "reinforcementStrip",
       "type": "integer"
     },
     {
-      "title": "SampleRouting",
+      "title": "sampleRouting",
       "type": "text"
     },
     {
-      "title": "SampleRoutingAddress",
+      "title": "sampleRoutingAddress",
       "type": "text"
     },
     {
-      "title": "SampleType",
+      "title": "sampleType",
       "type": "text"
     },
     {
-      "title": "Status",
+      "title": "status",
       "type": "text"
     },
     {
-      "title": "StorageTime",
+      "title": "storageTime",
       "type": "text"
     },
     {
-      "title": "StudySerie1",
+      "title": "studySerie1",
       "type": "integer"
     },
     {
-      "title": "StudySerie2",
+      "title": "studySerie2",
       "type": "integer"
     },
     {
-      "title": "TearOffStrip",
+      "title": "tearOffStrip",
       "type": "integer"
     },
     {
-      "title": "TintIsPms",
+      "title": "tintIsPms",
       "type": "boolean"
     },
     {
-      "title": "TintPantone1",
+      "title": "tintPantone1",
       "type": "text"
     },
     {
-      "title": "TintPantone2",
+      "title": "tintPantone2",
       "type": "text"
     },
     {
-      "title": "TintPantoneType1",
+      "title": "tintPantoneType1",
       "type": "text"
     },
     {
-      "title": "TintPantoneType2",
+      "title": "tintPantoneType2",
       "type": "text"
     },
     {
-      "title": "TintSupportType",
+      "title": "tintSupportType",
       "type": "text"
     },
     {
-      "title": "TracerNumberOfTracer",
+      "title": "tracerNumberOfTracer",
       "type": "integer"
     },
     {
-      "title": "TruckType",
+      "title": "truckType",
       "type": "text"
     },
     {
-      "title": "Varnish",
+      "title": "varnish",
       "type": "text"
     },
     {

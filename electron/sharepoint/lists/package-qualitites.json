@@ -15,7 +15,7 @@
     },
     {
       "title": "value",
-      "type": "text"
+      "type": "integer"
     }
   ]
 }
