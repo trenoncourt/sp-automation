@@ -966,10 +966,14 @@
       "type": "text"
     },
     {
+      "title": "stackingPalletTransportValue",
+      "type": "text"
+    },
+    {
       "title": "stackingPalletTransport",
       "type": "lookup",
       "lookupField": "Id",
-      "lookupList": "palletStackings",
+      "lookupList": "PalletStackings",
       "fields": [
         {
           "title": "stackingPalletLabel",
