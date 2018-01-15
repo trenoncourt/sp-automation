@@ -27,5 +27,8 @@ export const mutations = {
   },
   [types.UPDATE_ENVIRONMENTS] (state, environments) {
     state.environments = environments
+  },
+  [types.UPDATE_ENVIRONMENT] (state, environment) {
+    state.environment = environment
   }
 }

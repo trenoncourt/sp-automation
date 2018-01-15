@@ -258,22 +258,6 @@
       ]
     },
     {
-      "title": "packageSplineONU2",
-      "type": "lookup",
-      "lookupField": "Id",
-      "lookupList": "PackageSplineONU2",
-      "fields": [
-        {
-          "title": "packageSplineONU2Label",
-          "lookupField": "label"
-        },
-        {
-          "title": "packageSplineONU2Value",
-          "lookupField": "value"
-        }
-      ]
-    },
-    {
       "title": "mecanizedPackageType",
       "type": "lookup",
       "lookupField": "Id",
@@ -291,6 +275,7 @@
     },
     {
       "title": "packagingAttachments",
+      "type": "lookup",
       "multiple": true,
       "fields": [
         {
@@ -333,6 +318,7 @@
     },
     {
       "title": "packaging",
+      "type": "lookup",
       "multiple": true,
       "fields": [
         {
@@ -387,6 +373,7 @@
     },
     {
       "title": "pallets",
+      "type": "lookup",
       "multiple": true,
       "fields": [
         {
@@ -557,6 +544,7 @@
     },
     {
       "title": "addresses",
+      "type": "lookup",
       "multiple": true,
       "fields": [
         {
