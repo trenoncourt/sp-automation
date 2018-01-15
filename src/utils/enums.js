@@ -142,3 +142,16 @@ export const fieldType = {
     return Object.values(this).find(o => o.key === key)
   }
 }
+
+export const envAuthTypes = {
+  ntlm: {
+    key: 1,
+    label: 'ntlm'
+  },
+  get () {
+    return Object.values(this).filter(o => o.key)
+  },
+  find (key) {
+    return Object.values(this).find(o => o.key === key)
+  }
+}

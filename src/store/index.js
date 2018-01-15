@@ -9,7 +9,9 @@ Vue.use(Vuex)
 
 var state = {
   me: {},
+  environment: {},
   token: {},
+  environments: [],
   lists: [],
   jsonLists: [],
   fr: {
