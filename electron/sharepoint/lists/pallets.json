@@ -1,0 +1,29 @@
+{
+  "title": "Pallets",
+  "fields": [
+    {
+      "title": "nb",
+      "type": "integer"
+    },
+    {
+      "title": "height",
+      "type": "integer"
+    },
+    {
+      "title": "width",
+      "type": "integer"
+    },
+    {
+      "title": "length",
+      "type": "integer"
+    },
+    {
+      "title": "weight",
+      "type": "integer"
+    },
+    {
+      "title": "overflow",
+      "type": "text"
+    }
+  ]
+}

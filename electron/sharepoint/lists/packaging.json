@@ -1,0 +1,53 @@
+{
+  "title": "Packagings",
+  "fields": [
+    {
+      "title": "qualityState",
+      "type": "text"
+    },
+    {
+      "title": "landmark",
+      "type": "integer"
+    },
+    {
+      "title": "nbElements",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt1",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt2",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt3",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionExt1",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionExt2",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionExt3",
+      "type": "integer"
+    },
+    {
+      "title": "packageSpline",
+      "type": "text"
+    },
+    {
+      "title": "packageSplineONU",
+      "type": "text"
+    },
+    {
+      "title": "packageSplineONU2",
+      "type": "text"
+    }
+  ]
+}
