@@ -8,6 +8,7 @@ const
   // chokidar = require('chokidar'),
   fs = require('fs'),
   ipcMain = electron.ipcMain,
+  settings = require('electron-settings'),
   BrowserWindow = electron.BrowserWindow
 
 let mainWindow
@@ -128,6 +129,15 @@ app.on('ready', createWindow)
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
+  }
+})
+
+app.on('login', (event, webContents, request, authInfo, callback) => {
+  console.log(request)
+  const environment = settings.get('environment')
+  if (!environment.useCurrentUser) {
+    event.preventDefault()
+    callback(environment.username, environment.password)
   }
 })
 

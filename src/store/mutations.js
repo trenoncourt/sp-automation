@@ -24,5 +24,11 @@ export const mutations = {
   [types.UPDATE_LIST_FIELDS_IN_LISTS] (state, list) {
     let currentList = state.lists.find(o => o.Id === list.id)
     Vue.set(currentList, 'fields', list.fields)
+  },
+  [types.UPDATE_ENVIRONMENTS] (state, environments) {
+    state.environments = environments
+  },
+  [types.UPDATE_ENVIRONMENT] (state, environment) {
+    state.environment = environment
   }
 }

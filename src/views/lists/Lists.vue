@@ -193,13 +193,13 @@
     QFixedPosition,
     QIcon, QItem, QItemMain, QList, QPopover, QTooltip, Loading, Toast
   } from 'quasar-framework'
-  import {UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS} from 'store/mutation-types'
+  import { UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS } from 'store/mutation-types'
   import List from 'models/List'
-  import {CREATE_LIST, CREATE_LIST_FIELD, CREATE_LIST_ITEMS} from '../../store/mutation-types'
+  import { CREATE_LIST, CREATE_LIST_FIELD, CREATE_LIST_ITEMS } from '../../store/mutation-types'
   import PrimaryLookupField from '../../models/PrimaryLookupField'
   import SecondaryLookupField from '../../models/SecondaryLookupField'
   import Field from '../../models/Field'
-  import {fieldType} from '../../utils/enums'
+  import { fieldType } from '../../utils/enums'
 
   export default {
     components: {

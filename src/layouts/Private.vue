@@ -8,7 +8,29 @@
       </q-toolbar-title>
 
       <q-btn ref="target" flat>
+        {{$store.state.environment.name || 'Aucun environement'}}
+        <q-popover ref="environment-popover">
+          <q-list highlight link>
+            <q-item v-for="env in $store.state.environments" :key="env.name"
+                    @click="changeEnvironment(env), $refs['environment-popover'].close()">
+              <q-item-main :label="env.name"/>
+            </q-item>
+            <q-item-separator/>
+            <q-item @click="$refs['environment-modal'].open()">
+              <q-item-main label="Ajouter un environement"/>
+            </q-item>
+          </q-list>
+        </q-popover>
+      </q-btn>
+
+      <q-btn ref="target" flat>
         {{$store.state.me.name}}
+        <q-popover ref="popover">
+          <q-list highlight link>
+            <q-item>
+            </q-item>
+          </q-list>
+        </q-popover>
       </q-btn>
     </q-toolbar>
 
@@ -24,7 +46,7 @@
     </div>
 
     <router-view/>
-
+    <environment-modal ref="environment-modal"></environment-modal>
   </q-layout>
 </template>
 
@@ -38,8 +60,11 @@
     QSideLink,
     QItemSide,
     QItemMain,
-    QListHeader, QItem, QPopover
+    QListHeader, QItem, QPopover, QItemSeparator, QItemTile
   } from 'quasar-framework'
+  import EnvironmentModal from 'views/environments/EnvironmentModal.vue'
+  import settings from 'electron-settings'
+  import { UPDATE_ENVIRONMENT } from '../store/mutation-types'
 
   export default {
     components: {
@@ -53,10 +78,19 @@
       QItemMain,
       QListHeader,
       QPopover,
-      QItem
+      QItem,
+      QItemSeparator,
+      QItemTile,
+      EnvironmentModal
     },
     data () {
       return {}
+    },
+    methods: {
+      changeEnvironment (env) {
+        settings.set('environment', env)
+        this.$store.commit(UPDATE_ENVIRONMENT, env)
+      }
     }
   }
 </script>
