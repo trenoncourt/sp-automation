@@ -291,7 +291,9 @@
       },
       generateRandomItems (list, count) {
         const groups = [...new Set(list.fields.filter(f => f.FieldTypeKind === fieldType.user.key).map(f => f.group))]
-        console.log(groups)
+        console.log(groups, 1)
+        return
+        // eslint-disable-next-line no-unreachable
         if (count === 1) {
           Loading.show({message: `Ajout d'un élément dans la liste ${list.Title}`})
         }
