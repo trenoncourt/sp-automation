@@ -43,12 +43,36 @@ export default {
         return Vue.$http.api.post(`lists(guid'${list.id}')/fields/adddependentlookupfield(displayname='${list.field.title}', primarylookupfieldid='${list.field.primaryLookupFieldId}', showfield='${list.field.lookupField}')`
           , {}, {headers: {'Content-Type': 'application/json;odata=verbose'}})
           .then(response => {
+            if (list.field.allowMultipleValues) {
+              const fieldId = response.data.Id
+              return Vue.$http.api.post(`lists(guid'${list.id}')/fields('${response.data.Id}')`,
+                {
+                  '__metadata': {'type': 'SP.FieldLookup'},
+                  'AllowMultipleValues': true
+                },
+                {headers: {'Content-Type': 'application/json;odata=verbose', 'X-HTTP-Method': 'PATCH'}})
+                .then(() => {
+                  return fieldId
+                })
+            }
             return response.data.Id
           })
       }
       else {
         return Vue.$http.api.post(`lists(guid'${list.id}')/fields/addfield`, list.field, {headers: {'Content-Type': 'application/json;odata=verbose'}})
           .then(response => {
+            if (list.field.allowMultipleValues) {
+              const fieldId = response.data.Id
+              return Vue.$http.api.post(`lists(guid'${list.id}')/fields('${response.data.Id}')`,
+                {
+                  '__metadata': {'type': 'SP.FieldLookup'},
+                  'AllowMultipleValues': true
+                },
+                {headers: {'Content-Type': 'application/json;odata=verbose', 'X-HTTP-Method': 'PATCH'}})
+                .then(() => {
+                  return fieldId
+                })
+            }
             return response.data.Id
           })
       }

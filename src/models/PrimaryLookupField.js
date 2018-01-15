@@ -9,8 +9,7 @@ export default class PrimaryLookupField extends LookupField {
         Title: this.title,
         FieldTypeKind: fieldType[this.type].key,
         LookupFieldName: this.lookupField,
-        LookupListId: this.lookupListId,
-        AllowMultipleValues: this.allowMultipleValues
+        LookupListId: this.lookupListId
       }
     }
   }

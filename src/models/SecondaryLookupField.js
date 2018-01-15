@@ -14,8 +14,7 @@ export default class SecondaryLookupField extends LookupField {
         FieldTypeKind: fieldType[this.type].key,
         LookupFieldName: this.lookupField,
         LookupListId: this.lookupListId,
-        primaryLookupFieldId: this.primaryLookupFieldId,
-        AllowMultipleValues: this.allowMultipleValues
+        primaryLookupFieldId: this.primaryLookupFieldId
       }
     }
   }
