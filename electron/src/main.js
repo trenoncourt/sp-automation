@@ -131,6 +131,7 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
 app.on('login', (event, webContents, request, authInfo, callback) => {
   console.log(request)
   const environment = settings.get('environment')
@@ -139,6 +140,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
     callback(environment.username, environment.password)
   }
 })
+
 app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
