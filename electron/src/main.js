@@ -130,11 +130,7 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
-app.on('login', (event, webContents, request, authInfo, callback) => {
-  console.log(request)
-  event.preventDefault()
-  callback('simon', 'Penis!!')
-})
+
 app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()

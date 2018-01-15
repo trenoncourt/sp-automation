@@ -5,8 +5,8 @@
 </template>
 
 <script>
-  import {ipcRenderer} from 'electron'
-  import {UPDATE_JSON_LISTS} from 'store/mutation-types'
+  import { ipcRenderer } from 'electron'
+  // import {UPDATE_JSON_LISTS} from 'store/mutation-types'
 
   export default {
     created () {
