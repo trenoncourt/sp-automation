@@ -5,11 +5,12 @@ export default class PrimaryLookupField extends LookupField {
   toJSON () {
     return {
       parameters: {
-        __metadata: { type: 'SP.FieldCreationInformation' },
+        __metadata: {type: 'SP.FieldCreationInformation'},
         Title: this.title,
         FieldTypeKind: fieldType[this.type].key,
         LookupFieldName: this.lookupField,
-        LookupListId: this.lookupListId
+        LookupListId: this.lookupListId,
+        AllowMultipleValues: this.allowMultipleValues
       }
     }
   }
