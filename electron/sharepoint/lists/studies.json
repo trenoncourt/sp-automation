@@ -12,7 +12,7 @@
     {
       "title": "customer",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "Customers",
       "fields": [
         {
@@ -30,6 +30,146 @@
         {
           "title": "customerAddress",
           "lookupField": "address"
+        }
+      ]
+    },
+    {
+      "title": "packagingAttachments",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "value",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "attachmentTypeLabel",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "packaging",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "Packagings",
+      "fields": [
+        {
+          "title": "packagingQualityState",
+          "lookupField": "qualityState"
+        },
+        {
+          "title": "packagingLandmark",
+          "lookupField": "landmark"
+        },
+        {
+          "title": "packagingNbElements",
+          "lookupField": "nbElements"
+        },
+        {
+          "title": "packagingDimensionInt1",
+          "lookupField": "dimensionInt1"
+        },
+        {
+          "title": "packagingDimensionInt2",
+          "lookupField": "dimensionInt2"
+        },
+        {
+          "title": "packagingDimensionInt3",
+          "lookupField": "dimensionInt3"
+        },
+        {
+          "title": "packagingDimensionExt1",
+          "lookupField": "dimensionExt1"
+        },
+        {
+          "title": "packaging",
+          "lookupField": "dimensionExt2"
+        },
+        {
+          "title": "packagingDimensionExt3",
+          "lookupField": "dimensionExt3"
+        },
+        {
+          "title": "packagingPackageSpline",
+          "lookupField": "packageSpline"
+        },
+        {
+          "title": "packagingPackageSplineONU",
+          "lookupField": "packageSplineONU"
+        },
+        {
+          "title": "packagingPackageSplineONU2",
+          "lookupField": "packageSplineONU2"
+        }
+      ]
+    },
+    {
+      "title": "pallets",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "Pallets",
+      "fields": [
+        {
+          "title": "palletsNb",
+          "lookupField": "nb"
+        },
+        {
+          "title": "palletsHeight",
+          "lookupField": "height"
+        },
+        {
+          "title": "palletsWidth",
+          "lookupField": "width"
+        },
+        {
+          "title": "palletsLength",
+          "lookupField": "length"
+        },
+        {
+          "title": "palletsWeight",
+          "lookupField": "weight"
+        },
+        {
+          "title": "palletsOverflow",
+          "lookupField": "overflow"
+        }
+      ]
+    },
+    {
+      "title": "addresses",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "Pallets",
+      "fields": [
+        {
+          "title": "addressesCompany",
+          "lookupField": "company"
+        },
+        {
+          "title": "addressesAddress",
+          "lookupField": "address"
+        },
+        {
+          "title": "addressesAddress2",
+          "lookupField": "address2"
+        },
+        {
+          "title": "addressesZipCode",
+          "lookupField": "zipCode"
+        },
+        {
+          "title": "addressesCity",
+          "lookupField": "city"
+        },
+        {
+          "title": "addressesSpotlight",
+          "lookupField": "spotlight"
+        },
+        {
+          "title": "addressesPrintingCompany",
+          "lookupField": "printingCompany"
         }
       ]
     },
@@ -112,7 +252,7 @@
     {
       "title": "annualMarket",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "AnnualMarkets",
       "fields": [
         {
@@ -128,7 +268,7 @@
     {
       "title": "quantityChoice",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "QuantityChoices",
       "fields": [
         {
@@ -196,7 +336,7 @@
     {
       "title": "stampLne",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "StampsLne",
       "fields": [
         {
@@ -212,7 +352,7 @@
     {
       "title": "packageType",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PackageTypes",
       "fields": [
         {
@@ -228,7 +368,7 @@
     {
       "title": "packageSpline",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PackageSpline",
       "fields": [
         {
@@ -244,7 +384,7 @@
     {
       "title": "packageSplineONU",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PackageSplineONU",
       "fields": [
         {
@@ -260,7 +400,7 @@
     {
       "title": "packageSplineONU2",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PackageSplineONU",
       "fields": [
         {
@@ -276,7 +416,7 @@
     {
       "title": "mecanizedPackageType",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "MecanizedPackageTypes",
       "fields": [
         {
@@ -286,19 +426,6 @@
         {
           "title": "mecanizedPackageTypeValue",
           "lookupField": "value"
-        }
-      ]
-    },
-    {
-      "title": "packagingAttachments",
-      "type": "lookup",
-      "multiple": true,
-      "lookupField": "value",
-      "lookupList": "PackageSplineONU",
-      "fields": [
-        {
-          "title": "attachmentTypeLabel",
-          "lookupField": "label"
         }
       ]
     },
@@ -333,96 +460,6 @@
     {
       "title": "otherAgreement",
       "type": "text"
-    },
-    {
-      "title": "packaging",
-      "type": "lookup",
-      "multiple": true,
-      "lookupField": "Id",
-      "lookupList": "Packagings",
-      "fields": [
-        {
-          "title": "packagingQualityState",
-          "lookupField": "qualityState"
-        },
-        {
-          "title": "packagingLandmark",
-          "lookupField": "landmark"
-        },
-        {
-          "title": "packagingNbElements",
-          "lookupField": "nbElements"
-        },
-        {
-          "title": "packagingDimensionInt1",
-          "lookupField": "dimensionInt1"
-        },
-        {
-          "title": "packagingDimensionInt2",
-          "lookupField": "dimensionInt2"
-        },
-        {
-          "title": "packagingDimensionInt3",
-          "lookupField": "dimensionInt3"
-        },
-        {
-          "title": "packagingDimensionExt1",
-          "lookupField": "dimensionExt1"
-        },
-        {
-          "title": "packaging",
-          "lookupField": "dimensionExt2"
-        },
-        {
-          "title": "packagingDimensionExt3",
-          "lookupField": "dimensionExt3"
-        },
-        {
-          "title": "packagingPackageSpline",
-          "lookupField": "packageSpline"
-        },
-        {
-          "title": "packagingPackageSplineONU",
-          "lookupField": "packageSplineONU"
-        },
-        {
-          "title": "packagingPackageSplineONU2",
-          "lookupField": "packageSplineONU2"
-        }
-      ]
-    },
-    {
-      "title": "pallets",
-      "type": "lookup",
-      "multiple": true,
-      "lookupField": "Id",
-      "lookupList": "Pallets",
-      "fields": [
-        {
-          "title": "palletsNb",
-          "lookupField": "nb"
-        },
-        {
-          "title": "palletsHeight",
-          "lookupField": "height"
-        },
-        {
-          "title": "palletsWidth",
-          "lookupField": "width"
-        },
-        {
-          "title": "palletsLength",
-          "lookupField": "length"
-        },
-        {
-          "title": "palletsWeight",
-          "lookupField": "weight"
-        },
-        {
-          "title": "palletsOverflow",
-          "lookupField": "overflow"
-        }
-      ]
     },
     {
       "title": "mechanisedPackaging",
@@ -565,43 +602,6 @@
       "type": "text"
     },
     {
-      "title": "addresses",
-      "type": "lookup",
-      "multiple": true,
-      "lookupField": "Id",
-      "lookupList": "Pallets",
-      "fields": [
-        {
-          "title": "addressesCompany",
-          "lookupField": "company"
-        },
-        {
-          "title": "addressesAddress",
-          "lookupField": "address"
-        },
-        {
-          "title": "addressesAddress2",
-          "lookupField": "address2"
-        },
-        {
-          "title": "addressesZipCode",
-          "lookupField": "zipCode"
-        },
-        {
-          "title": "addressesCity",
-          "lookupField": "city"
-        },
-        {
-          "title": "addressesSpotlight",
-          "lookupField": "spotlight"
-        },
-        {
-          "title": "addressesPrintingCompany",
-          "lookupField": "printingCompany"
-        }
-      ]
-    },
-    {
       "title": "requestCustomer",
       "type": "boolean"
     },
@@ -628,7 +628,7 @@
     {
       "title": "tenColorType",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "TenColorTypes",
       "fields": [
         {
@@ -644,7 +644,7 @@
     {
       "title": "printType",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PrintTypes",
       "fields": [
         {
@@ -660,7 +660,7 @@
     {
       "title": "printPosition",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PrintPositions",
       "fields": [
         {
@@ -676,7 +676,7 @@
     {
       "title": "supportType",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "SupportTypes",
       "fields": [
         {
@@ -692,7 +692,7 @@
     {
       "title": "pantoneType",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PantoneTypes",
       "fields": [
         {
@@ -708,7 +708,7 @@
     {
       "title": "pantoneType2",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PantoneTypes2",
       "fields": [
         {
@@ -732,7 +732,7 @@
     {
       "title": "huePictureType",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "HuePictureTypes",
       "fields": [
         {
@@ -748,7 +748,7 @@
     {
       "title": "transportType",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "TransportTypes",
       "fields": [
         {
@@ -812,7 +812,7 @@
     {
       "title": "productNature",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "ProductNatures",
       "fields": [
         {
@@ -828,7 +828,7 @@
     {
       "title": "productNature2",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "ProductNatures2",
       "fields": [
         {
@@ -844,7 +844,7 @@
     {
       "title": "productCapacity",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "ProductCapacities",
       "fields": [
         {
@@ -860,7 +860,7 @@
     {
       "title": "stacking",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "Stackings",
       "fields": [
         {
@@ -876,7 +876,7 @@
     {
       "title": "palletStacking",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PalletStackings",
       "fields": [
         {
@@ -892,7 +892,7 @@
     {
       "title": "deliveryPlace",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "DeliveryPlaces",
       "fields": [
         {
@@ -972,7 +972,7 @@
     {
       "title": "stackingPalletTransport",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PalletStackings",
       "fields": [
         {
@@ -1008,7 +1008,7 @@
     {
       "title": "palletType",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "PalletTypes",
       "fields": [
         {
@@ -1092,7 +1092,7 @@
     {
       "title": "truckType",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "TruckTypes",
       "fields": [
         {
@@ -1108,7 +1108,7 @@
     {
       "title": "deliveryCity",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "DeliveryCities",
       "fields": [
         {
@@ -1124,7 +1124,7 @@
     {
       "title": "deliveryCity2",
       "type": "lookup",
-      "lookupField": "Id",
+      "lookupField": "ID",
       "lookupList": "DeliveryCities",
       "fields": [
         {
