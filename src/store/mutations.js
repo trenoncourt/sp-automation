@@ -25,10 +25,37 @@ export const mutations = {
     let currentList = state.lists.find(o => o.Id === list.id)
     Vue.set(currentList, 'fields', list.fields)
   },
+  [types.RESET_ENVIRONMENT] (state) {
+    state.environment = null
+    state.me = null
+    state.lists = []
+    state.token = null
+  },
   [types.UPDATE_ENVIRONMENTS] (state, environments) {
     state.environments = environments
   },
   [types.UPDATE_ENVIRONMENT] (state, environment) {
     state.environment = environment
+  },
+  [types.UPDATE_ENVIRONMENT_NAME] (state, name) {
+    state.environment.name = name
+  },
+  [types.UPDATE_ENVIRONMENT_AUTH_TYPE] (state, authType) {
+    state.environment.authType = authType
+  },
+  [types.UPDATE_ENVIRONMENT_URL] (state, url) {
+    state.environment.url = url
+  },
+  [types.UPDATE_ENVIRONMENT_USER] (state, user) {
+    state.environment.username = user
+  },
+  [types.UPDATE_ENVIRONMENT_PASSWORD] (state, password) {
+    state.environment.password = password
+  },
+  [types.UPDATE_ENVIRONMENT_DOMAIN] (state, domain) {
+    state.environment.domain = domain
+  },
+  [types.UPDATE_ENVIRONMENT_USE_CURRENT_USER] (state, useCurrentUser) {
+    state.environment.useCurrentUser = useCurrentUser
   }
 }
