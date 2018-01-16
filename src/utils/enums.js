@@ -148,6 +148,10 @@ export const envAuthTypes = {
     key: 1,
     label: 'ntlm'
   },
+  bearer: {
+    key: 2,
+    label: 'bearer'
+  },
   get () {
     return Object.values(this).filter(o => o.key)
   },

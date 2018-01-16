@@ -1,7 +1,6 @@
 <template>
   <div>
     <h4>{{name}}</h4>
-    <p>Vous pouvez modifier ces données sans sauvegarder, elle seront utilisés seulement pour la session courante</p>
     <div class="row md-gutter no-vert-gutter">
       <div class="col-6">
         <q-field>
