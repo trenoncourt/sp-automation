@@ -2,8 +2,8 @@ import LookupField from './LookupField'
 import { fieldType } from '../utils/enums'
 
 export default class SecondaryLookupField extends LookupField {
-  constructor (title, type, lookupField, lookupListId, primaryLookupFieldId) {
-    super(title, type, lookupField, lookupListId)
+  constructor (title, type, lookupField, lookupListId, primaryLookupFieldId, allowMultipleValues) {
+    super(title, type, lookupField, lookupListId, allowMultipleValues)
     this.primaryLookupFieldId = primaryLookupFieldId
   }
 

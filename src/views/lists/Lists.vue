@@ -265,12 +265,14 @@
                       Loading.show({message: `Création du champs ${f.title} dans la liste ${list.title}`})
                       if (f.lookupList) {
                         const lookupListId = vm.lists.find(l => l.Title === f.lookupList).Id
-                        const field = new PrimaryLookupField(f.title, f.type, f.lookupField, lookupListId)
+                        const field = new PrimaryLookupField(f.title, f.type, f.lookupField, lookupListId, f.multiple)
                         const primaryLookupFieldId = await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: field})
-                        for (const sf of f.fields) {
-                          Loading.show({message: `Création du champs ${sf.title} dans la liste ${list.title}`})
-                          const subField = new SecondaryLookupField(sf.title, fieldType.lookup.label, sf.lookupField, lookupListId, primaryLookupFieldId)
-                          await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: subField})
+                        if (f.fieldType) {
+                          for (const sf of f.fields) {
+                            Loading.show({message: `Création du champs ${sf.title} dans la liste ${list.title}`})
+                            const subField = new SecondaryLookupField(sf.title, fieldType.lookup.label, sf.lookupField, lookupListId, primaryLookupFieldId, f.multiple)
+                            await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: subField})
+                          }
                         }
                       }
                       else {
