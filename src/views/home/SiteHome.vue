@@ -102,7 +102,7 @@
     computed: {
       name: {
         get () {
-          return this.$store.state.environment.name
+          return this.$store.state.environment ? this.$store.state.environment.name : ''
         },
         set (value) {
           this.$store.commit(UPDATE_ENVIRONMENT_NAME, value)
@@ -110,7 +110,7 @@
       },
       authType: {
         get () {
-          return this.$store.state.environment.authType
+          return this.$store.state.environment ? this.$store.state.environment.authType : ''
         },
         set (value) {
           this.$store.commit(UPDATE_ENVIRONMENT_AUTH_TYPE, value)
@@ -118,7 +118,7 @@
       },
       url: {
         get () {
-          return this.$store.state.environment.url
+          return this.$store.state.environment ? this.$store.state.environment.url : ''
         },
         set (value) {
           this.$store.commit(UPDATE_ENVIRONMENT_URL, value)
@@ -126,7 +126,7 @@
       },
       username: {
         get () {
-          return this.$store.state.environment.username
+          return this.$store.state.environment ? this.$store.state.environment.username : ''
         },
         set (value) {
           this.$store.commit(UPDATE_ENVIRONMENT_USER, value)
@@ -134,7 +134,7 @@
       },
       password: {
         get () {
-          return this.$store.state.environment.password
+          return this.$store.state.environment ? this.$store.state.environment.password : ''
         },
         set (value) {
           this.$store.commit(UPDATE_ENVIRONMENT_PASSWORD, value)
@@ -142,7 +142,7 @@
       },
       domain: {
         get () {
-          return this.$store.state.environment.domain
+          return this.$store.state.environment ? this.$store.state.environment.domain : ''
         },
         set (value) {
           this.$store.commit(UPDATE_ENVIRONMENT_DOMAIN, value)
@@ -150,7 +150,7 @@
       },
       useCurrentUser: {
         get () {
-          return this.$store.state.environment.useCurrentUser
+          return this.$store.state.environment ? this.$store.state.environment.useCurrentUser : ''
         },
         set (value) {
           this.$store.commit(UPDATE_ENVIRONMENT_USE_CURRENT_USER, value)
