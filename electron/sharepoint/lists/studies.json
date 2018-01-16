@@ -26,6 +26,22 @@
       "type": "user"
     },
     {
+      "title": "semStatus",
+      "type": "text"
+    },
+    {
+      "title": "simStatus",
+      "type": "text"
+    },
+    {
+      "title": "labStatus",
+      "type": "text"
+    },
+    {
+      "title": "quoteStatus",
+      "type": "text"
+    },
+    {
       "title": "customer",
       "type": "lookup",
       "lookupField": "ID",
@@ -157,7 +173,7 @@
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "Pallets",
+      "lookupList": "Addresses",
       "fields": [
         {
           "title": "addressesCompany",
