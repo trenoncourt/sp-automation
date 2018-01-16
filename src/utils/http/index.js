@@ -1,10 +1,10 @@
 import axios from 'axios'
-import interceptors from './interceptors'
-import {apiURL} from 'src/utils/config/index'
+import spApiInterceptors from './interceptors/spApi'
+import spContextInfoApiInterceptors from './interceptors/spContextInfoApi'
 
 const axiosInstanceSite = axios.create()
-const axiosInstanceApi = axios.create({baseURL: `${apiURL}web/`, withCredentials: true})
-const axiosInstanceApiContextInfo = axios.create({baseURL: apiURL, withCredentials: true})
+const axiosInstanceApi = axios.create({withCredentials: true})
+const axiosInstanceApiContextInfo = axios.create({withCredentials: true})
 
 let apis = {
   list: axiosInstanceSite,
@@ -20,7 +20,8 @@ let clients = {
 }
 
 export default (Vue) => {
-  interceptors(axiosInstanceApi)
+  spApiInterceptors(axiosInstanceApi)
+  spContextInfoApiInterceptors(axiosInstanceApiContextInfo)
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
   Vue.$http = apis
   Object.defineProperties(Vue.prototype, clients)

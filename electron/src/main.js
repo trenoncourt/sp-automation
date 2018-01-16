@@ -96,7 +96,7 @@ function createWindow () {
     title: config.name,
     width: 800,
     height: 600,
-    icon: path.join(__dirname, '../icons/icon.svg'),
+    icon: path.join(__dirname, '../icons/icon.png'),
     webPreferences: {webSecurity: false}
   })
 
