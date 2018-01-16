@@ -2,11 +2,27 @@
   "title": "Studies",
   "fields": [
     {
+      "title": "deComIndex",
+      "type": "text"
+    },
+    {
+      "title": "detDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "modifiedDate",
+      "type": "dateTime"
+    },
+    {
       "title": "assistant",
       "type": "user"
     },
     {
       "title": "packagingAdvisor",
+      "type": "user"
+    },
+    {
+      "title": "claimer",
       "type": "user"
     },
     {
@@ -37,7 +53,7 @@
       "title": "packagingAttachments",
       "type": "lookup",
       "multiple": true,
-      "lookupField": "value",
+      "lookupField": "ID",
       "lookupList": "PackageSplineONU",
       "fields": [
         {
