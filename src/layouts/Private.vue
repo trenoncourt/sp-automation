@@ -8,7 +8,7 @@
       </q-toolbar-title>
 
       <q-btn ref="target" flat>
-        {{$store.state.environment.name || 'Aucun environement'}}
+        {{$store.state.environment ? $store.state.environment.name : 'Aucun environement'}}
         <q-popover ref="environment-popover">
           <q-list highlight link>
             <q-item v-for="env in $store.state.environments" :key="env.name"
@@ -19,12 +19,17 @@
             <q-item @click="$refs['environment-modal'].open()">
               <q-item-main label="Ajouter un environement"/>
             </q-item>
+            <q-item-separator v-if="$store.state.environment"/>
+            <q-item v-if="$store.state.environment"
+                    @click="quitCurrentEnvironment(), $refs['environment-popover'].close()">
+              <q-item-main label="quiter l'environement"/>
+            </q-item>
           </q-list>
         </q-popover>
       </q-btn>
 
       <q-btn ref="target" flat>
-        {{$store.state.me.name}}
+        {{$store.state.me ? $store.me.name : ''}}
         <q-popover ref="popover">
           <q-list highlight link>
             <q-item>
@@ -39,6 +44,10 @@
         <q-list-header>
         </q-list-header>
         <q-side-link item :to="{name: 'home'}">
+          <q-item-side icon="home"/>
+          <q-item-main label="Home" sublabel="Home"/>
+        </q-side-link>
+        <q-side-link v-if="$store.state.environment" item :to="{name: 'lists'}">
           <q-item-side icon="list"/>
           <q-item-main label="Lists" sublabel="Listes"/>
         </q-side-link>
@@ -64,7 +73,7 @@
   } from 'quasar-framework'
   import EnvironmentModal from 'views/environments/EnvironmentModal.vue'
   import settings from 'electron-settings'
-  import { UPDATE_ENVIRONMENT } from '../store/mutation-types'
+  import { RESET_ENVIRONMENT, UPDATE_ENVIRONMENT } from '../store/mutation-types'
 
   export default {
     components: {
@@ -90,6 +99,10 @@
       changeEnvironment (env) {
         settings.set('environment', env)
         this.$store.commit(UPDATE_ENVIRONMENT, env)
+      },
+      quitCurrentEnvironment () {
+        this.$router.push({name: 'home'})
+        this.$store.commit(RESET_ENVIRONMENT)
       }
     }
   }
