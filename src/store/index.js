@@ -8,9 +8,9 @@ import createPersistedState from 'vuex-persistedstate'
 Vue.use(Vuex)
 
 var state = {
-  me: {},
-  environment: {},
-  token: {},
+  me: null,
+  environment: null,
+  token: null,
   environments: [],
   lists: [],
   jsonLists: [],
