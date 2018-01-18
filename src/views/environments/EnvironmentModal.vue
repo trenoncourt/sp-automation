@@ -28,6 +28,54 @@
             />
           </q-field>
         </div>
+        <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
+          <q-field>
+            <q-input
+              float-label="Tenant Id"
+              v-model="env.tenantId"
+            ></q-input>
+          </q-field>
+        </div>
+        <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
+          <q-field>
+            <q-input
+              float-label="Client Id"
+              v-model="env.clientId"
+            ></q-input>
+          </q-field>
+        </div>
+        <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
+          <q-field>
+            <q-input
+              float-label="Client Secret"
+              v-model="env.clientSecret"
+            ></q-input>
+          </q-field>
+        </div>
+        <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
+          <q-field>
+            <q-input
+              float-label="Resource"
+              v-model="env.resource"
+            ></q-input>
+          </q-field>
+        </div>
+        <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
+          <q-field>
+            <q-input
+              float-label="Certificate"
+              v-model="env.cert"
+            ></q-input>
+          </q-field>
+        </div>
+        <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
+          <q-field>
+            <q-input
+              float-label="Certificate Password"
+              v-model="env.certPassword"
+            ></q-input>
+          </q-field>
+        </div>
         <div v-if="env.authType === envAuthTypes.ntlm.key" class="col-6 self-center">
           <q-checkbox label="Use current user" v-model="env.useCurrentUser"></q-checkbox>
         </div>
@@ -91,7 +139,13 @@
           authType: null,
           useCurrentUser: false,
           username: '',
-          password: ''
+          password: '',
+          tenantId: '',
+          clientId: '',
+          clientSecret: '',
+          resource: '',
+          cert: '',
+          certPass: ''
         },
         envAuthTypes: envAuthTypes,
         envAuthTypesOptions: envAuthTypes.get().map(t => { return {label: t.label, value: t.key} })

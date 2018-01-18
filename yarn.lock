@@ -457,10 +457,6 @@ babel-plugin-syntax-object-rest-spread@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
 
-babel-plugin-syntax-optional-chaining@7.0.0-beta.3:
-  version "7.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-optional-chaining/-/babel-plugin-syntax-optional-chaining-7.0.0-beta.3.tgz#0abab5055caddd68d099263c2d65ad5d5da97e3d"
-
 babel-plugin-syntax-trailing-function-commas@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-trailing-function-commas/-/babel-plugin-syntax-trailing-function-commas-6.22.0.tgz#ba0360937f8d06e40180a43fe0d5616fff532cf3"
@@ -682,12 +678,6 @@ babel-plugin-transform-object-rest-spread@^6.22.0:
   dependencies:
     babel-plugin-syntax-object-rest-spread "^6.8.0"
     babel-runtime "^6.26.0"
-
-babel-plugin-transform-optional-chaining@^7.0.0-beta.3:
-  version "7.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-optional-chaining/-/babel-plugin-transform-optional-chaining-7.0.0-beta.3.tgz#ffc7e1027e5720857e9b4f2e3b2115589b734218"
-  dependencies:
-    babel-plugin-syntax-optional-chaining "7.0.0-beta.3"
 
 babel-plugin-transform-regenerator@^6.24.1:
   version "6.26.0"
@@ -5057,6 +5047,10 @@ upper-case@^1.1.1:
 urix@^0.1.0, urix@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
+
+url-join@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/url-join/-/url-join-2.0.5.tgz#5af22f18c052a000a48d7b82c5e9c2e2feeda728"
 
 url-loader@^0.5.7:
   version "0.5.9"

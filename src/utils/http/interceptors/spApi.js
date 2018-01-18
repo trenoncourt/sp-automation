@@ -1,10 +1,14 @@
-import store from 'store'
+import store from 'store/index'
 import { UPDATE_TOKEN } from 'store/mutation-types'
+import settings from 'electron-settings'
+import urlJoin from 'url-join'
 
 export default (http) => {
   // https://github.com/mzabriskie/axios#interceptors
 
   http.interceptors.request.use(async config => {
+    const env = settings.get('environment')
+    config.baseURL = `${urlJoin(env.url, '_api/web/')}`
     if (!store.getters.isTokenValid) {
       console.log('renew token')
       await store.dispatch(UPDATE_TOKEN)
@@ -23,7 +27,6 @@ export default (http) => {
       if ([403].indexOf(response.status) > -1) {
         return store.dispatch(UPDATE_TOKEN)
       }
-      console.error(response)
       return Promise.reject(error)
     }
   )
