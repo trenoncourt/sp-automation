@@ -1,0 +1,21 @@
+{
+  "title": "PackagingAttachments",
+  "fields": [
+    {
+      "title": "attachmentType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "AttachmentTypes",
+      "fields": [
+        {
+          "title": "attachmentTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "attachmentTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    }
+  ]
+}

@@ -26,8 +26,20 @@
       "type": "text"
     },
     {
-      "title": "printingCompany",
-      "type": "text"
+      "title": "printCompany",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PrintCompanies",
+      "fields": [
+        {
+          "title": "printCompanyLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "printCompanyValue",
+          "lookupField": "value"
+        }
+      ]
     }
   ]
 }

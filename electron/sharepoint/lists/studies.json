@@ -70,7 +70,7 @@
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "PackageSplineONU",
+      "lookupList": "PackagingAttachments",
       "fields": [
         {
           "title": "attachmentTypeLabel",
@@ -86,51 +86,51 @@
       "lookupList": "Packagings",
       "fields": [
         {
-          "title": "packagingQualityState",
+          "title": "qualityState",
           "lookupField": "qualityState"
         },
         {
-          "title": "packagingLandmark",
+          "title": "landmark",
           "lookupField": "landmark"
         },
         {
-          "title": "packagingNbElements",
+          "title": "nbElements",
           "lookupField": "nbElements"
         },
         {
-          "title": "packagingDimensionInt1",
+          "title": "dimensionInt1",
           "lookupField": "dimensionInt1"
         },
         {
-          "title": "packagingDimensionInt2",
+          "title": "dimensionInt2",
           "lookupField": "dimensionInt2"
         },
         {
-          "title": "packagingDimensionInt3",
+          "title": "dimensionInt3",
           "lookupField": "dimensionInt3"
         },
         {
-          "title": "packagingDimensionExt1",
+          "title": "dimensionExt1",
           "lookupField": "dimensionExt1"
         },
         {
-          "title": "packaging",
+          "title": "dimensionExt2",
           "lookupField": "dimensionExt2"
         },
         {
-          "title": "packagingDimensionExt3",
+          "title": "dimensionExt3",
           "lookupField": "dimensionExt3"
         },
         {
-          "title": "packagingPackageSpline",
+          "title": "packageSpline",
           "lookupField": "packageSpline"
         },
         {
-          "title": "packagingPackageSplineONU",
+          "title": "packageSplineONU",
           "lookupField": "packageSplineONU"
         },
         {
-          "title": "packagingPackageSplineONU2",
+          "title": "packageSplineONU2",
           "lookupField": "packageSplineONU2"
         }
       ]
