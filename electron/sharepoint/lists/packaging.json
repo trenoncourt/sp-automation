@@ -39,15 +39,67 @@
     },
     {
       "title": "packageSpline",
-      "type": "text"
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSpline",
+      "fields": [
+        {
+          "title": "packageSplineLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineValue",
+          "lookupField": "value"
+        }
+      ]
     },
     {
       "title": "packageSplineONU",
-      "type": "text"
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "packageSplineONULabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineONUValue",
+          "lookupField": "value"
+        }
+      ]
     },
     {
       "title": "packageSplineONU2",
-      "type": "text"
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "packageSplineONU2Label",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineONU2Value",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "packageType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageTypes",
+      "fields": [
+        {
+          "title": "packageTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageTypeValue",
+          "lookupField": "value"
+        }
+      ]
     }
   ]
 }
