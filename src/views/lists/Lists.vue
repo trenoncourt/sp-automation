@@ -291,10 +291,34 @@
       listExist (list) {
         return this.lists.some(l => l.Title === list.title)
       },
-      generateRandomItems (list, count) {
-        const groups = [...new Set(list.fields.filter(f => f.FieldTypeKind === fieldType.user.key).map(f => f.group))]
-        console.log(groups, 1)
-        return
+      async generateRandomItems (list, count) {
+        const jlist = this.jsonLists.find(jl => jl.title === list.Title)
+        const fieldGroups = list.fields.filter(f => f.FieldTypeKind === fieldType.user.key).map(f => {
+          const jf = jlist.fields.find(jf => jf.title === f.Title)
+          if (!jf || !jf.group) {
+            return {title: f.Title}
+          }
+          return {title: jf.title, group: jf.group}
+        })
+        const groups = [...new Set(fieldGroups.map(fg => fg.group))]
+        console.log(groups)
+
+        const fieldGroupTasks = []
+        for (let group of groups) {
+          if (!group) {
+            fieldGroupTasks.push(this.$http.api.get('siteusers?$select=id&$filter=PrincipalType eq 1')
+              .then(response => {
+                fieldGroups.filter(fg => fg.group === group).forEach(fg => { fg.users = response.data.value })
+              }))
+          }
+          else {
+            fieldGroupTasks.push(this.$http.api.get(`sitegroups/getbyname('${group.group}')/users?$select=id&$filter=PrincipalType eq 1`)
+              .then(response => {
+                fieldGroups.filter(fg => fg.group === group).forEach(fg => { fg.users = response.data.value })
+              }))
+          }
+        }
+        await Promise.all(fieldGroupTasks)
         // eslint-disable-next-line no-unreachable
         if (count === 1) {
           Loading.show({message: `Ajout d'un élément dans la liste ${list.Title}`})
@@ -302,7 +326,7 @@
         else {
           Loading.show({message: `Ajout de ${count} éléments simultanément dans la liste ${list.Title}`})
         }
-        this.$store.dispatch(CREATE_LIST_ITEMS, {list, count})
+        this.$store.dispatch(CREATE_LIST_ITEMS, {list, count, fieldGroups})
           .then(() => {
             Loading.hide()
             Toast.create.positive(`Ajout réalisé avec succès`)

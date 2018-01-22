@@ -13,6 +13,10 @@ export default class RandomItem {
     this.fields = fields
   }
 
+  setFieldGroups (fieldGroups) {
+    this.fieldGroups = fieldGroups
+  }
+
   toJSON () {
     let item = {}
     for (let f of this.fields) {
@@ -44,6 +48,12 @@ export default class RandomItem {
         case fieldType.lookup.key:
           break
         case fieldType.user.key:
+          const fieldGroup = this.fieldGroups.find(fg => fg.title.toLowerCase() === f.EntityPropertyName.toLowerCase())
+          if (!fieldGroup || !fieldGroup.users.length) {
+            return
+          }
+          const user = fieldGroup.users[Math.floor(Math.random() * fieldGroup.users.length)]
+          item[`${f.EntityPropertyName}Id`] = user.Id
           break
       }
     }
