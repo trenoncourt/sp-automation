@@ -318,8 +318,12 @@
       "type": "integer"
     },
     {
+      "title": "labStudyAttachment",
+      "type": "text"
+    },
+    {
       "title": "serialDelivery1",
-      "type": "integer"
+      "type": "text"
     },
     {
       "title": "serialDelivery2",
@@ -758,6 +762,10 @@
       "type": "text"
     },
     {
+      "title": "inkType",
+      "type": "text"
+    },
+    {
       "title": "askingPantone2",
       "type": "text"
     },
@@ -840,6 +848,26 @@
     {
       "title": "pantone",
       "type": "boolean"
+    },
+    {
+      "title": "corrugatedPaper",
+      "type": "boolean"
+    },
+    {
+      "title": "otherAnalys",
+      "type": "boolean"
+    },
+    {
+      "title": "ect",
+      "type": "boolean"
+    },
+    {
+      "title": "rcv",
+      "type": "boolean"
+    },
+    {
+      "title": "otherAnalysValue",
+      "type": "text"
     },
     {
       "title": "productNature",
@@ -939,6 +967,10 @@
     },
     {
       "title": "proposalQualityCustomer",
+      "type": "boolean"
+    },
+    {
+      "title": "proposalQuality",
       "type": "boolean"
     },
     {
@@ -1106,7 +1138,7 @@
       "type": "integer"
     },
     {
-      "title": "rackLengthWidth",
+      "title": "rackWidth",
       "type": "integer"
     },
     {
