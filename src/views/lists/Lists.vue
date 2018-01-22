@@ -73,7 +73,7 @@
                     v-if="(showHiddenFields || !field.Hidden) && (showReadonlyFields || !field.ReadOnlyField) && (showFromBaseTypeFields || !field.FromBaseType)"
                     :key="field.title"
                   >
-                    <q-item-main :label="field.EntityPropertyName" :sublabel="field | spFieldTypeWithId"/>
+                    <!--<q-item-main :label="field.EntityPropertyName" :sublabel="toSpFieldTypeWithId(field)"/>-->
                   </q-item>
                 </q-list>
               </q-popover>
@@ -88,7 +88,7 @@
                     :key="field.title"
                   >
                     <q-item-main :label="field.Title + ' (' + field.EntityPropertyName + ')'"
-                                 :sublabel="field.FieldTypeKind | spFieldTypeWithId"/>
+                                 :sublabel="field | spFieldTypeWithId"/>
                   </q-item>
                 </q-list>
               </q-popover>
