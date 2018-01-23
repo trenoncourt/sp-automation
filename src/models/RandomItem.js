@@ -17,6 +17,10 @@ export default class RandomItem {
     this.fieldGroups = fieldGroups
   }
 
+  setLookupFields (lookupFields) {
+    this.lookupFields = lookupFields
+  }
+
   toJSON () {
     let item = {}
     for (let f of this.fields) {
@@ -46,6 +50,17 @@ export default class RandomItem {
           item[f.EntityPropertyName] = (Math.random() * 10 + 1)
           break
         case fieldType.lookup.key:
+          const lookupField = this.lookupFields.find(fg => fg.title.toLowerCase() === f.EntityPropertyName.toLowerCase())
+          if (!lookupField || !lookupField.values.length) {
+            return
+          }
+          const value = lookupField.values[Math.floor(Math.random() * lookupField.values.length)]
+          if (lookupField.AllowMultipleValues) {
+            item[`${f.EntityPropertyName}Id`] = { results: [value.Id] }
+          }
+          else {
+            item[`${f.EntityPropertyName}Id`] = value.Id
+          }
           break
         case fieldType.user.key:
           const fieldGroup = this.fieldGroups.find(fg => fg.title.toLowerCase() === f.EntityPropertyName.toLowerCase())

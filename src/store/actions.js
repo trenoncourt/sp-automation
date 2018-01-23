@@ -88,6 +88,7 @@ export default {
       const randomItem = new RandomItem(payload.list.Title)
       randomItem.setField(payload.list.fields)
       randomItem.setFieldGroups(payload.fieldGroups)
+      randomItem.setLookupFields(payload.lookupFields)
       itemsCalls.push(Vue.$http.api.post(`lists(guid'${payload.list.Id}')/items`, randomItem, {headers: {'Content-Type': 'application/json;odata=verbose'}}))
     }
     return Promise.all(itemsCalls)
