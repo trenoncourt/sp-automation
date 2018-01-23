@@ -15,23 +15,35 @@
       ]
     },
     {
-      "title": "name",
+      "title": "study",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "Studies",
+      "fields": [
+        {
+          "title": "studyID",
+          "lookupField": "ID"
+        }
+      ]
+    },
+    {
+      "title": "detType",
       "type": "text"
     },
     {
-      "title": "address",
+      "title": "startDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "stopDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "service",
       "type": "text"
     },
     {
-      "title": "address2",
-      "type": "text"
-    },
-    {
-      "title": "address3",
-      "type": "text"
-    },
-    {
-      "title": "billingAddress",
+      "title": "operator",
       "type": "text"
     }
   ]
