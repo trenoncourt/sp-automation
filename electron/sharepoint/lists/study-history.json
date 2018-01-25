@@ -4,11 +4,47 @@
     {
       "title": "action",
       "type": "lookup",
-      "lookupField": "value",
+      "lookupField": "ID",
       "lookupList": "StudyActionTypes",
       "fields": [
         {
-          "title": "action:label",
+          "title": "actionID",
+          "type": "lookup",
+          "lookupField": "ID"
+        }
+      ]
+    },
+    {
+      "title": "request",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyTypes",
+      "fields": [
+        {
+          "title": "requestID",
+          "type": "lookup",
+          "lookupField": "ID"
+        },
+        {
+          "title": "requestLabel",
+          "type": "lookup",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "reason",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionReasons",
+      "fields": [
+        {
+          "title": "actionID",
+          "type": "lookup",
+          "lookupField": "ID"
+        },
+        {
+          "title": "actionLabel",
           "type": "lookup",
           "lookupField": "label"
         }
@@ -23,28 +59,36 @@
         {
           "title": "studyID",
           "lookupField": "ID"
+        },
+        {
+          "title": "studyLabel",
+          "lookupField": "label"
         }
       ]
     },
     {
-      "title": "detType",
-      "type": "text"
-    },
-    {
-      "title": "startDate",
-      "type": "dateTime"
-    },
-    {
-      "title": "stopDate",
-      "type": "dateTime"
-    },
-    {
-      "title": "service",
-      "type": "text"
-    },
-    {
       "title": "operator",
+      "type": "user"
+    },
+    {
+      "title": "sample",
       "type": "text"
+    },
+    {
+      "title": "endDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "beginDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "comment",
+      "type": "text"
+    },
+    {
+      "title": "sendMail",
+      "type": "boolean"
     }
   ]
 }

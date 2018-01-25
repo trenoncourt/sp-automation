@@ -27,19 +27,67 @@
     },
     {
       "title": "semStatus",
-      "type": "text"
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionTypes",
+      "fields": [
+        {
+          "title": "studyActionLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "studyActionValue",
+          "lookupField": "value"
+        }
+      ]
     },
     {
       "title": "simStatus",
-      "type": "text"
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionTypes",
+      "fields": [
+        {
+          "title": "simStatusLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "simStatusValue",
+          "lookupField": "value"
+        }
+      ]
     },
     {
       "title": "labStatus",
-      "type": "text"
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionTypes",
+      "fields": [
+        {
+          "title": "labStatusLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "labStatusValue",
+          "lookupField": "value"
+        }
+      ]
     },
     {
       "title": "quoteStatus",
-      "type": "text"
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionTypes",
+      "fields": [
+        {
+          "title": "quoteStatusLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "quoteStatusValue",
+          "lookupField": "value"
+        }
+      ]
     },
     {
       "title": "customer",
@@ -347,23 +395,23 @@
     },
     {
       "title": "stock",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "splitting",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "peeringTogether",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "imposedQuantity",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "mountedPackaging",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "nbRedelivery",
@@ -499,15 +547,15 @@
     },
     {
       "title": "mechanisedPackaging",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "flaps",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "inkjet",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "implementation",
@@ -539,11 +587,11 @@
     },
     {
       "title": "attachment",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "foodContact",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "customerModelValue",
@@ -555,7 +603,7 @@
     },
     {
       "title": "moulding",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "uprootingStrip",
@@ -635,7 +683,7 @@
     },
     {
       "title": "specificFlap",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "requestCustomer",
@@ -803,11 +851,11 @@
     },
     {
       "title": "printing",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "varnish",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "varnishValue",
@@ -819,7 +867,7 @@
     },
     {
       "title": "spotted",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "metalicColor",
@@ -835,7 +883,7 @@
     },
     {
       "title": "colorPattern",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "nbGMG",
@@ -995,7 +1043,7 @@
     },
     {
       "title": "preCutting",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "otherPrecisionPackaging",
@@ -1019,7 +1067,7 @@
     },
     {
       "title": "stackingPallet",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "otherPrecisionStock",
@@ -1031,7 +1079,7 @@
     },
     {
       "title": "stackingPalletTransportValue",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "stackingPalletTransport",
@@ -1051,7 +1099,7 @@
     },
     {
       "title": "bulkBreaking",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "nbBulkBreaking",
@@ -1087,7 +1135,7 @@
     },
     {
       "title": "palletizing",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "heightPalet",
@@ -1111,7 +1159,7 @@
     },
     {
       "title": "specialPackage",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "nbSpecialPackage",
@@ -1123,7 +1171,7 @@
     },
     {
       "title": "allowedOverflow",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "allowedOverflowValue",
@@ -1131,7 +1179,7 @@
     },
     {
       "title": "rack",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "rackLength",
