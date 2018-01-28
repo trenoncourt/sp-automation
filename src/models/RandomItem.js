@@ -52,7 +52,7 @@ export default class RandomItem {
         case fieldType.lookup.key:
           const lookupField = this.lookupFields.find(fg => fg.title.toLowerCase() === f.EntityPropertyName.toLowerCase())
           if (!lookupField || !lookupField.values.length) {
-            return
+            break
           }
           const value = lookupField.values[Math.floor(Math.random() * lookupField.values.length)]
           if (lookupField.AllowMultipleValues) {
@@ -65,7 +65,7 @@ export default class RandomItem {
         case fieldType.user.key:
           const fieldGroup = this.fieldGroups.find(fg => fg.title.toLowerCase() === f.EntityPropertyName.toLowerCase())
           if (!fieldGroup || !fieldGroup.users.length) {
-            return
+            break
           }
           const user = fieldGroup.users[Math.floor(Math.random() * fieldGroup.users.length)]
           item[`${f.EntityPropertyName}Id`] = user.Id
