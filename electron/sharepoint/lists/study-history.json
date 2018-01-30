@@ -4,35 +4,91 @@
     {
       "title": "action",
       "type": "lookup",
-      "lookupField": "value",
+      "lookupField": "ID",
       "lookupList": "StudyActionTypes",
       "fields": [
         {
-          "title": "action:label",
+          "title": "actionID",
+          "type": "lookup",
+          "lookupField": "ID"
+        }
+      ]
+    },
+    {
+      "title": "request",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyTypes",
+      "fields": [
+        {
+          "title": "requestID",
+          "type": "lookup",
+          "lookupField": "ID"
+        },
+        {
+          "title": "requestLabel",
           "type": "lookup",
           "lookupField": "label"
         }
       ]
     },
     {
-      "title": "name",
+      "title": "reason",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionReasons",
+      "fields": [
+        {
+          "title": "actionID",
+          "type": "lookup",
+          "lookupField": "ID"
+        },
+        {
+          "title": "actionLabel",
+          "type": "lookup",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "study",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "Studies",
+      "fields": [
+        {
+          "title": "studyID",
+          "lookupField": "ID"
+        },
+        {
+          "title": "studyLabel",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "operator",
+      "type": "user"
+    },
+    {
+      "title": "sample",
       "type": "text"
     },
     {
-      "title": "address",
+      "title": "endDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "beginDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "comment",
       "type": "text"
     },
     {
-      "title": "address2",
-      "type": "text"
-    },
-    {
-      "title": "address3",
-      "type": "text"
-    },
-    {
-      "title": "billingAddress",
-      "type": "text"
+      "title": "sendMail",
+      "type": "boolean"
     }
   ]
 }

@@ -2,6 +2,10 @@
   "title": "PackagingAttachments",
   "fields": [
     {
+      "title": "fileName",
+      "type": "text"
+    },
+    {
       "title": "attachmentType",
       "type": "lookup",
       "lookupField": "ID",
