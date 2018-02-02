@@ -11,6 +11,11 @@
           "title": "actionID",
           "type": "lookup",
           "lookupField": "ID"
+        },
+        {
+          "title": "actionLabel",
+          "type": "lookup",
+          "lookupField": "label"
         }
       ]
     },
@@ -51,6 +56,24 @@
       ]
     },
     {
+      "title": "service",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "Services",
+      "fields": [
+        {
+          "title": "serviceValue",
+          "type": "lookup",
+          "lookupField": "value"
+        },
+        {
+          "title": "serviceLabel",
+          "type": "lookup",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
       "title": "study",
       "type": "lookup",
       "lookupField": "ID",
@@ -61,8 +84,8 @@
           "lookupField": "ID"
         },
         {
-          "title": "studyLabel",
-          "lookupField": "label"
+          "title": "studyDeComIndex",
+          "lookupField": "deComIndex"
         }
       ]
     },
