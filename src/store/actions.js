@@ -2,6 +2,7 @@ import * as types from './mutation-types'
 import Vue from 'vue'
 import Field from '../models/Field'
 import RandomItem from '../models/RandomItem'
+import List from '../models/List'
 
 export default {
   [types.UPDATE_TOKEN] ({commit}) {
@@ -82,7 +83,7 @@ export default {
     }
   },
 
-  [types.CREATE_LIST_ITEMS] ({commit}, payload) {
+  [types.CREATE_LIST_ITEMS] (state, payload) {
     const itemsCalls = []
     for (let i = 0; i < payload.count; i++) {
       const randomItem = new RandomItem(payload.list.Title)
@@ -92,5 +93,17 @@ export default {
       itemsCalls.push(Vue.$http.api.post(`lists(guid'${payload.list.Id}')/items`, randomItem, {headers: {'Content-Type': 'application/json;odata=verbose'}}))
     }
     return Promise.all(itemsCalls)
+  },
+
+  [types.DELETE_LIST] ({commit}, list) {
+    return Vue.$http.api.post(`lists(guid'${list.Id}')`, {}, {
+      headers: {
+        'Content-Type': 'application/json;odata=verbose',
+        'IF-MATCH': '*',
+        'X-HTTP-Method': 'DELETE'
+      }
+    }).then(() => {
+      commit(types.DELETE_LIST, List.Id)
+    })
   }
 }

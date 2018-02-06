@@ -18,6 +18,9 @@ export const mutations = {
   [types.CREATE_LIST] (state, list) {
     state.lists.push(list)
   },
+  [types.DELETE_LIST] (state, listId) {
+    state.lists = state.lists.filter(l => l.Id !== listId)
+  },
   [types.UPDATE_JSON_LISTS] (state, jsonLists) {
     state.jsonLists = jsonLists
   },

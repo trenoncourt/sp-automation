@@ -93,6 +93,9 @@
                 </q-list>
               </q-popover>
             </q-btn>
+            <q-btn color="negative" @click="deleteList(list)">
+              <q-icon name="clear"/>
+            </q-btn>
           </q-card-actions>
         </q-card>
       </div>
@@ -195,7 +198,7 @@
   } from 'quasar-framework'
   import { UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS } from 'store/mutation-types'
   import List from 'models/List'
-  import { CREATE_LIST, CREATE_LIST_FIELD, CREATE_LIST_ITEMS } from '../../store/mutation-types'
+  import { CREATE_LIST, CREATE_LIST_FIELD, CREATE_LIST_ITEMS, DELETE_LIST } from '../../store/mutation-types'
   import PrimaryLookupField from '../../models/PrimaryLookupField'
   import SecondaryLookupField from '../../models/SecondaryLookupField'
   import Field from '../../models/Field'
@@ -345,6 +348,28 @@
             Loading.hide()
             Toast.create.positive(`Ajout réalisé avec succès`)
           })
+      },
+      deleteList (list) {
+        const vm = this
+        Dialog.create({
+          title: `Suppression de ${list.Title}`,
+          message: `Êtes-vous sur de vouloir supprimer la liste ${list.Title} au site sic ?`,
+          buttons: [
+            {
+              label: 'Non',
+              color: 'negative',
+              outline: true,
+              style: 'text-decoration: underline'
+            },
+            {
+              label: 'Oui',
+              color: 'positive',
+              handler () {
+                vm.$store.dispatch(DELETE_LIST, list)
+              }
+            }
+          ]
+        })
       },
       refresh () {
         this.$store.dispatch(UPDATE_LISTS)
