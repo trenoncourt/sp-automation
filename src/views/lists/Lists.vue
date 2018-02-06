@@ -167,13 +167,10 @@
           self="center right"
           :offset="[20, 0]"
         >
-          Tooltip in FAB
+          Ajouter des listes
         </q-tooltip>
-        <q-fab-action color="purple" icon="mail">
-          <q-tooltip anchor="center left" self="center right" :offset="[20, 0]">Mail</q-tooltip>
-        </q-fab-action>
-        <q-fab-action color="secondary" icon="alarm">
-          <q-tooltip anchor="center left" self="center right" :offset="[20, 0]">Alarm</q-tooltip>
+        <q-fab-action color="purple" icon="add" @click="addAllLists">
+          <q-tooltip anchor="center left" self="center right" :offset="[20, 0]">Ajouter toutes les listes</q-tooltip>
         </q-fab-action>
       </q-fab>
     </q-fixed-position>
@@ -193,13 +190,13 @@
     QFixedPosition,
     QIcon, QItem, QItemMain, QList, QPopover, QTooltip, Loading, Toast
   } from 'quasar-framework'
-  import { UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS } from 'store/mutation-types'
+  import {UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS} from 'store/mutation-types'
   import List from 'models/List'
-  import { CREATE_LIST, CREATE_LIST_FIELD, CREATE_LIST_ITEMS } from '../../store/mutation-types'
+  import {CREATE_LIST, CREATE_LIST_FIELD, CREATE_LIST_ITEMS} from '../../store/mutation-types'
   import PrimaryLookupField from '../../models/PrimaryLookupField'
   import SecondaryLookupField from '../../models/SecondaryLookupField'
   import Field from '../../models/Field'
-  import { fieldType } from '../../utils/enums'
+  import {fieldType} from '../../utils/enums'
 
   export default {
     components: {
@@ -287,6 +284,13 @@
           ]
         })
       },
+      addAllLists () {
+        for (const jsonList of this.jsonLists) {
+          if (!this.listExist(jsonList)) {
+            this.__addTolists(jsonList)
+          }
+        }
+      },
       // converters
       listExist (list) {
         return this.lists.some(l => l.Title === list.title)
@@ -306,13 +310,17 @@
           if (!group) {
             fieldGroupTasks.push(this.$http.api.get('siteusers?$select=id&$filter=PrincipalType eq 1')
               .then(response => {
-                fieldGroups.filter(fg => fg.group === group).forEach(fg => { fg.users = response.data.value })
+                fieldGroups.filter(fg => fg.group === group).forEach(fg => {
+                  fg.users = response.data.value
+                })
               }))
           }
           else {
             fieldGroupTasks.push(this.$http.api.get(`sitegroups/getbyname('${group.group}')/users?$select=id&$filter=PrincipalType eq 1`)
               .then(response => {
-                fieldGroups.filter(fg => fg.group === group).forEach(fg => { fg.users = response.data.value })
+                fieldGroups.filter(fg => fg.group === group).forEach(fg => {
+                  fg.users = response.data.value
+                })
               }))
           }
         }
@@ -328,7 +336,9 @@
           if (lookupFieldListId) {
             lookupFieldsTasks.push(this.$http.api.get(`lists(guid'${lookupFieldListId.replace('{', '').replace('}', '')}')/items?$select=id`)
               .then(response => {
-                lookupFields.filter(fg => fg.LookupList === lookupFieldListId).forEach(fg => { fg.values = response.data.value })
+                lookupFields.filter(fg => fg.LookupList === lookupFieldListId).forEach(fg => {
+                  fg.values = response.data.value
+                })
               }))
           }
         }
@@ -348,6 +358,40 @@
       },
       refresh () {
         this.$store.dispatch(UPDATE_LISTS)
+      },
+      __addTolists (list) {
+        const dependencies = [...new Set(list.fields
+          .filter(f => f.lookupList && !this.lists.some(l => l.Title === f.lookupList))
+          .map(f => f.lookupList))]
+        if (dependencies.length) {
+          Toast.create.negative(`Impossible de trouver les listes <b>${dependencies.join(', ')}</b>`)
+          return
+        }
+        const l = new List(list.title, list.description)
+        Loading.show({message: `Création de la liste ${list.title}`})
+        this.$store.dispatch(CREATE_LIST, l)
+          .then(async id => {
+            for (const f of list.fields) {
+              Loading.show({message: `Création du champs ${f.title} dans la liste ${list.title}`})
+              if (f.lookupList) {
+                const lookupListId = this.lists.find(l => l.Title === f.lookupList).Id
+                const field = new PrimaryLookupField(f.title, f.type, f.lookupField, lookupListId, f.multiple)
+                const primaryLookupFieldId = await this.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: field})
+                if (f.fieldType) {
+                  for (const sf of f.fields) {
+                    Loading.show({message: `Création du champs ${sf.title} dans la liste ${list.title}`})
+                    const subField = new SecondaryLookupField(sf.title, fieldType.lookup.label, sf.lookupField, lookupListId, primaryLookupFieldId, f.multiple)
+                    await this.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: subField})
+                  }
+                }
+              }
+              else {
+                const field = new Field(f.title, f.type)
+                await this.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: field})
+              }
+            }
+            Loading.hide()
+          })
       }
     },
     computed: {
