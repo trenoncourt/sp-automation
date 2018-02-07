@@ -8,13 +8,7 @@
       "lookupList": "StudyActionTypes",
       "fields": [
         {
-          "title": "actionID",
-          "type": "lookup",
-          "lookupField": "ID"
-        },
-        {
-          "title": "actionLabel",
-          "type": "lookup",
+          "title": "label",
           "lookupField": "label"
         }
       ]
@@ -26,13 +20,7 @@
       "lookupList": "StudyTypes",
       "fields": [
         {
-          "title": "requestID",
-          "type": "lookup",
-          "lookupField": "ID"
-        },
-        {
-          "title": "requestLabel",
-          "type": "lookup",
+          "title": "label",
           "lookupField": "label"
         }
       ]
@@ -44,13 +32,7 @@
       "lookupList": "StudyActionReasons",
       "fields": [
         {
-          "title": "actionID",
-          "type": "lookup",
-          "lookupField": "ID"
-        },
-        {
-          "title": "actionLabel",
-          "type": "lookup",
+          "title": "label",
           "lookupField": "label"
         }
       ]
@@ -62,13 +44,11 @@
       "lookupList": "Services",
       "fields": [
         {
-          "title": "serviceValue",
-          "type": "lookup",
+          "title": "value",
           "lookupField": "value"
         },
         {
-          "title": "serviceLabel",
-          "type": "lookup",
+          "title": "label",
           "lookupField": "label"
         }
       ]
@@ -80,11 +60,7 @@
       "lookupList": "Studies",
       "fields": [
         {
-          "title": "studyID",
-          "lookupField": "ID"
-        },
-        {
-          "title": "studyDeComIndex",
+          "title": "deComIndex",
           "lookupField": "deComIndex"
         }
       ]

@@ -58,8 +58,8 @@
                     <q-item-main label="Créer 1000 items"/>
                   </q-item>
                   <q-item
-                    @click="generateRandomItems(list, 10000), $refs['popover-random-items-' + list.Id][0].close()">
-                    <q-item-main label="Créer 10000 items"/>
+                    @click="insertDataFrom(list), $refs['popover-random-items-' + list.Id][0].close()">
+                    <q-item-main label="Insérer des données depuis..."/>
                   </q-item>
                 </q-list>
               </q-popover>
@@ -153,6 +153,8 @@
       </div>
     </div>
 
+    <insert-data-from-modal ref="insertDataFromModal"></insert-data-from-modal>
+
     <q-fixed-position corner="bottom-right" :offset="[86, 18]">
       <q-btn round color="primary" @click="refresh">
         <q-icon name="sync"/>
@@ -193,13 +195,14 @@
     QFixedPosition,
     QIcon, QItem, QItemMain, QList, QPopover, QTooltip, Loading, Toast
   } from 'quasar-framework'
-  import {UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS} from 'store/mutation-types'
+  import { UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS } from 'store/mutation-types'
   import List from 'models/List'
-  import {CREATE_LIST, CREATE_LIST_FIELD, CREATE_LIST_ITEMS, DELETE_LIST} from '../../store/mutation-types'
+  import { CREATE_LIST, CREATE_LIST_FIELD, CREATE_LIST_ITEMS, DELETE_LIST } from '../../store/mutation-types'
   import PrimaryLookupField from '../../models/PrimaryLookupField'
   import SecondaryLookupField from '../../models/SecondaryLookupField'
   import Field from '../../models/Field'
-  import {fieldType} from '../../utils/enums'
+  import { fieldType } from '../../utils/enums'
+  import InsertDataFromModal from './insertDataFromModal.vue'
 
   export default {
     components: {
@@ -219,7 +222,8 @@
       QItem,
       QItemMain,
       QFab,
-      QFabAction
+      QFabAction,
+      InsertDataFromModal
     },
     data () {
       return {
@@ -380,6 +384,9 @@
             }
           ]
         })
+      },
+      insertDataFrom (list) {
+        this.$refs.insertDataFromModal.open()
       },
       refresh () {
         this.$store.dispatch(UPDATE_LISTS)

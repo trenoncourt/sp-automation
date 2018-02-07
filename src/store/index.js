@@ -14,6 +14,9 @@ var state = {
   environments: [],
   lists: [],
   jsonLists: [],
+  insertDataToList: null,
+  insertDataFromEnvironment: null,
+  insertDataFromList: null,
   fr: {
     months: [
       'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'

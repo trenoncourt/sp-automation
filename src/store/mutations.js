@@ -60,5 +60,8 @@ export const mutations = {
   },
   [types.UPDATE_ENVIRONMENT_USE_CURRENT_USER] (state, useCurrentUser) {
     state.environment.useCurrentUser = useCurrentUser
+  },
+  [types.UPDATE_INSERT_DATA_FROM_ENVIRONMENT] (state, env) {
+    state.insertDataFromEnvironment = env
   }
 }
