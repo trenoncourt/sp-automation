@@ -69,7 +69,7 @@
   } from 'quasar-framework'
   import {
     UPDATE_ENVIRONMENT_AUTH_TYPE,
-    UPDATE_ENVIRONMENT_DOMAIN,
+    UPDATE_ENVIRONMENT_DOMAIN, UPDATE_ENVIRONMENT_IN_LIST,
     UPDATE_ENVIRONMENT_NAME, UPDATE_ENVIRONMENT_PASSWORD, UPDATE_ENVIRONMENT_URL,
     UPDATE_ENVIRONMENT_USE_CURRENT_USER, UPDATE_ENVIRONMENT_USER
   } from '../../store/mutation-types'
@@ -159,6 +159,8 @@
     methods: {
       save () {
         settings.set('environment', this.$store.state.environment)
+        this.$store.commit(UPDATE_ENVIRONMENT_IN_LIST, this.$store.state.environment)
+        settings.set('environments', this.$store.state.environments)
         Toast.create.positive('Sauvegardé avec succès')
       }
     }

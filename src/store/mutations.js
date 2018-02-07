@@ -40,6 +40,10 @@ export const mutations = {
   [types.UPDATE_ENVIRONMENT] (state, environment) {
     state.environment = environment
   },
+  [types.UPDATE_ENVIRONMENT_IN_LIST] (state, environment) {
+    var index = state.environments.findIndex(e => e.name === environment.name)
+    Vue.set(state.environments, index, environment)
+  },
   [types.UPDATE_ENVIRONMENT_NAME] (state, name) {
     state.environment.name = name
   },
