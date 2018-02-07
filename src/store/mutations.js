@@ -63,5 +63,11 @@ export const mutations = {
   },
   [types.UPDATE_INSERT_DATA_FROM_ENVIRONMENT] (state, env) {
     state.insertDataFromEnvironment = env
+  },
+  [types.UPDATE_INSERT_DATA_FROM_LIST] (state, list) {
+    state.insertDataFromList = list
+  },
+  [types.UPDATE_INSERT_DATA_TO_LIST] (state, list) {
+    state.insertDataToList = list
   }
 }

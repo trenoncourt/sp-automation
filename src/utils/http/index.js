@@ -2,12 +2,12 @@ import axios from 'axios'
 import spApiInterceptors from './interceptors/spApi'
 import spContextInfoApiInterceptors from './interceptors/spContextInfoApi'
 
-const axiosInstanceSite = axios.create()
+const axiosInstanceSite = axios.create({baseURL: ''})
 const axiosInstanceApi = axios.create({withCredentials: true})
 const axiosInstanceApiContextInfo = axios.create({withCredentials: true})
 
 let apis = {
-  list: axiosInstanceSite,
+  default: axiosInstanceSite,
   api: axiosInstanceApi,
   apiContextInfo: axiosInstanceApiContextInfo
 }

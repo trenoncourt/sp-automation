@@ -197,7 +197,13 @@
   } from 'quasar-framework'
   import { UPDATE_LISTS, UPDATE_LIST_FIELDS_IN_LISTS } from 'store/mutation-types'
   import List from 'models/List'
-  import { CREATE_LIST, CREATE_LIST_FIELD, CREATE_LIST_ITEMS, DELETE_LIST } from '../../store/mutation-types'
+  import {
+    CREATE_LIST,
+    CREATE_LIST_FIELD,
+    CREATE_LIST_ITEMS,
+    DELETE_LIST,
+    UPDATE_INSERT_DATA_TO_LIST
+  } from '../../store/mutation-types'
   import PrimaryLookupField from '../../models/PrimaryLookupField'
   import SecondaryLookupField from '../../models/SecondaryLookupField'
   import Field from '../../models/Field'
@@ -386,6 +392,7 @@
         })
       },
       insertDataFrom (list) {
+        this.$store.commit(UPDATE_INSERT_DATA_TO_LIST, list)
         this.$refs.insertDataFromModal.open()
       },
       refresh () {

@@ -133,7 +133,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
-  console.log(request)
+  console.log(authInfo, request, event, webContents)
   const environment = settings.get('environment')
   if (!environment.useCurrentUser) {
     event.preventDefault()
