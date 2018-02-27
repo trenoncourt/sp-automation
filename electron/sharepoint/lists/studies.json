@@ -146,6 +146,10 @@
           "lookupField": "nbElements"
         },
         {
+          "title": "nbSamples",
+          "lookupField": "nbSamples"
+        },
+        {
           "title": "dimensionInt1",
           "lookupField": "dimensionInt1"
         },
