@@ -6,6 +6,18 @@
       "type": "text"
     },
     {
+      "title": "deSemIndex",
+      "type": "text"
+    },
+    {
+      "title": "deSimIndex",
+      "type": "text"
+    },
+    {
+      "title": "deLaboIndex",
+      "type": "text"
+    },
+    {
       "title": "detDate",
       "type": "dateTime"
     },
@@ -730,8 +742,25 @@
       ]
     },
     {
+      "title": "rackType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "RackTypes",
+      "fields": [
+        {
+          "title": "rackTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "rackTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
       "title": "printType",
       "type": "lookup",
+      "multiple": true,
       "lookupField": "ID",
       "lookupList": "PrintTypes",
       "fields": [
@@ -1194,6 +1223,10 @@
       "type": "integer"
     },
     {
+      "title": "rackHeight",
+      "type": "integer"
+    },
+    {
       "title": "nbAntiPallet",
       "type": "integer"
     },
@@ -1204,6 +1237,14 @@
     {
       "title": "stretchFilm",
       "type": "boolean"
+    },
+    {
+      "title": "studySeriesQuantity1",
+      "type": "integer"
+    },
+    {
+      "title": "studySeriesQuantity2",
+      "type": "integer"
     },
     {
       "title": "truckType",

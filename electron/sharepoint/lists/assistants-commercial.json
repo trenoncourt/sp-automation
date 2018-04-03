@@ -1,0 +1,13 @@
+{
+  "title": "AssistantsCommercial",
+  "fields": [
+    {
+      "title": "idAssistant",
+      "type": "number"
+    },
+    {
+      "title": "idCommercial",
+      "type": "number"
+    }
+  ]
+}
