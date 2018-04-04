@@ -6,6 +6,10 @@
       "type": "text"
     },
     {
+      "title": "motherId",
+      "type": "integer"
+    },
+    {
       "title": "deSemIndex",
       "type": "text"
     },
