@@ -1,13 +1,9 @@
 {
-  "title": "Studies",
+  "title": "CommercialStudies",
   "fields": [
     {
       "title": "deComIndex",
       "type": "text"
-    },
-    {
-      "title": "commercialStudyId",
-      "type": "integer"
     },
     {
       "title": "motherId",
@@ -44,22 +40,6 @@
     {
       "title": "claimer",
       "type": "user"
-    },
-    {
-      "title": "printCompany",
-      "type": "lookup",
-      "lookupField": "ID",
-      "lookupList": "PrintCompanies",
-      "fields": [
-        {
-          "title": "printCompanyValue",
-          "lookupField": "value"
-        },
-        {
-          "title": "printCompanyLabel",
-          "lookupField": "label"
-        }
-      ]
     },
     {
       "title": "semStatus",
