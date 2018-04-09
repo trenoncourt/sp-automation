@@ -6,6 +6,22 @@
       "type": "text"
     },
     {
+      "title": "printCompany",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PrintCompanies",
+      "fields": [
+        {
+          "title": "printCompanyValue",
+          "lookupField": "value"
+        },
+        {
+          "title": "printCompanyLabel",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
       "title": "motherId",
       "type": "integer"
     },
@@ -1176,11 +1192,11 @@
     },
     {
       "title": "heightPalet",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "widthPalet",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "priceType",

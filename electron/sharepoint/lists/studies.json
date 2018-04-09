@@ -1196,11 +1196,11 @@
     },
     {
       "title": "heightPalet",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "widthPalet",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "priceType",
