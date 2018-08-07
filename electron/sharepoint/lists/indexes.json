@@ -1,0 +1,25 @@
+{
+  "title": "Indexes",
+  "fields": [
+    {
+      "title": "deComId",
+      "type": "integer"
+    },
+    {
+      "title": "deSemId",
+      "type": "integer"
+    },
+    {
+      "title": "deSimId",
+      "type": "integer"
+    },
+    {
+      "title": "deQuoteId",
+      "type": "integer"
+    },
+    {
+      "title": "deLabId",
+      "type": "integer"
+    }
+  ]
+}

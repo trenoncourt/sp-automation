@@ -15,7 +15,7 @@
     },
     {
       "title": "zipCode",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "city",

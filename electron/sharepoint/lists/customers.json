@@ -22,6 +22,14 @@
       "type": "text"
     },
     {
+      "title": "zipCode",
+      "type": "integer"
+    },
+    {
+      "title": "city",
+      "type": "text"
+    },
+    {
       "title": "billingAddress",
       "type": "text"
     }

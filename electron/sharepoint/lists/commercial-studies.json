@@ -2,6 +2,10 @@
   "title": "CommercialStudies",
   "fields": [
     {
+      "title": "derivedFromCompletion",
+      "type": "boolean"
+    },
+    {
       "title": "deComIndex",
       "type": "text"
     },
@@ -35,6 +39,10 @@
     },
     {
       "title": "deLaboIndex",
+      "type": "text"
+    },
+    {
+      "title": "deQuoteIndex",
       "type": "text"
     },
     {
@@ -206,6 +214,14 @@
           "lookupField": "dimensionExt3"
         },
         {
+          "title": "dimensionInt4",
+          "lookupField": "dimensionInt4"
+        },
+        {
+          "title": "dimensionExt4",
+          "lookupField": "dimensionExt4"
+        },
+        {
           "title": "packageSpline",
           "lookupField": "packageSpline"
         },
@@ -366,6 +382,14 @@
       "type": "boolean"
     },
     {
+      "title": "isStored",
+      "type": "boolean"
+    },
+    {
+      "title": "isUpgrade",
+      "type": "boolean"
+    },
+    {
       "title": "annualMarket",
       "type": "lookup",
       "lookupField": "ID",
@@ -408,6 +432,10 @@
     {
       "title": "serialDelivery1",
       "type": "text"
+    },
+    {
+      "title": "truckFull",
+      "type": "boolean"
     },
     {
       "title": "serialDelivery2",
@@ -795,6 +823,23 @@
       ]
     },
     {
+      "title": "rcvType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "RcvTypes",
+      "fields": [
+        {
+          "title": "rcvTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "rcvTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
       "title": "printPosition",
       "type": "lookup",
       "lookupField": "ID",
@@ -940,11 +985,11 @@
     },
     {
       "title": "nbGMG",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "nbTracer",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "pantone",
@@ -1104,11 +1149,11 @@
     },
     {
       "title": "maxHeight",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "nbLayer",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "otherPrecisionPallet",
@@ -1116,7 +1161,7 @@
     },
     {
       "title": "humidity",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "stackingPallet",
@@ -1128,7 +1173,7 @@
     },
     {
       "title": "maxPeriod",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "stackingPalletTransportValue",
@@ -1156,7 +1201,7 @@
     },
     {
       "title": "nbBulkBreaking",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "transportPeriod",
