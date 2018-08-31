@@ -1,0 +1,20 @@
+{
+  "title": "SemOutputDatas",
+  "fields": [
+    {
+      "title": "landmarks",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "LandMarks"
+    },
+    {
+      "title": "information",
+      "type": "text"
+    },
+    {
+      "title": "sicalConception",
+      "type": "boolean"
+    }
+  ]
+}

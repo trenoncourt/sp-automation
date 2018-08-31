@@ -6,6 +6,10 @@
       "type": "boolean"
     },
     {
+      "title": "semOutputDataId",
+      "type": "integer"
+    },
+    {
       "title": "deComIndex",
       "type": "text"
     },
@@ -814,6 +818,22 @@
       ]
     },
     {
+      "title": "insideTenColorType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "TenColorTypes",
+      "fields": [
+        {
+          "title": "insideTenColorTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "insideTenColorTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
       "title": "rackType",
       "type": "lookup",
       "lookupField": "ID",
@@ -847,17 +867,18 @@
       ]
     },
     {
-      "title": "printPosition",
+      "title": "insidePrintType",
       "type": "lookup",
+      "multiple": true,
       "lookupField": "ID",
-      "lookupList": "PrintPositions",
+      "lookupList": "PrintTypes",
       "fields": [
         {
-          "title": "printPositionLabel",
+          "title": "insidePrintTypeLabel",
           "lookupField": "label"
         },
         {
-          "title": "printPositionValue",
+          "title": "insidePrintTypeValue",
           "lookupField": "value"
         }
       ]
@@ -959,7 +980,15 @@
       "type": "boolean"
     },
     {
+      "title": "insidePrinting",
+      "type": "boolean"
+    },
+    {
       "title": "varnish",
+      "type": "boolean"
+    },
+    {
+      "title": "insideVarnish",
       "type": "boolean"
     },
     {
@@ -971,7 +1000,19 @@
       "type": "text"
     },
     {
+      "title": "insideVarnishValue",
+      "type": "text"
+    },
+    {
+      "title": "insideOtherVarnish",
+      "type": "text"
+    },
+    {
       "title": "spotted",
+      "type": "boolean"
+    },
+    {
+      "title": "insideSpotted",
       "type": "boolean"
     },
     {
@@ -979,11 +1020,23 @@
       "type": "text"
     },
     {
+      "title": "insideMetalicColor",
+      "type": "text"
+    },
+    {
       "title": "inking",
       "type": "text"
     },
     {
+      "title": "insideInking",
+      "type": "text"
+    },
+    {
       "title": "printingType",
+      "type": "text"
+    },
+    {
+      "title": "insidePrintingType",
       "type": "text"
     },
     {
@@ -996,6 +1049,14 @@
     },
     {
       "title": "nbTracer",
+      "type": "integer"
+    },
+    {
+      "title": "insideNbGMG",
+      "type": "integer"
+    },
+    {
+      "title": "insideNbTracer",
       "type": "integer"
     },
     {
@@ -1316,7 +1377,7 @@
       "type": "integer"
     },
     {
-      "title": "nbAntiPallet",
+      "title": "antiPalletId",
       "type": "integer"
     },
     {
