@@ -5,11 +5,29 @@ import RandomItem from '../models/RandomItem'
 import List from '../models/List'
 
 export default {
-  [types.UPDATE_TOKEN] ({commit}) {
+  [types.UPDATE_SP_TOKEN] ({commit}) {
     return Vue.$http.apiContextInfo.post('contextinfo')
       .then(response => {
         commit(types.UPDATE_TOKEN, response.data)
       })
+  },
+  [types.UPDATE_SPO_TOKEN] ({commit}, env) {
+    const AuthenticationContext = require('adal-node').AuthenticationContext
+    const authorityHostUrl = 'https://login.microsoftonline.com'
+    const authorityUrl = authorityHostUrl + '/' + env.tenantId
+    const context = new AuthenticationContext(authorityUrl)
+    return new Promise((resolve, reject) => {
+      context.acquireTokenWithClientCertificate(env.resource, env.clientId, env.certPrivateKey, env.certThumbprint, function (err, tokenResponse) {
+        if (err) {
+          console.log(err)
+          reject(err)
+        }
+        else {
+          commit(types.UPDATE_TOKEN, tokenResponse)
+          resolve()
+        }
+      })
+    })
   },
   [types.UPDATE_LISTS] ({commit}) {
     return Vue.$http.api.get('lists')

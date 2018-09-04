@@ -31,7 +31,7 @@
         <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
           <q-field>
             <q-input
-              float-label="Tenant Id"
+              float-label="Tenant"
               v-model="env.tenantId"
             ></q-input>
           </q-field>
@@ -47,14 +47,6 @@
         <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
           <q-field>
             <q-input
-              float-label="Client Secret"
-              v-model="env.clientSecret"
-            ></q-input>
-          </q-field>
-        </div>
-        <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
-          <q-field>
-            <q-input
               float-label="Resource"
               v-model="env.resource"
             ></q-input>
@@ -63,16 +55,18 @@
         <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
           <q-field>
             <q-input
-              float-label="Certificate"
-              v-model="env.cert"
+              float-label="Certificate thumbprint"
+              v-model="env.certThumbprint"
             ></q-input>
           </q-field>
         </div>
         <div v-if="env.authType === envAuthTypes.bearer.key" class="col-6">
           <q-field>
             <q-input
-              float-label="Certificate Password"
-              v-model="env.certPassword"
+              type="textarea"
+              :min-rows="1"
+              float-label="Certificate Private Key"
+              v-model="env.certPrivateKey"
             ></q-input>
           </q-field>
         </div>
@@ -142,10 +136,9 @@
           password: '',
           tenantId: '',
           clientId: '',
-          clientSecret: '',
           resource: '',
-          cert: '',
-          certPass: ''
+          certPrivateKey: '',
+          certThumbprint: ''
         },
         envAuthTypes: envAuthTypes,
         envAuthTypesOptions: envAuthTypes.get().map(t => { return {label: t.label, value: t.key} })
@@ -165,9 +158,6 @@
         this.$store.commit(UPDATE_ENVIRONMENTS, environments)
         this.close()
       }
-    },
-    mounted () {
-      console.log(this.envAuthTypesOptions)
     }
   }
 </script>

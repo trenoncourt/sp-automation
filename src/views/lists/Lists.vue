@@ -64,19 +64,19 @@
                 </q-list>
               </q-popover>
             </q-btn>
-            <q-btn color="primary" @click="updateListFields(list)">
+            <q-btn color="primary" @click="downloadList(list)">
               <q-icon name="file_download"/>
-              <q-popover ref="popover-json-lists">
-                <q-list link separator class="scroll" style="min-width: 100px">
-                  <q-item
-                    v-for="field in list.fields"
-                    v-if="(showHiddenFields || !field.Hidden) && (showReadonlyFields || !field.ReadOnlyField) && (showFromBaseTypeFields || !field.FromBaseType)"
-                    :key="field.title"
-                  >
-                    <!--<q-item-main :label="field.EntityPropertyName" :sublabel="toSpFieldTypeWithId(field)"/>-->
-                  </q-item>
-                </q-list>
-              </q-popover>
+              <!--<q-popover ref="popover-json-lists">-->
+              <!--<q-list link separator class="scroll" style="min-width: 100px">-->
+              <!--<q-item-->
+              <!--v-for="field in list.fields"-->
+              <!--v-if="(showHiddenFields || !field.Hidden) && (showReadonlyFields || !field.ReadOnlyField) && (showFromBaseTypeFields || !field.FromBaseType)"-->
+              <!--:key="field.title"-->
+              <!--&gt;-->
+              <!--&lt;!&ndash;<q-item-main :label="field.EntityPropertyName" :sublabel="toSpFieldTypeWithId(field)"/>&ndash;&gt;-->
+              <!--</q-item>-->
+              <!--</q-list>-->
+              <!--</q-popover>-->
             </q-btn>
             <q-btn color="primary" @click="updateListFields(list)">
               <q-icon name="assignment"/>
@@ -394,6 +394,22 @@
       insertDataFrom (list) {
         this.$store.commit(UPDATE_INSERT_DATA_TO_LIST, list)
         this.$refs.insertDataFromModal.open()
+      },
+      async downloadList (list) {
+        const response = await this.$http.api.get(`lists(guid'${list.Id}')/fields`)
+        const items = []
+        const values = response.data.value.filter(v => !v.Hidden && !v.ReadOnlyField && !v.FromBaseType)
+        console.log(values)
+        for (let i of values) {
+          if (i.FieldTypeKind === 7) {
+            console.log('lookup')
+          }
+          items.push({
+            title: i.Title,
+            type: fieldType.find(i.FieldTypeKind).label
+          })
+        }
+        console.log(items)
       },
       refresh () {
         this.$store.dispatch(UPDATE_LISTS)

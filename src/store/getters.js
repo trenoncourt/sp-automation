@@ -1,4 +1,4 @@
-export const isTokenValid = state => {
+export const isSPTokenValid = state => {
   if (!state.token || !state.token.FormDigestValue) {
     return false
   }
@@ -7,6 +7,11 @@ export const isTokenValid = state => {
     return false
   }
   return state.token && new Date(dateString).setSeconds(state.token.FormDigestTimeoutSeconds) >= new Date()
+}
+export const isSPOTokenValid = state => {
+  if (!state.token || !state.token.accessToken) {
+    return false
+  }
 }
 
 export const visibleLists = state => {

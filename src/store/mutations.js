@@ -39,6 +39,7 @@ export const mutations = {
   },
   [types.UPDATE_ENVIRONMENT] (state, environment) {
     state.environment = environment
+    state.token = null
   },
   [types.UPDATE_ENVIRONMENT_IN_LIST] (state, environment) {
     var index = state.environments.findIndex(e => e.name === environment.name)
@@ -64,6 +65,21 @@ export const mutations = {
   },
   [types.UPDATE_ENVIRONMENT_USE_CURRENT_USER] (state, useCurrentUser) {
     state.environment.useCurrentUser = useCurrentUser
+  },
+  [types.UPDATE_ENVIRONMENT_TENANT] (state, newValue) {
+    state.environment.tenantId = newValue
+  },
+  [types.UPDATE_ENVIRONMENT_CLIENT_ID] (state, newValue) {
+    state.environment.clientId = newValue
+  },
+  [types.UPDATE_ENVIRONMENT_RESOURCE] (state, newValue) {
+    state.environment.resource = newValue
+  },
+  [types.UPDATE_ENVIRONMENT_CERT_PRIVATE_KEY] (state, newValue) {
+    state.environment.certPrivateKey = newValue
+  },
+  [types.UPDATE_ENVIRONMENT_CERT_THUMBPRINT] (state, newValue) {
+    state.environment.certThumbprint = newValue
   },
   [types.UPDATE_INSERT_DATA_FROM_ENVIRONMENT] (state, env) {
     state.insertDataFromEnvironment = env
