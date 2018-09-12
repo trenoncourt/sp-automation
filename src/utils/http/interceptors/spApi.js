@@ -17,7 +17,7 @@ export default (http) => {
       }
       config.headers['Authorization'] = 'Bearer ' + store.state.token.accessToken
     }
-    else if (env.authType === envAuthTypes.ntlm) {
+    else if (env.authType === envAuthTypes.ntlm.key) {
       config.withCredentials = true
       if (!store.getters.isSPTokenValid) {
         console.log('renew sp token')
