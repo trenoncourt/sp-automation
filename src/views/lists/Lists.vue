@@ -209,6 +209,7 @@
   import Field from '../../models/Field'
   import { fieldType } from '../../utils/enums'
   import InsertDataFromModal from './insertDataFromModal.vue'
+  import { ipcRenderer } from 'electron'
 
   export default {
     components: {
@@ -396,6 +397,7 @@
         this.$refs.insertDataFromModal.open()
       },
       async downloadList (list) {
+        console.log(list)
         const response = await this.$http.api.get(`lists(guid'${list.Id}')/fields`)
         const items = []
         const values = response.data.value.filter(v => !v.Hidden && !v.ReadOnlyField && !v.FromBaseType)
@@ -409,6 +411,7 @@
             type: fieldType.find(i.FieldTypeKind).label
           })
         }
+        ipcRenderer.send('downloadJson', {title: list.Title, items: items})
         console.log(items)
       },
       refresh () {

@@ -81,6 +81,9 @@ export const mutations = {
   [types.UPDATE_ENVIRONMENT_CERT_THUMBPRINT] (state, newValue) {
     state.environment.certThumbprint = newValue
   },
+  [types.UPDATE_ENVIRONMENT_PATH] (state, newValue) {
+    state.environment.path = newValue
+  },
   [types.UPDATE_INSERT_DATA_FROM_ENVIRONMENT] (state, env) {
     state.insertDataFromEnvironment = env
   },

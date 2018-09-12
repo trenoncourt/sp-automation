@@ -20,6 +20,14 @@
       </div>
       <div class="col-6">
         <q-field>
+          <q-input
+            float-label="Path"
+            v-model="path"
+          ></q-input>
+        </q-field>
+      </div>
+      <div class="col-6">
+        <q-field>
           <q-select
             v-model="authType"
             float-label="Type d'autentification"
@@ -118,7 +126,7 @@
     UPDATE_ENVIRONMENT_DOMAIN,
     UPDATE_ENVIRONMENT_IN_LIST,
     UPDATE_ENVIRONMENT_NAME,
-    UPDATE_ENVIRONMENT_PASSWORD,
+    UPDATE_ENVIRONMENT_PASSWORD, UPDATE_ENVIRONMENT_PATH,
     UPDATE_ENVIRONMENT_RESOURCE,
     UPDATE_ENVIRONMENT_TENANT,
     UPDATE_ENVIRONMENT_URL,
@@ -245,6 +253,14 @@
         },
         set (value) {
           this.$store.commit(UPDATE_ENVIRONMENT_CERT_THUMBPRINT, value)
+        }
+      },
+      path: {
+        get () {
+          return this.$store.state.environment ? this.$store.state.environment.path : ''
+        },
+        set (value) {
+          this.$store.commit(UPDATE_ENVIRONMENT_PATH, value)
         }
       }
     },

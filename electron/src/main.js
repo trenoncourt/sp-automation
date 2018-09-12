@@ -5,29 +5,23 @@ const
   path = require('path'),
   config = require('../config/electron'),
   app = electron.app,
-  // chokidar = require('chokidar'),
   fs = require('fs'),
   ipcMain = electron.ipcMain,
   settings = require('electron-settings'),
-  BrowserWindow = electron.BrowserWindow
+  BrowserWindow = electron.BrowserWindow,
+  spFiles = require('./spFiles')
 
 let mainWindow
 
 ipcMain.on('init', function (event, arg) {
-  console.log('init')
   readFiles('sharepoint/lists', event)
     .then(files => {
-      // console.log(files)
       event.sender.send('sp-sites-update', files)
     })
-  // const watcher = chokidar.watch('sharepoint', {persistent: true})
-  // console.log(watcher)
-  // watcher.on('all', (e, path) => {
-  //   readFiles('sharepoint/lists', files => {
-  //     console.log(files)
-  //     event.sender.send('sp-sites-update', files)
-  //   })
-  // })
+})
+
+ipcMain.on('downloadJson', function (event, arg) {
+  spFiles.saveSpJsonFile(arg.title, arg.items)
 })
 
 function promiseAllP (items, block) {
