@@ -459,7 +459,7 @@
     },
     {
       "title": "serialDelivery1",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "serialDelivery2",
@@ -1408,6 +1408,22 @@
         },
         {
           "title": "truckTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "deliveryType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "DeliveryTypes",
+      "fields": [
+        {
+          "title": "deliveryTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "deliveryTypeValue",
           "lookupField": "value"
         }
       ]
