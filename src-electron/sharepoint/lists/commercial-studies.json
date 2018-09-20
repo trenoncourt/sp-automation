@@ -1,0 +1,1443 @@
+{
+  "title": "CommercialStudies",
+  "fields": [
+    {
+      "title": "derivedFromCompletion",
+      "type": "boolean"
+    },
+    {
+      "title": "deComIndex",
+      "type": "text"
+    },
+    {
+      "title": "printCompany",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PrintCompanies",
+      "fields": [
+        {
+          "title": "printCompanyValue",
+          "lookupField": "value"
+        },
+        {
+          "title": "printCompanyLabel",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "motherId",
+      "type": "integer"
+    },
+    {
+      "title": "deSemIndex",
+      "type": "text"
+    },
+    {
+      "title": "deSimIndex",
+      "type": "text"
+    },
+    {
+      "title": "deLaboIndex",
+      "type": "text"
+    },
+    {
+      "title": "deQuoteIndex",
+      "type": "text"
+    },
+    {
+      "title": "detDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "modifiedDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "assistant",
+      "type": "user"
+    },
+    {
+      "title": "packagingAdvisor",
+      "type": "user"
+    },
+    {
+      "title": "claimer",
+      "type": "user"
+    },
+    {
+      "title": "semStatus",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionTypes",
+      "fields": [
+        {
+          "title": "studyActionLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "studyActionValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "simStatus",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionTypes",
+      "fields": [
+        {
+          "title": "simStatusLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "simStatusValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "labStatus",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionTypes",
+      "fields": [
+        {
+          "title": "labStatusLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "labStatusValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "quoteStatus",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionTypes",
+      "fields": [
+        {
+          "title": "quoteStatusLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "quoteStatusValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "customer",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "Customers",
+      "fields": [
+        {
+          "title": "customerTitle",
+          "lookupField": "Title"
+        },
+        {
+          "title": "customerAddress",
+          "lookupField": "address"
+        },
+        {
+          "title": "customerName",
+          "lookupField": "name"
+        },
+        {
+          "title": "customerAddress",
+          "lookupField": "address"
+        }
+      ]
+    },
+    {
+      "title": "packagingAttachments",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "PackagingAttachments",
+      "fields": [
+        {
+          "title": "attachmentTypeLabel",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "packaging",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "Packagings",
+      "fields": [
+        {
+          "title": "qualityState",
+          "lookupField": "qualityState"
+        },
+        {
+          "title": "landmark",
+          "lookupField": "landmark"
+        },
+        {
+          "title": "nbElements",
+          "lookupField": "nbElements"
+        },
+        {
+          "title": "nbSamples",
+          "lookupField": "nbSamples"
+        },
+        {
+          "title": "dimensionInt1",
+          "lookupField": "dimensionInt1"
+        },
+        {
+          "title": "dimensionInt2",
+          "lookupField": "dimensionInt2"
+        },
+        {
+          "title": "dimensionInt3",
+          "lookupField": "dimensionInt3"
+        },
+        {
+          "title": "dimensionExt1",
+          "lookupField": "dimensionExt1"
+        },
+        {
+          "title": "dimensionExt2",
+          "lookupField": "dimensionExt2"
+        },
+        {
+          "title": "dimensionExt3",
+          "lookupField": "dimensionExt3"
+        },
+        {
+          "title": "dimensionInt4",
+          "lookupField": "dimensionInt4"
+        },
+        {
+          "title": "dimensionExt4",
+          "lookupField": "dimensionExt4"
+        },
+        {
+          "title": "packageSpline",
+          "lookupField": "packageSpline"
+        },
+        {
+          "title": "packageSplineONU",
+          "lookupField": "packageSplineONU"
+        },
+        {
+          "title": "packageSplineONU2",
+          "lookupField": "packageSplineONU2"
+        }
+      ]
+    },
+    {
+      "title": "pallets",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "Pallets",
+      "fields": [
+        {
+          "title": "palletsNb",
+          "lookupField": "nb"
+        },
+        {
+          "title": "palletsHeight",
+          "lookupField": "height"
+        },
+        {
+          "title": "palletsWidth",
+          "lookupField": "width"
+        },
+        {
+          "title": "palletsLength",
+          "lookupField": "length"
+        },
+        {
+          "title": "palletsWeight",
+          "lookupField": "weight"
+        },
+        {
+          "title": "palletsOverflow",
+          "lookupField": "overflow"
+        }
+      ]
+    },
+    {
+      "title": "addresses",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "Addresses",
+      "fields": [
+        {
+          "title": "addressesCompany",
+          "lookupField": "company"
+        },
+        {
+          "title": "addressesAddress",
+          "lookupField": "address"
+        },
+        {
+          "title": "addressesAddress2",
+          "lookupField": "address2"
+        },
+        {
+          "title": "addressesZipCode",
+          "lookupField": "zipCode"
+        },
+        {
+          "title": "addressesCity",
+          "lookupField": "city"
+        },
+        {
+          "title": "addressesSpotlight",
+          "lookupField": "spotlight"
+        },
+        {
+          "title": "addressesPrintingCompany",
+          "lookupField": "printingCompany"
+        }
+      ]
+    },
+    {
+      "title": "reference",
+      "type": "text"
+    },
+    {
+      "title": "prospect",
+      "type": "text"
+    },
+    {
+      "title": "clientProspect",
+      "type": "text"
+    },
+    {
+      "title": "isPriceRequest",
+      "type": "boolean"
+    },
+    {
+      "title": "isBidSolicitation",
+      "type": "boolean"
+    },
+    {
+      "title": "isPreStudySem",
+      "type": "boolean"
+    },
+    {
+      "title": "isSamples",
+      "type": "boolean"
+    },
+    {
+      "title": "isSettings",
+      "type": "boolean"
+    },
+    {
+      "title": "isFabPlans",
+      "type": "boolean"
+    },
+    {
+      "title": "isCapePackStudy",
+      "type": "boolean"
+    },
+    {
+      "title": "isCustomerPlan",
+      "type": "boolean"
+    },
+    {
+      "title": "isGmg",
+      "type": "boolean"
+    },
+    {
+      "title": "isTracer",
+      "type": "boolean"
+    },
+    {
+      "title": "isPosterPrice",
+      "type": "boolean"
+    },
+    {
+      "title": "isBat",
+      "type": "boolean"
+    },
+    {
+      "title": "isWitnessesColor",
+      "type": "boolean"
+    },
+    {
+      "title": "isTag",
+      "type": "boolean"
+    },
+    {
+      "title": "isAnalysisLab",
+      "type": "boolean"
+    },
+    {
+      "title": "isStudyLab",
+      "type": "boolean"
+    },
+    {
+      "title": "isStored",
+      "type": "boolean"
+    },
+    {
+      "title": "isUpgrade",
+      "type": "boolean"
+    },
+    {
+      "title": "annualMarket",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "AnnualMarkets",
+      "fields": [
+        {
+          "title": "annualMarketLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "annualMarketValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "quantityChoice",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "QuantityChoices",
+      "fields": [
+        {
+          "title": "quantityChoiceLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "quantityChoiceValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "quantity",
+      "type": "integer"
+    },
+    {
+      "title": "labStudyAttachment",
+      "type": "text"
+    },
+    {
+      "title": "serialDelivery1",
+      "type": "integer"
+    },
+    {
+      "title": "truckFull",
+      "type": "boolean"
+    },
+    {
+      "title": "serialDelivery2",
+      "type": "integer"
+    },
+    {
+      "title": "serialDelivery3",
+      "type": "integer"
+    },
+    {
+      "title": "serialDelivery4",
+      "type": "integer"
+    },
+    {
+      "title": "serialDelivery5",
+      "type": "integer"
+    },
+    {
+      "title": "quantityImperative",
+      "type": "text"
+    },
+    {
+      "title": "stock",
+      "type": "boolean"
+    },
+    {
+      "title": "splitting",
+      "type": "boolean"
+    },
+    {
+      "title": "peeringTogether",
+      "type": "boolean"
+    },
+    {
+      "title": "imposedQuantity",
+      "type": "boolean"
+    },
+    {
+      "title": "mountedPackaging",
+      "type": "boolean"
+    },
+    {
+      "title": "nbRedelivery",
+      "type": "integer"
+    },
+    {
+      "title": "stampLne",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StampsLne",
+      "fields": [
+        {
+          "title": "stampLneLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "stampLneValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "packageType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageTypes",
+      "fields": [
+        {
+          "title": "packageTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "packageSpline",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSpline",
+      "fields": [
+        {
+          "title": "packageSplineLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "packageSplineONU",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "packageSplineONULabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineONUValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "packageSplineONU2",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "packageSplineONU2Label",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineONU2Value",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "mecanizedPackageType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "MecanizedPackageTypes",
+      "fields": [
+        {
+          "title": "mecanizedPackageTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "mecanizedPackageTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "creationGoal",
+      "type": "text"
+    },
+    {
+      "title": "packagingFeatures",
+      "type": "text"
+    },
+    {
+      "title": "fsc",
+      "type": "boolean"
+    },
+    {
+      "title": "onuApproval",
+      "type": "boolean"
+    },
+    {
+      "title": "lne",
+      "type": "boolean"
+    },
+    {
+      "title": "otherApproval",
+      "type": "boolean"
+    },
+    {
+      "title": "printingPackaging",
+      "type": "text"
+    },
+    {
+      "title": "otherAgreement",
+      "type": "text"
+    },
+    {
+      "title": "mechanisedPackaging",
+      "type": "boolean"
+    },
+    {
+      "title": "flaps",
+      "type": "boolean"
+    },
+    {
+      "title": "inkjet",
+      "type": "boolean"
+    },
+    {
+      "title": "implementation",
+      "type": "text"
+    },
+    {
+      "title": "closing",
+      "type": "text"
+    },
+    {
+      "title": "mechanizationReference",
+      "type": "text"
+    },
+    {
+      "title": "mechanizationCharacteristics",
+      "type": "text"
+    },
+    {
+      "title": "flapsTypeEject",
+      "type": "text"
+    },
+    {
+      "title": "flapsTypeDirection",
+      "type": "text"
+    },
+    {
+      "title": "customerModel",
+      "type": "boolean"
+    },
+    {
+      "title": "attachment",
+      "type": "boolean"
+    },
+    {
+      "title": "foodContact",
+      "type": "boolean"
+    },
+    {
+      "title": "customerModelValue",
+      "type": "text"
+    },
+    {
+      "title": "foodToPackComment",
+      "type": "text"
+    },
+    {
+      "title": "moulding",
+      "type": "boolean"
+    },
+    {
+      "title": "uprootingStrip",
+      "type": "boolean"
+    },
+    {
+      "title": "uprootingStripValue",
+      "type": "text"
+    },
+    {
+      "title": "adhesiveStrip",
+      "type": "boolean"
+    },
+    {
+      "title": "adhesiveStripValue",
+      "type": "text"
+    },
+    {
+      "title": "reinforcementStrip",
+      "type": "boolean"
+    },
+    {
+      "title": "reinforcementStripValue",
+      "type": "text"
+    },
+    {
+      "title": "extraStrip",
+      "type": "boolean"
+    },
+    {
+      "title": "extraStripValue",
+      "type": "text"
+    },
+    {
+      "title": "slicing",
+      "type": "boolean"
+    },
+    {
+      "title": "slicingValue",
+      "type": "text"
+    },
+    {
+      "title": "grip",
+      "type": "boolean"
+    },
+    {
+      "title": "gripValue",
+      "type": "text"
+    },
+    {
+      "title": "perforation",
+      "type": "boolean"
+    },
+    {
+      "title": "perforationValue",
+      "type": "text"
+    },
+    {
+      "title": "gasket",
+      "type": "text"
+    },
+    {
+      "title": "overlap",
+      "type": "text"
+    },
+    {
+      "title": "imposed",
+      "type": "text"
+    },
+    {
+      "title": "otherFlap",
+      "type": "text"
+    },
+    {
+      "title": "sampleDelivery",
+      "type": "text"
+    },
+    {
+      "title": "specificFlap",
+      "type": "boolean"
+    },
+    {
+      "title": "requestCustomer",
+      "type": "boolean"
+    },
+    {
+      "title": "requestARD",
+      "type": "boolean"
+    },
+    {
+      "title": "requestGraphicImplantation",
+      "type": "boolean"
+    },
+    {
+      "title": "requestDFX",
+      "type": "boolean"
+    },
+    {
+      "title": "request3D",
+      "type": "boolean"
+    },
+    {
+      "title": "requestCF2",
+      "type": "boolean"
+    },
+    {
+      "title": "outsideTenColorType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "TenColorTypes",
+      "fields": [
+        {
+          "title": "outsideTenColorTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "outsideTenColorTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "insideTenColorType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "TenColorTypes",
+      "fields": [
+        {
+          "title": "insideTenColorTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "insideTenColorTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "insidePrinting",
+      "type": "boolean"
+    },
+    {
+      "title": "insideVarnish",
+      "type": "boolean"
+    },
+    {
+      "title": "insideOtherVarnish",
+      "type": "text"
+    },
+    {
+      "title": "insideVarnishValue",
+      "type": "text"
+    },
+    {
+      "title": "insideSpotted",
+      "type": "boolean"
+    },
+    {
+      "title": "insideMetalicColor",
+      "type": "text"
+    },
+    {
+      "title": "insideInking",
+      "type": "text"
+    },
+    {
+      "title": "insidePrintingType",
+      "type": "text"
+    },
+    {
+      "title": "insideNbTracer",
+      "type": "integer"
+    },
+    {
+      "title": "insideNbGMG",
+      "type": "integer"
+    },
+    {
+      "title": "rackType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "RackTypes",
+      "fields": [
+        {
+          "title": "rackTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "rackTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "printType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "PrintTypes",
+      "fields": [
+        {
+          "title": "printTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "printTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "rcvType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "RcvTypes",
+      "fields": [
+        {
+          "title": "rcvTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "rcvTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "printPosition",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PrintPositions",
+      "fields": [
+        {
+          "title": "printPositionLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "printPositionValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "supportType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "SupportTypes",
+      "fields": [
+        {
+          "title": "supportTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "supportTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "pantoneType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PantoneTypes",
+      "fields": [
+        {
+          "title": "pantoneTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "pantoneTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "pantoneType2",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PantoneTypes2",
+      "fields": [
+        {
+          "title": "pantoneType2Label",
+          "lookupField": "label"
+        },
+        {
+          "title": "pantoneType2Value",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "askingPantone",
+      "type": "text"
+    },
+    {
+      "title": "inkType",
+      "type": "text"
+    },
+    {
+      "title": "askingPantone2",
+      "type": "text"
+    },
+    {
+      "title": "huePictureType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "HuePictureTypes",
+      "fields": [
+        {
+          "title": "huePictureTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "huePictureTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "transportType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "TransportTypes",
+      "fields": [
+        {
+          "title": "transportTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "transportTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "outsidePrinting",
+      "type": "boolean"
+    },
+    {
+      "title": "outsideVarnish",
+      "type": "boolean"
+    },
+    {
+      "title": "outsideVarnishValue",
+      "type": "text"
+    },
+    {
+      "title": "outsideOtherVarnish",
+      "type": "text"
+    },
+    {
+      "title": "outsideSpotted",
+      "type": "boolean"
+    },
+    {
+      "title": "outsideMetalicColor",
+      "type": "text"
+    },
+    {
+      "title": "outsideInking",
+      "type": "text"
+    },
+    {
+      "title": "outsidePrintingType",
+      "type": "text"
+    },
+    {
+      "title": "colorPattern",
+      "type": "boolean"
+    },
+    {
+      "title": "outsideNbGMG",
+      "type": "integer"
+    },
+    {
+      "title": "outsideNbTracer",
+      "type": "integer"
+    },
+    {
+      "title": "pantone",
+      "type": "boolean"
+    },
+    {
+      "title": "corrugatedPaper",
+      "type": "boolean"
+    },
+    {
+      "title": "otherAnalys",
+      "type": "boolean"
+    },
+    {
+      "title": "ect",
+      "type": "boolean"
+    },
+    {
+      "title": "rcv",
+      "type": "boolean"
+    },
+    {
+      "title": "otherAnalysValue",
+      "type": "text"
+    },
+    {
+      "title": "productNature",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "ProductNatures",
+      "fields": [
+        {
+          "title": "productNatureLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "productNatureValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "productNature2",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "ProductNatures2",
+      "fields": [
+        {
+          "title": "productNature2Label",
+          "lookupField": "label"
+        },
+        {
+          "title": "productNature2Value",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "productCapacity",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "ProductCapacities",
+      "fields": [
+        {
+          "title": "productCapacityLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "productCapacityValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "stacking",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "Stackings",
+      "fields": [
+        {
+          "title": "stackingLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "stackingValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "palletStacking",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PalletStackings",
+      "fields": [
+        {
+          "title": "palletStackingLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "palletStackingValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "deliveryPlace",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "DeliveryPlaces",
+      "fields": [
+        {
+          "title": "deliveryPlaceLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "deliveryPlaceValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "proposalQualityCustomer",
+      "type": "boolean"
+    },
+    {
+      "title": "proposalQuality",
+      "type": "boolean"
+    },
+    {
+      "title": "technicalSheet",
+      "type": "boolean"
+    },
+    {
+      "title": "verifiedTechnicalSheet",
+      "type": "boolean"
+    },
+    {
+      "title": "completeTechnicalSheet",
+      "type": "boolean"
+    },
+    {
+      "title": "studyOther",
+      "type": "boolean"
+    },
+    {
+      "title": "studyOtherValue",
+      "type": "text"
+    },
+    {
+      "title": "preCutting",
+      "type": "boolean"
+    },
+    {
+      "title": "otherPrecisionPackaging",
+      "type": "text"
+    },
+    {
+      "title": "maxHeight",
+      "type": "integer"
+    },
+    {
+      "title": "nbLayer",
+      "type": "integer"
+    },
+    {
+      "title": "otherPrecisionPallet",
+      "type": "text"
+    },
+    {
+      "title": "humidity",
+      "type": "integer"
+    },
+    {
+      "title": "stackingPallet",
+      "type": "boolean"
+    },
+    {
+      "title": "otherPrecisionStock",
+      "type": "text"
+    },
+    {
+      "title": "maxPeriod",
+      "type": "integer"
+    },
+    {
+      "title": "stackingPalletTransportValue",
+      "type": "boolean"
+    },
+    {
+      "title": "stackingPalletTransport",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PalletStackings",
+      "fields": [
+        {
+          "title": "stackingPalletLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "stackingPalletValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "bulkBreaking",
+      "type": "boolean"
+    },
+    {
+      "title": "nbBulkBreaking",
+      "type": "integer"
+    },
+    {
+      "title": "transportPeriod",
+      "type": "text"
+    },
+    {
+      "title": "transportDistance",
+      "type": "text"
+    },
+    {
+      "title": "otherPrecisionTransport",
+      "type": "text"
+    },
+    {
+      "title": "palletType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PalletTypes",
+      "fields": [
+        {
+          "title": "palletTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "palletTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "palletizing",
+      "type": "boolean"
+    },
+    {
+      "title": "heightPalet",
+      "type": "integer"
+    },
+    {
+      "title": "widthPalet",
+      "type": "integer"
+    },
+    {
+      "title": "priceType",
+      "type": "text"
+    },
+    {
+      "title": "maxHeightValue",
+      "type": "integer"
+    },
+    {
+      "title": "quantityPalletValue",
+      "type": "integer"
+    },
+    {
+      "title": "specialPackage",
+      "type": "boolean"
+    },
+    {
+      "title": "nbSpecialPackage",
+      "type": "integer"
+    },
+    {
+      "title": "nbQuote",
+      "type": "text"
+    },
+    {
+      "title": "allowedOverflow",
+      "type": "boolean"
+    },
+    {
+      "title": "allowedOverflowValue",
+      "type": "text"
+    },
+    {
+      "title": "rack",
+      "type": "boolean"
+    },
+    {
+      "title": "rackLength",
+      "type": "integer"
+    },
+    {
+      "title": "rackWidth",
+      "type": "integer"
+    },
+    {
+      "title": "rackHeight",
+      "type": "integer"
+    },
+    {
+      "title": "antiPalletId",
+      "type": "integer"
+    },
+    {
+      "title": "antiPallet",
+      "type": "boolean"
+    },
+    {
+      "title": "stretchFilm",
+      "type": "boolean"
+    },
+    {
+      "title": "studySeriesQuantity1",
+      "type": "integer"
+    },
+    {
+      "title": "studySeriesQuantity2",
+      "type": "integer"
+    },
+    {
+      "title": "truckType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "TruckTypes",
+      "fields": [
+        {
+          "title": "truckTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "truckTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "deliveryType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "DeliveryTypes",
+      "fields": [
+        {
+          "title": "deliveryTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "deliveryTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "deliveryCity",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "DeliveryCities",
+      "fields": [
+        {
+          "title": "deliveryCityLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "deliveryCityValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "deliveryCity2",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "DeliveryCities",
+      "fields": [
+        {
+          "title": "deliveryCity2Label",
+          "lookupField": "label"
+        },
+        {
+          "title": "deliveryCity2Value",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "otherDeliveryCity2",
+      "type": "text"
+    },
+    {
+      "title": "otherDeliveryCity",
+      "type": "text"
+    }
+  ]
+}

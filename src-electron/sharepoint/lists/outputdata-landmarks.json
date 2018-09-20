@@ -1,0 +1,137 @@
+{
+  "title": "LandMarks",
+  "fields": [
+    {
+      "title": "processSical",
+      "type": "boolean"
+    },
+    {
+      "title": "processNordCarton",
+      "type": "boolean"
+    },
+    {
+      "title": "processSubcontracting",
+      "type": "boolean"
+    },
+    {
+      "title": "processServibox",
+      "type": "boolean"
+    },
+    {
+      "title": "processValsciusIDF",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalCorrugator",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalCombined",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalWard",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalC1228Emba",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalEmbaC616",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalCutting",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalB1600B2000",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalMcutMcut2",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalFoldingAndGluingMachine",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalPacific",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalTanabe",
+      "type": "boolean"
+    },
+    {
+      "title": "masterflex",
+      "type": "boolean"
+    },
+    {
+      "title": "miscellaneous",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonCorrugatorPlateInStock",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonCombined",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonC1000",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonCrossed",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonCutting",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonLeather",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonJ10Ml1500Rapidex",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonSinger",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonFoldingGluingMachine",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonDigitalPrinting",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonLaminating",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonMiscellaneous",
+      "type": "boolean"
+    },
+    {
+      "title": "subcontractingOffsetPrinting",
+      "type": "boolean"
+    },
+    {
+      "title": "subcontractingBondCAT",
+      "type": "boolean"
+    },
+    {
+      "title": "subcontractingAssemblyCAT",
+      "type": "boolean"
+    }
+  ]
+}

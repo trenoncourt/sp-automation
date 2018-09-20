@@ -1,0 +1,21 @@
+{
+  "title": "PackageSplineONU",
+  "fields": [
+    {
+      "title": "label",
+      "type": "text"
+    },
+    {
+      "title": "spline",
+      "type": "text"
+    },
+    {
+      "title": "style",
+      "type": "text"
+    },
+    {
+      "title": "value",
+      "type": "integer"
+    }
+  ]
+}

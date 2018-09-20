@@ -1,0 +1,93 @@
+{
+  "title": "StudyHistory",
+  "fields": [
+    {
+      "title": "action",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionTypes",
+      "fields": [
+        {
+          "title": "label",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "request",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyTypes",
+      "fields": [
+        {
+          "title": "label",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "reason",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "StudyActionReasons",
+      "fields": [
+        {
+          "title": "label",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "service",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "Services",
+      "fields": [
+        {
+          "title": "value",
+          "lookupField": "value"
+        },
+        {
+          "title": "label",
+          "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "study",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "Studies",
+      "fields": [
+        {
+          "title": "deComIndex",
+          "lookupField": "deComIndex"
+        }
+      ]
+    },
+    {
+      "title": "operator",
+      "type": "user"
+    },
+    {
+      "title": "sample",
+      "type": "text"
+    },
+    {
+      "title": "endDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "beginDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "comment",
+      "type": "text"
+    },
+    {
+      "title": "sendMail",
+      "type": "boolean"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "TruckTypes",
+  "fields": [
+    {
+      "title": "label",
+      "type": "text"
+    },
+    {
+      "title": "value",
+      "type": "number"
+    }
+  ]
+}

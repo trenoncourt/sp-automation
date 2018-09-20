@@ -1,0 +1,249 @@
+{
+  "title": "Packagings",
+  "fields": [
+    {
+      "title": "qualityState",
+      "type": "text"
+    },
+    {
+      "title": "landmark",
+      "type": "integer"
+    },
+    {
+      "title": "nbElements",
+      "type": "integer"
+    },
+    {
+      "title": "nbSamples",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt1",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt2",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt3",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionExt1",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionExt2",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt4",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionExt4",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionExt3",
+      "type": "integer"
+    },
+    {
+      "title": "packageSpline",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSpline",
+      "fields": [
+        {
+          "title": "packageSplineLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "packageSplineONU",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "packageSplineONULabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineONUValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "packageSplineONU2",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "packageSplineONU2Label",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineONU2Value",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "packageType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageTypes",
+      "fields": [
+        {
+          "title": "packageTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "processSical",
+      "type": "boolean"
+    },
+    {
+      "title": "processNordCarton",
+      "type": "boolean"
+    },
+    {
+      "title": "processSubcontracting",
+      "type": "boolean"
+    },
+    {
+      "title": "processServibox",
+      "type": "boolean"
+    },
+    {
+      "title": "processValsciusIDF",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalCorrugator",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalCombined",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalCutting",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalFoldingAndGluingMachine",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalMasterflex",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalMiscellaneous",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalWard",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalC1228_emba",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalEmba_c616",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalB1600_b2000",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalMcut_mcut2",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalPacific",
+      "type": "boolean"
+    },
+    {
+      "title": "sicalTanabe",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonCorrugatorPlateInStock",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonCombined",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonCutting",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonFoldingAndGluingMachine",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonDigitalPrinting",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonLaminating",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonMiscellaneous",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonC1000",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonCrossed",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonLeather",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonJ10_ml1500_rapidex",
+      "type": "boolean"
+    },
+    {
+      "title": "nordCartonSinger",
+      "type": "boolean"
+    },
+    {
+      "title": "subcontractingOffsetPrinting",
+      "type": "boolean"
+    },
+    {
+      "title": "subcontractingBondCAT",
+      "type": "boolean"
+    },
+    {
+      "title": "subcontractingAssemblyCAT",
+      "type": "boolean"
+    }
+  ]
+}

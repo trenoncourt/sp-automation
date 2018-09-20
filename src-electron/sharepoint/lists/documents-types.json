@@ -1,0 +1,13 @@
+{
+  "title": "DocumentsTypes",
+  "fields": [
+    {
+      "title": "label",
+      "type": "text"
+    },
+    {
+      "title": "value",
+      "type": "integer"
+    }
+  ]
+}

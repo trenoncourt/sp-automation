@@ -1,0 +1,13 @@
+{
+  "title": "DeliveryCities",
+  "fields": [
+    {
+      "title": "label",
+      "type": "text"
+    },
+    {
+      "title": "value",
+      "type": "integer"
+    }
+  ]
+}

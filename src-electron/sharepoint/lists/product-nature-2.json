@@ -1,0 +1,13 @@
+{
+  "title": "ProductNatures2",
+  "fields": [
+    {
+      "title": "label",
+      "type": "text"
+    },
+    {
+      "title": "value",
+      "type": "integer"
+    }
+  ]
+}
