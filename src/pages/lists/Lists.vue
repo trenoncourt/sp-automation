@@ -66,6 +66,9 @@
                   </q-popover>
                 </q-btn>
                 <q-btn class="q-mr-xs" icon="file_download" @click="downloadList(props.row)" size="12px" round color="primary" />
+                <q-btn class="q-mr-xs" @click.native="updateListFields(props.row), insertDataFromFile(props.row), $refs['popover-random-items-' + props.row.Id].hide()" size="12px" round color="primary">
+                  <q-icon name="add"/>
+                </q-btn>
                 <q-btn class="q-mr-xs" color="primary" @click="updateListFields(props.row)" size="12px" round>
                   <q-icon name="assignment"/>
                   <q-popover ref="popover-json-lists">
@@ -390,7 +393,6 @@ export default {
       this.$refs.insertDataFromModal.open()
     },
     insertDataFromFile (list) {
-      debugger
       this.$store.commit(UPDATE_INSERT_DATA_TO_LIST, list)
       this.$refs.insertDataFromFileModal.open()
     },

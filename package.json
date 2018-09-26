@@ -17,7 +17,8 @@
     "electron-settings": "^3.2.0",
     "require": "^2.4.20",
     "vue-i18n": "^7.3.3",
-    "vuex-persistedstate": "^2.5.4"
+    "vuex-persistedstate": "^2.5.4",
+    "xlsx": "^0.14.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
