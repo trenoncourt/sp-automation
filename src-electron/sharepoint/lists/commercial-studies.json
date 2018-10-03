@@ -6,28 +6,44 @@
       "type": "boolean"
     },
     {
+      "title": "semOutputDataId",
+      "type": "integer"
+    },
+    {
       "title": "deComIndex",
       "type": "text"
     },
     {
-      "title": "printCompany",
-      "type": "lookup",
-      "lookupField": "ID",
-      "lookupList": "PrintCompanies",
-      "fields": [
-        {
-          "title": "printCompanyValue",
-          "lookupField": "value"
-        },
-        {
-          "title": "printCompanyLabel",
-          "lookupField": "label"
-        }
-      ]
-    },
-    {
       "title": "motherId",
       "type": "integer"
+    },
+    {
+      "title": "soldoutOriginStudyIndex",
+      "type": "text"
+    },
+    {
+      "title": "soldoutOriginStudySemIndex",
+      "type": "text"
+    },
+    {
+      "title": "soldoutOriginStudySimIndex",
+      "type": "text"
+    },
+    {
+      "title": "soldoutOriginStudyQuoteIndex",
+      "type": "text"
+    },
+    {
+      "title": "soldoutOriginStudyLaboIndex",
+      "type": "text"
+    },
+    {
+      "title": "isStored",
+      "type": "boolean"
+    },
+    {
+      "title": "isUpgrade",
+      "type": "boolean"
     },
     {
       "title": "deSemIndex",
@@ -64,6 +80,22 @@
     {
       "title": "claimer",
       "type": "user"
+    },
+    {
+      "title": "printCompany",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PrintCompanies",
+      "fields": [
+        {
+          "title": "printCompanyValue",
+          "lookupField": "value"
+        },
+        {
+          "title": "printCompanyLabel",
+          "lookupField": "label"
+        }
+      ]
     },
     {
       "title": "semStatus",
@@ -210,16 +242,16 @@
           "lookupField": "dimensionExt2"
         },
         {
-          "title": "dimensionExt3",
-          "lookupField": "dimensionExt3"
-        },
-        {
           "title": "dimensionInt4",
           "lookupField": "dimensionInt4"
         },
         {
           "title": "dimensionExt4",
           "lookupField": "dimensionExt4"
+        },
+        {
+          "title": "dimensionExt3",
+          "lookupField": "dimensionExt3"
         },
         {
           "title": "packageSpline",
@@ -382,14 +414,6 @@
       "type": "boolean"
     },
     {
-      "title": "isStored",
-      "type": "boolean"
-    },
-    {
-      "title": "isUpgrade",
-      "type": "boolean"
-    },
-    {
       "title": "annualMarket",
       "type": "lookup",
       "lookupField": "ID",
@@ -434,10 +458,6 @@
       "type": "integer"
     },
     {
-      "title": "truckFull",
-      "type": "boolean"
-    },
-    {
       "title": "serialDelivery2",
       "type": "integer"
     },
@@ -459,6 +479,10 @@
     },
     {
       "title": "stock",
+      "type": "boolean"
+    },
+    {
+      "title": "truckFull",
       "type": "boolean"
     },
     {
@@ -579,11 +603,7 @@
     },
     {
       "title": "creationGoal",
-      "type": "text"
-    },
-    {
-      "title": "packagingFeatures",
-      "type": "text"
+      "type": "note"
     },
     {
       "title": "fsc",
@@ -663,7 +683,7 @@
     },
     {
       "title": "foodToPackComment",
-      "type": "text"
+      "type": "note"
     },
     {
       "title": "moulding",
@@ -774,17 +794,17 @@
       "type": "boolean"
     },
     {
-      "title": "outsideTenColorType",
+      "title": "tenColorType",
       "type": "lookup",
       "lookupField": "ID",
       "lookupList": "TenColorTypes",
       "fields": [
         {
-          "title": "outsideTenColorTypeLabel",
+          "title": "tenColorTypeLabel",
           "lookupField": "label"
         },
         {
-          "title": "outsideTenColorTypeValue",
+          "title": "tenColorTypeValue",
           "lookupField": "value"
         }
       ]
@@ -804,46 +824,6 @@
           "lookupField": "value"
         }
       ]
-    },
-    {
-      "title": "insidePrinting",
-      "type": "boolean"
-    },
-    {
-      "title": "insideVarnish",
-      "type": "boolean"
-    },
-    {
-      "title": "insideOtherVarnish",
-      "type": "text"
-    },
-    {
-      "title": "insideVarnishValue",
-      "type": "text"
-    },
-    {
-      "title": "insideSpotted",
-      "type": "boolean"
-    },
-    {
-      "title": "insideMetalicColor",
-      "type": "text"
-    },
-    {
-      "title": "insideInking",
-      "type": "text"
-    },
-    {
-      "title": "insidePrintingType",
-      "type": "text"
-    },
-    {
-      "title": "insideNbTracer",
-      "type": "integer"
-    },
-    {
-      "title": "insideNbGMG",
-      "type": "integer"
     },
     {
       "title": "rackType",
@@ -879,34 +859,18 @@
       ]
     },
     {
-      "title": "rcvType",
+      "title": "insidePrintType",
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "RcvTypes",
+      "lookupList": "PrintTypes",
       "fields": [
         {
-          "title": "rcvTypeLabel",
+          "title": "insidePrintTypeLabel",
           "lookupField": "label"
         },
         {
-          "title": "rcvTypeValue",
-          "lookupField": "value"
-        }
-      ]
-    },
-    {
-      "title": "printPosition",
-      "type": "lookup",
-      "lookupField": "ID",
-      "lookupList": "PrintPositions",
-      "fields": [
-        {
-          "title": "printPositionLabel",
-          "lookupField": "label"
-        },
-        {
-          "title": "printPositionValue",
+          "title": "insidePrintTypeValue",
           "lookupField": "value"
         }
       ]
@@ -1004,35 +968,67 @@
       ]
     },
     {
-      "title": "outsidePrinting",
+      "title": "printing",
       "type": "boolean"
     },
     {
-      "title": "outsideVarnish",
+      "title": "insidePrinting",
       "type": "boolean"
     },
     {
-      "title": "outsideVarnishValue",
-      "type": "text"
-    },
-    {
-      "title": "outsideOtherVarnish",
-      "type": "text"
-    },
-    {
-      "title": "outsideSpotted",
+      "title": "varnish",
       "type": "boolean"
     },
     {
-      "title": "outsideMetalicColor",
+      "title": "insideVarnish",
+      "type": "boolean"
+    },
+    {
+      "title": "varnishValue",
       "type": "text"
     },
     {
-      "title": "outsideInking",
+      "title": "otherVarnish",
       "type": "text"
     },
     {
-      "title": "outsidePrintingType",
+      "title": "insideVarnishValue",
+      "type": "text"
+    },
+    {
+      "title": "insideOtherVarnish",
+      "type": "text"
+    },
+    {
+      "title": "spotted",
+      "type": "boolean"
+    },
+    {
+      "title": "insideSpotted",
+      "type": "boolean"
+    },
+    {
+      "title": "metalicColor",
+      "type": "text"
+    },
+    {
+      "title": "insideMetalicColor",
+      "type": "text"
+    },
+    {
+      "title": "inking",
+      "type": "text"
+    },
+    {
+      "title": "insideInking",
+      "type": "text"
+    },
+    {
+      "title": "printingType",
+      "type": "text"
+    },
+    {
+      "title": "insidePrintingType",
       "type": "text"
     },
     {
@@ -1040,11 +1036,19 @@
       "type": "boolean"
     },
     {
-      "title": "outsideNbGMG",
+      "title": "nbGMG",
       "type": "integer"
     },
     {
-      "title": "outsideNbTracer",
+      "title": "nbTracer",
+      "type": "integer"
+    },
+    {
+      "title": "insideNbGMG",
+      "type": "integer"
+    },
+    {
+      "title": "insideNbTracer",
       "type": "integer"
     },
     {
@@ -1066,6 +1070,23 @@
     {
       "title": "rcv",
       "type": "boolean"
+    },
+    {
+      "title": "rcvType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "RcvTypes",
+      "fields": [
+        {
+          "title": "rcvTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "rcvTypeValue",
+          "lookupField": "value"
+        }
+      ]
     },
     {
       "title": "otherAnalysValue",

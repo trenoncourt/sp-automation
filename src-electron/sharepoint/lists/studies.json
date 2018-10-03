@@ -607,11 +607,7 @@
     },
     {
       "title": "creationGoal",
-      "type": "text"
-    },
-    {
-      "title": "packagingFeatures",
-      "type": "text"
+      "type": "note"
     },
     {
       "title": "fsc",
@@ -691,7 +687,7 @@
     },
     {
       "title": "foodToPackComment",
-      "type": "text"
+      "type": "note"
     },
     {
       "title": "moulding",

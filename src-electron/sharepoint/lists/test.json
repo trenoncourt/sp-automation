@@ -1,0 +1,9 @@
+{
+  "title": "Test",
+  "fields": [
+    {
+      "title": "test",
+      "type": "text"
+    }
+  ]
+}
