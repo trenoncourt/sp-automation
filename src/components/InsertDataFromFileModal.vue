@@ -2,20 +2,19 @@
   <div>
     <q-modal ref="modal" :content-css="{padding: '35px', minWidth: '55vw'}">
       <h5>Insertion de données depuis un fichier</h5>
-      <q-uploader url="" @add="importDataFrom" class="q-mb-xl" ref="uploader" />
+      <q-uploader url="" @add="importDataFrom" class="q-mb-xl" ref="uploader"/>
       <h6>Association Champ Excel et SharePoint</h6>
-      <div v-for="row in mappedRows" v-bind:key="row.xlsxFieldName" class="row gutter-x-md">
+      <div v-for="row in mappedRows" :key="row.xlsxFieldName" class="row gutter-x-md">
         <div class="col-6">
 
-          <q-btn size="md" flat v-model="row.xlsxFieldName" :label="row.xlsxFieldName.split('_')[0]" />
-      </div>
-       <div class="col-6">
-        <q-select
+          <q-btn size="md" flat v-model="row.xlsxFieldName" :label="row.xlsxFieldName.split('_')[0]"/>
+        </div>
+        <div class="col-6">
+          <q-select
             v-model="row.spFieldName"
             filter
-            :options="spFieldNames"
-          />
-       </div>
+            :options="spFieldNames"></q-select>
+        </div>
       </div>
 
       <q-btn class="q-mt-md float-right" color="primary" @click="importExcel()">valider</q-btn>
@@ -27,6 +26,7 @@
 
 import { UPDATE_INSERT_DATA_TO_LIST } from 'src/store/mutation-types'
 import XLSX from 'XLSX'
+import { UPDATE_LIST_FIELDS_IN_LISTS } from '../store/mutation-types'
 
 export default {
   data () {
@@ -141,33 +141,34 @@ export default {
         })
       }
     },
-    addExcel (list, reader) {
+    async addExcel (list, reader) {
       let vm = this
       this.spFieldNames = []
       this.xlsxFieldNames = []
-      reader.onload = (e) => {
+      const updateListTask = this.$store.dispatch(UPDATE_LIST_FIELDS_IN_LISTS, list)
+      reader.onload = async (e) => {
         let file = e.target.result
 
         let workbook = XLSX.read(file, {type: 'binary'})
         if (!workbook) {
           return
         }
-
+        await updateListTask
         vm.spFieldNames = this.insertDataToList.fields.map(x => {
-          return { value: x.InternalName, label: x.InternalName }
+          return {value: x.InternalName, label: x.InternalName}
         })
         for (let x = 0; x < workbook.SheetNames.length; x++) {
           let sheetName = workbook.SheetNames[x]
           let sheet = workbook.Sheets[sheetName]
-          let data = XLSX.utils.sheet_to_json(sheet, { header: 1 })
+          let data = XLSX.utils.sheet_to_json(sheet, {header: 1})
 
           if (data.length === 0) {
             continue
           }
 
-          const columnIdx = 3
+          const columnIdx = 0
           for (let j = 0; j < data[columnIdx].length; j++) {
-            vm.xlsxFieldNames.push({ value: data[columnIdx][j], label: data[columnIdx][j] })
+            vm.xlsxFieldNames.push({value: data[columnIdx][j], label: data[columnIdx][j]})
           }
 
           let j = 0

@@ -12,6 +12,7 @@ export const isSPOTokenValid = state => {
   if (!state.token || !state.token.accessToken) {
     return false
   }
+  return true
 }
 
 export const visibleLists = state => {

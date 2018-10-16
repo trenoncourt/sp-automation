@@ -23,99 +23,104 @@
           :columns="tableColumns"
           :pagination.sync="tablePagination"
           row-key="name">
-            <template slot="top-left" slot-scope="props">
-              <q-search
-                hide-underline
-                color="secondary"
-                v-model="tableFilter"
-                class="col-6"
-              />
-            </template>
-            <q-td slot="body-cell-title" slot-scope="props" :props="props">
-              <q-chip v-if="!props.row.jsonList" small color="primary">{{ props.value }}</q-chip>
-              <q-chip v-else-if="listExist(props.row)" small color="positive">{{ props.value }}</q-chip>
-              <q-chip v-else="" small color="orange">{{ props.value }}</q-chip>
-            </q-td>
-            <q-td slot='body-cell-action' slot-scope="props" :props="props">
-              <div v-if="!props.row.jsonList">
-                <q-btn class="q-mr-xs" color="primary" @click.native="updateListFields(props.row)" size="12px" round>
-                  <q-icon name="shuffle"/>
-                  <q-popover :ref="'popover-random-items-' + props.row.Id">
-                    <q-list link separator class="scroll" style="min-width: 100px">
-                      <q-item @click.native="generateRandomItems(props.row, 1), $refs['popover-random-items-' + props.row.Id].hide()">
-                        <q-item-main label="Créer 1 item"/>
-                      </q-item>
-                      <q-item @click.native="generateRandomItems(props.row, 10), $refs['popover-random-items-' + props.row.Id].hide()">
-                        <q-item-main label="Créer 10 items"/>
-                      </q-item>
-                      <q-item @click.native="generateRandomItems(props.row, 100), $refs['popover-random-items-' + props.row.Id].hide()">
-                        <q-item-main label="Créer 100 items"/>
-                      </q-item>
-                      <q-item @click.native="generateRandomItems(props.row, 1000), $refs['popover-random-items-' + props.row.Id].hide()">
-                        <q-item-main label="Créer 1000 items"/>
-                      </q-item>
-                      <q-item
-                        @click.native="insertDataFrom(props.row), $refs['popover-random-items-' + props.row.Id].hide()">
-                        <q-item-main label="Insérer des données depuis..."/>
-                      </q-item>
-                      <q-item
-                        @click.native="insertDataFromFile(props.row), $refs['popover-random-items-' + props.row.Id].hide()">
-                        <q-item-main label="Insérer des données depuis un fichier"/>
-                      </q-item>
-                    </q-list>
-                  </q-popover>
-                </q-btn>
-                <q-btn class="q-mr-xs" icon="file_download" @click="downloadList(props.row)" size="12px" round color="primary" />
-                <q-btn class="q-mr-xs" @click.native="updateListFields(props.row), insertDataFromFile(props.row), $refs['popover-random-items-' + props.row.Id].hide()" size="12px" round color="primary">
-                  <q-icon name="add"/>
-                </q-btn>
-                <q-btn class="q-mr-xs" color="primary" @click="updateListFields(props.row)" size="12px" round>
-                  <q-icon name="assignment"/>
-                  <q-popover ref="popover-json-lists">
-                    <q-list link separator class="scroll" style="min-width: 100px">
-                      <q-item
-                        v-for="field in props.row.fields"
-                        v-if="(showHiddenFields || !field.Hidden) && (showReadonlyFields || !field.ReadOnlyField) && (showFromBaseTypeFields || !field.FromBaseType)"
-                        :key="field.title"
-                      >
-                        <q-item-main :label="field.Title + ' (' + field.EntityPropertyName + ')'" />
-                                    <!--:sublabel="field | spFieldTypeWithId"/>-->
-                      </q-item>
-                    </q-list>
-                  </q-popover>
-                </q-btn>
-                <q-btn class="q-mr-xs" color="negative" @click="deleteList(props.row)" size="12px" round>
-                  <q-icon name="clear"/>
-                </q-btn>
-              </div>
-              <div v-else="">
-                <q-btn class="q-mr-xs" color="primary" size="12px" round>
-                  <q-icon name="assignment"/>
-                  <q-popover ref="popover-json-lists">
-                    <q-list link separator class="scroll" style="min-width: 100px">
-                      <q-item
-                        v-for="field in props.row.fields"
-                        :key="field.title"
-                      >
-                        <q-item-main :label="field.title" :sublabel="field.type"/>
-                      </q-item>
-                    </q-list>
-                  </q-popover>
-                </q-btn>
-                <q-btn class="q-mr-xs" v-if="listExist(props.row)" size="12px" round color="positive">
-                  <q-tooltip>
-                    Déjà Ajouté à la liste
-                  </q-tooltip>
-                  <q-icon name="playlist_add"></q-icon>
-                </q-btn>
-                <q-btn class="q-mr-xs" v-else="" size="12px" round @click="addToLists(props.row)">
-                  <q-tooltip>
-                    Ajouter la liste
-                  </q-tooltip>
-                  <q-icon name="playlist_add"/>
-                </q-btn>
-              </div>
-            </q-td>
+          <template slot="top-left" slot-scope="props">
+            <q-search
+              hide-underline
+              color="secondary"
+              v-model="tableFilter"
+              class="col-6"
+            />
+          </template>
+          <q-td slot="body-cell-title" slot-scope="props" :props="props">
+            <q-chip v-if="!props.row.jsonList" small color="primary">{{ props.value }}</q-chip>
+            <q-chip v-else-if="listExist(props.row)" small color="positive">{{ props.value }}</q-chip>
+            <q-chip v-else="" small color="orange">{{ props.value }}</q-chip>
+          </q-td>
+          <q-td slot='body-cell-action' slot-scope="props" :props="props">
+            <div v-if="!props.row.jsonList">
+              <!-- Items generation -->
+              <q-btn class="q-mr-xs" color="primary" size="12px" round>
+                <q-icon name="shuffle"/>
+                <q-popover :ref="'popover-random-items-' + props.row.Id">
+                  <q-list link separator class="scroll" style="min-width: 100px">
+                    <q-item
+                      @click.native="generateRandomItems(props.row, 1), $refs['popover-random-items-' + props.row.Id].hide()">
+                      <q-item-main label="Créer 1 item"/>
+                    </q-item>
+                    <q-item
+                      @click.native="generateRandomItems(props.row, 10), $refs['popover-random-items-' + props.row.Id].hide()">
+                      <q-item-main label="Créer 10 items"/>
+                    </q-item>
+                    <q-item
+                      @click.native="generateRandomItems(props.row, 100), $refs['popover-random-items-' + props.row.Id].hide()">
+                      <q-item-main label="Créer 100 items"/>
+                    </q-item>
+                    <q-item
+                      @click.native="generateRandomItems(props.row, 1000), $refs['popover-random-items-' + props.row.Id].hide()">
+                      <q-item-main label="Créer 1000 items"/>
+                    </q-item>
+                    <q-item
+                      @click.native="insertDataFrom(props.row), $refs['popover-random-items-' + props.row.Id].hide()">
+                      <q-item-main label="Insérer des données depuis..."/>
+                    </q-item>
+                    <q-item
+                      @click.native="insertDataFromFile(props.row), $refs['popover-random-items-' + props.row.Id].hide()">
+                      <q-item-main label="Insérer des données depuis un fichier"/>
+                    </q-item>
+                  </q-list>
+                </q-popover>
+              </q-btn>
+              <!-- Download list -->
+              <q-btn class="q-mr-xs" icon="file_download" @click="downloadList(props.row)" size="12px" round
+                     color="primary"/>
+              <!-- Get list Fields -->
+              <q-btn :loading="props.row.btnListFieldsLoading" class="q-mr-xs" color="primary"
+                     @click="updateListFields(props.row)" size="12px" round>
+                <q-icon name="assignment"/>
+                <q-popover :ref="'popover-json-lists' + props.row.Id">
+                  <q-list link separator class="scroll" style="min-width: 100px">
+                    <q-item
+                      v-for="field in props.row.fields"
+                      v-if="(showHiddenFields || !field.Hidden) && (showReadonlyFields || !field.ReadOnlyField) && (showFromBaseTypeFields || !field.FromBaseType)"
+                      :key="field.title"
+                    >
+                      <q-item-main :label="field.Title + ' (' + field.EntityPropertyName + ')'"/>
+                    </q-item>
+                  </q-list>
+                </q-popover>
+              </q-btn>
+              <q-btn class="q-mr-xs" color="negative" @click="deleteList(props.row)" size="12px" round>
+                <q-icon name="clear"/>
+              </q-btn>
+            </div>
+            <div v-else="">
+              <q-btn class="q-mr-xs" color="primary" size="12px" round>
+                <q-icon name="assignment"/>
+                <q-popover ref="popover-json-lists">
+                  <q-list link separator class="scroll" style="min-width: 100px">
+                    <q-item
+                      v-for="field in props.row.fields"
+                      :key="field.title"
+                    >
+                      <q-item-main :label="field.title" :sublabel="field.type"/>
+                    </q-item>
+                  </q-list>
+                </q-popover>
+              </q-btn>
+              <q-btn class="q-mr-xs" v-if="listExist(props.row)" size="12px" round color="positive">
+                <q-tooltip>
+                  Déjà Ajouté à la liste
+                </q-tooltip>
+                <q-icon name="playlist_add"></q-icon>
+              </q-btn>
+              <q-btn class="q-mr-xs" v-else="" size="12px" round @click="addToLists(props.row)">
+                <q-tooltip>
+                  Ajouter la liste
+                </q-tooltip>
+                <q-icon name="playlist_add"/>
+              </q-btn>
+            </div>
+          </q-td>
         </q-table>
       </div>
     </div>
@@ -133,7 +138,7 @@
         @click="refresh"/>
     </q-page-sticky>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
-    <q-fab
+      <q-fab
         color="primary"
         active-icon="keyboard_arrow_down"
         direction="up"
@@ -181,6 +186,7 @@ export default {
   },
   data () {
     return {
+      btnListFieldsLoading: false,
       onlyListItems: true,
       showHiddenFields: false,
       showReadonlyFields: false,
@@ -233,8 +239,16 @@ export default {
     }
   },
   methods: {
-    updateListFields (list) {
-      this.$store.dispatch(UPDATE_LIST_FIELDS_IN_LISTS, list)
+    async updateListFields (list) {
+      this.$set(list, 'btnListFieldsLoading', true)
+      try {
+        await this.$store.dispatch(UPDATE_LIST_FIELDS_IN_LISTS, list)
+      } catch (e) {
+        console.log(e)
+      }
+      this.$set(list, 'btnListFieldsLoading', false)
+      await new Promise(resolve => setTimeout(resolve, 1))
+      this.$refs['popover-json-lists' + list.Id].show()
     },
     addToLists (list) {
       const vm = this
@@ -397,11 +411,9 @@ export default {
       this.$refs.insertDataFromFileModal.open()
     },
     async downloadList (list) {
-      console.log(list)
       const response = await this.$http.api.lists.getFields(list.Id)
       const items = []
       const values = response.value.filter(v => !v.Hidden && !v.ReadOnlyField && !v.FromBaseType)
-      console.log(values)
       for (let i of values) {
         if (i.FieldTypeKind === 7) {
           console.log('lookup')
