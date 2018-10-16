@@ -185,7 +185,11 @@ export default {
 
         vm.mappedRows = []
         for (let i = 0; i < vm.xlsxFieldNames.length; i++) {
-          vm.mappedRows.push({xlsxFieldName: vm.xlsxFieldNames[i].value, spFieldName: ''})
+          let autoField = vm.spFieldNames
+            .map(x => x.value)
+            .find(x => x === vm.xlsxFieldNames[i].value)
+
+          vm.mappedRows.push({xlsxFieldName: vm.xlsxFieldNames[i].value, spFieldName: autoField || ''})
         }
 
         this.loading = false

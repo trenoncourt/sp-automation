@@ -40,6 +40,9 @@
             <div v-if="!props.row.jsonList">
               <!-- Items generation -->
               <q-btn class="q-mr-xs" color="primary" size="12px" round>
+                <q-tooltip>
+                  Actions
+                </q-tooltip>
                 <q-icon name="shuffle"/>
                 <q-popover :ref="'popover-random-items-' + props.row.Id">
                   <q-list link separator class="scroll" style="min-width: 100px">
@@ -71,11 +74,18 @@
                 </q-popover>
               </q-btn>
               <!-- Download list -->
-              <q-btn class="q-mr-xs" icon="file_download" @click="downloadList(props.row)" size="12px" round
-                     color="primary"/>
+              <q-btn :loading="props.row.btnDownloadListLoading" class="q-mr-xs" icon="file_download" @click="downloadList(props.row)" size="12px" round
+                     color="primary">
+                <q-tooltip>
+                  Télécharger
+                </q-tooltip>
+              </q-btn>
               <!-- Get list Fields -->
               <q-btn :loading="props.row.btnListFieldsLoading" class="q-mr-xs" color="primary"
                      @click="updateListFields(props.row)" size="12px" round>
+                <q-tooltip>
+                  Liste des champs
+                </q-tooltip>
                 <q-icon name="assignment"/>
                 <q-popover :ref="'popover-json-lists' + props.row.Id">
                   <q-list link separator class="scroll" style="min-width: 100px">
@@ -90,6 +100,9 @@
                 </q-popover>
               </q-btn>
               <q-btn class="q-mr-xs" color="negative" @click="deleteList(props.row)" size="12px" round>
+                <q-tooltip>
+                  Supprimer
+                </q-tooltip>
                 <q-icon name="clear"/>
               </q-btn>
             </div>
@@ -135,7 +148,11 @@
         color="orange"
         icon="sync"
         size="18px"
-        @click="refresh"/>
+        @click="refresh">
+           <q-tooltip anchor="top middle" self="bottom middle" :offset="[10, 10]">
+              Synchroniser
+          </q-tooltip>
+      </q-btn>
     </q-page-sticky>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
       <q-fab
@@ -186,7 +203,6 @@ export default {
   },
   data () {
     return {
-      btnListFieldsLoading: false,
       onlyListItems: true,
       showHiddenFields: false,
       showReadonlyFields: false,
@@ -411,6 +427,7 @@ export default {
       this.$refs.insertDataFromFileModal.open()
     },
     async downloadList (list) {
+      this.$set(list, 'btnDownloadListLoading', true)
       const response = await this.$http.api.lists.getFields(list.Id)
       const items = []
       const values = response.value.filter(v => !v.Hidden && !v.ReadOnlyField && !v.FromBaseType)
@@ -423,8 +440,18 @@ export default {
           type: fieldType.find(i.FieldTypeKind).label
         })
       }
-      ipcRenderer.send('downloadJson', {title: list.Title, items: items})
+
       console.log(items)
+      ipcRenderer.send('downloadJson', {title: list.Title, items: items})
+
+      this.$set(list, 'btnDownloadListLoading', false)
+      this.$q.notify({
+        message: `La liste a bien été téléchargé à l'emplacement défini dans l'environement`,
+        color: 'positive',
+        timeout: 4000,
+        icon: 'check',
+        position: 'bottom'
+      })
     },
     refresh () {
       this.$q.loading.show({message: 'Récupérations des données..'})
