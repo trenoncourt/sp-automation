@@ -2,7 +2,7 @@
   <div>
     <q-modal ref="modal" :content-css="{padding: '35px', minWidth: '55vw'}">
       <h5>Insertion de données depuis un fichier</h5>
-      <q-uploader url="" @add="importDataFrom" class="q-mb-xl" ref="uploader"/>
+      <q-uploader url="" @add="importDataFrom" class="q-mb-xl" hide-upload-button ref="uploader"/>
       <h6>Association Champ Excel et SharePoint</h6>
       <div v-for="row in mappedRows" :key="row.xlsxFieldName" class="row gutter-x-md">
         <div class="col-6">
