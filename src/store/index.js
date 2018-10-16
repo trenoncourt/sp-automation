@@ -7,6 +7,7 @@ import { mutations } from './mutations'
 Vue.use(Vuex)
 
 var state = {
+  changeVue: {},
   me: null,
   environment: null,
   token: null,

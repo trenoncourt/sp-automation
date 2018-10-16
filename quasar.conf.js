@@ -46,6 +46,7 @@ module.exports = function (ctx) {
         'QSpinnerGears',
         'QInnerLoading',
         'QSpinnerPuff',
+        'QDatetime',
         'QLayout',
         'QLayoutHeader',
         'QLayoutDrawer',
