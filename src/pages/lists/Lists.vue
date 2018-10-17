@@ -31,6 +31,11 @@
               class="col-6"
             />
           </template>
+          <q-td slot="body-cell-id" slot-scope="props" :props="props">
+            <q-item @click.native="goToItems(props.row)" v-if="$store.state.environment" item :to="{name: 'items' }">
+              {{ props.value }}
+            </q-item>
+          </q-td>
           <q-td slot="body-cell-title" slot-scope="props" :props="props">
             <q-chip v-if="!props.row.jsonList" small color="primary">{{ props.value }}</q-chip>
             <q-chip v-else-if="listExist(props.row)" small color="positive">{{ props.value }}</q-chip>
@@ -423,6 +428,9 @@ export default {
       this.$store.commit(UPDATE_INSERT_DATA_TO_LIST, list)
       this.$refs.insertDataFromFileModal.open()
     },
+    goToItems (list) {
+      this.$store.state.changeVue = list
+    },
     async downloadList (list) {
       const response = await this.$http.api.lists.getFields(list.Id)
       const items = []
@@ -508,6 +516,7 @@ export default {
     if (!this.lists.length) {
       this.$store.dispatch(UPDATE_LISTS)
     }
+    this.refresh()
   }
 }
 </script>
