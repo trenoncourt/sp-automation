@@ -74,16 +74,16 @@
                 </q-tooltip>
               </q-btn>
               <!-- Download list -->
-              <q-btn :loading="props.row.btnDownloadListLoading" class="q-mr-xs" icon="file_download" @click="downloadList(props.row)" size="12px" round
+              <q-btn :loading="props.row.btnDownloadListLoading" class="q-mr-xs" @click="downloadList(props.row)" size="12px" round
                      color="primary">
                   <q-tooltip>
                       Telecharge au format Json les infos sur la liste(Field/Type)
                   </q-tooltip>
+                  <q-icon name="file_download" />
               </q-btn>
               <!-- Get list Fields -->
               <q-btn :loading="props.row.btnListFieldsLoading" class="q-mr-xs" color="primary"
                      @click="updateListFields(props.row)" size="12px" round>
-                <q-icon name="assignment"/>
                 <q-popover :ref="'popover-json-lists' + props.row.Id">
                   <q-list link separator class="scroll" style="min-width: 100px">
                     <q-item
@@ -98,12 +98,13 @@
                   <q-tooltip>
                     Afficher les fields de la liste
                   </q-tooltip>
+                  <q-icon name="assignment"/>
               </q-btn>
               <q-btn class="q-mr-xs" color="negative" @click="deleteList(props.row)" size="12px" round>
+                <q-tooltip>
+                  Supprimer une liste
+                </q-tooltip>
                 <q-icon name="clear"/>
-                  <q-tooltip>
-                    Supprimer une liste
-                  </q-tooltip>
               </q-btn>
             </div>
             <div v-else="">
