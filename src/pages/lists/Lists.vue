@@ -40,9 +40,6 @@
             <div v-if="!props.row.jsonList">
               <!-- Items generation -->
               <q-btn class="q-mr-xs" color="primary" size="12px" round>
-                <q-tooltip>
-                  Actions
-                </q-tooltip>
                 <q-icon name="shuffle"/>
                 <q-popover :ref="'popover-random-items-' + props.row.Id">
                   <q-list link separator class="scroll" style="min-width: 100px">
@@ -72,20 +69,20 @@
                     </q-item>
                   </q-list>
                 </q-popover>
+                <q-tooltip>
+                  Création items Randoms/Update avec import fichier Json/Excel ou un autre environement
+                </q-tooltip>
               </q-btn>
               <!-- Download list -->
               <q-btn :loading="props.row.btnDownloadListLoading" class="q-mr-xs" icon="file_download" @click="downloadList(props.row)" size="12px" round
                      color="primary">
-                <q-tooltip>
-                  Télécharger
-                </q-tooltip>
+                  <q-tooltip>
+                      Telecharge au format Json les infos sur la liste(Field/Type)
+                  </q-tooltip>
               </q-btn>
               <!-- Get list Fields -->
               <q-btn :loading="props.row.btnListFieldsLoading" class="q-mr-xs" color="primary"
                      @click="updateListFields(props.row)" size="12px" round>
-                <q-tooltip>
-                  Liste des champs
-                </q-tooltip>
                 <q-icon name="assignment"/>
                 <q-popover :ref="'popover-json-lists' + props.row.Id">
                   <q-list link separator class="scroll" style="min-width: 100px">
@@ -98,12 +95,15 @@
                     </q-item>
                   </q-list>
                 </q-popover>
+                  <q-tooltip>
+                    Afficher les fields de la liste
+                  </q-tooltip>
               </q-btn>
               <q-btn class="q-mr-xs" color="negative" @click="deleteList(props.row)" size="12px" round>
-                <q-tooltip>
-                  Supprimer
-                </q-tooltip>
                 <q-icon name="clear"/>
+                  <q-tooltip>
+                    Supprimer une liste
+                  </q-tooltip>
               </q-btn>
             </div>
             <div v-else="">
