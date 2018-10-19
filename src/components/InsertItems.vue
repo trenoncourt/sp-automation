@@ -386,7 +386,6 @@ export default {
       })
     },
     getSelectOption () {
-
       this.count(this.selectCustomer.id, this.selectCustomer)
       this.count(this.idAttachmentTypes.id, this.idAttachmentTypes)
       this.count(this.selectCompagnie.id, this.selectCompagnie)

@@ -10,6 +10,10 @@
       "type": "text"
     },
     {
+      "title": "code",
+      "type": "integer"
+    },
+    {
       "title": "address",
       "type": "text"
     },
@@ -30,8 +34,16 @@
       "type": "text"
     },
     {
+      "title": "phone",
+      "type": "text"
+    },
+    {
       "title": "billingAddress",
       "type": "text"
+    },
+    {
+      "title": "Personne ou groupe",
+      "type": "user"
     }
   ]
 }
