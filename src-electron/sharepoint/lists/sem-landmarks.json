@@ -1,16 +1,16 @@
 {
-  "title": "LandMarks",
+  "title": "SemLandmarks",
   "fields": [
+    {
+      "title": "name",
+      "type": "text"
+    },
     {
       "title": "processSical",
       "type": "boolean"
     },
     {
       "title": "processNordCarton",
-      "type": "boolean"
-    },
-    {
-      "title": "processSubcontracting",
       "type": "boolean"
     },
     {
@@ -38,11 +38,15 @@
       "type": "boolean"
     },
     {
+      "title": "sicalCutting",
+      "type": "boolean"
+    },
+    {
       "title": "sicalEmbaC616",
       "type": "boolean"
     },
     {
-      "title": "sicalCutting",
+      "title": "processSubcontracting",
       "type": "boolean"
     },
     {
@@ -132,6 +136,106 @@
     {
       "title": "subcontractingAssemblyCAT",
       "type": "boolean"
+    },
+    {
+      "title": "qualityState",
+      "type": "text"
+    },
+    {
+      "title": "nbElements",
+      "type": "integer"
+    },
+    {
+      "title": "nbSamples",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt1",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt2",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt3",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionExt1",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionExt2",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionInt4",
+      "type": "integer"
+    },
+    {
+      "title": "dimensionExt4",
+      "type": "integer"
+    },
+    {
+      "title": "type",
+      "type": "text"
+    },
+    {
+      "title": "dimensionExt3",
+      "type": "integer"
+    },
+    {
+      "title": "number",
+      "type": "integer"
+    },
+    {
+      "title": "packageSpline",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSpline",
+      "fields": [
+        {
+          "title": "packageSplineLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "packageSplineONU",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "packageSplineONULabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineONUValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "packageSplineONU2",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "packageSplineONU2Label",
+          "lookupField": "label"
+        },
+        {
+          "title": "packageSplineONU2Value",
+          "lookupField": "value"
+        }
+      ]
     }
   ]
 }

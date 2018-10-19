@@ -6,7 +6,7 @@
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "LandMarks"
+      "lookupList": "SemLandmarks"
     },
     {
       "title": "information",
