@@ -1,0 +1,13 @@
+{
+  "title": "AssistantsCustomerCode",
+  "fields": [
+    {
+      "title": "idAssistant",
+      "type": "number"
+    },
+    {
+      "title": "customerCode",
+      "type": "text"
+    }
+  ]
+}

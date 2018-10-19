@@ -1,0 +1,9 @@
+{
+  "title": "FlexographyColumn",
+  "fields": [
+    {
+      "title": "cost",
+      "type": "integer"
+    }
+  ]
+}

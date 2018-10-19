@@ -1,0 +1,13 @@
+{
+  "title": "CommercialsCustomerCode",
+  "fields": [
+    {
+      "title": "idCommercial",
+      "type": "number"
+    },
+    {
+      "title": "customerCode",
+      "type": "text"
+    }
+  ]
+}

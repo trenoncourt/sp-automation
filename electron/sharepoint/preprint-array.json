@@ -1,0 +1,52 @@
+{
+  "title": "PreprintArray",
+  "fields": [
+	{
+      "title": "Column",
+      "type": "lookup",
+	  "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "PreprintColumn",
+      "fields": [
+        {
+          "title": "quantityEmb",
+          "lookupField": "quantityEmb"
+        },
+        {
+          "title": "provider",
+          "lookupField": "provider"
+        }
+		,
+        {
+          "title": "paperType",
+          "lookupField": "paperType"
+        }
+		,
+        {
+          "title": "widthOfCoil",
+          "lookupField": "widthOfCoil"
+        }
+		,
+        {
+          "title": "taxedLdc",
+          "lookupField": "taxedLdc"
+        }
+		,
+        {
+          "title": "surfaceArea",
+          "lookupField": "surfaceArea"
+        }
+		,
+        {
+          "title": "price",
+          "lookupField": "price"
+        }
+		,
+        {
+          "title": "clicheCost",
+          "lookupField": "clicheCost"
+        }
+      ]
+    }
+  ]
+}

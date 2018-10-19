@@ -1,0 +1,42 @@
+{
+  "title": "MultipleArray",
+  "fields": [
+	{
+      "title": "Column",
+      "type": "lookup",
+	  "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "MultipleColumn",
+      "fields": [
+        {
+          "title": "offsetSTT",
+          "lookupField": "offsetSTT"
+        },
+		{
+          "title": "quantityPacked",
+          "lookupField": "quantityPacked"
+        },
+		{
+          "title": "provider",
+          "lookupField": "provider"
+        },
+		{
+          "title": "paperType",
+          "lookupField": "paperType"
+        },
+		{
+          "title": "companyCost",
+          "lookupField": "companyCost"
+        },
+		{
+          "title": "applicationFees",
+          "lookupField": "applicationFees"
+        },
+		{
+          "title": "total",
+          "lookupField": "total"
+        }
+      ]
+    }
+  ]
+}

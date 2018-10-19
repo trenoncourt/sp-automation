@@ -1,0 +1,18 @@
+{
+  "title": "FlexographyArray",
+  "fields": [
+	{
+      "title": "Column",
+      "type": "lookup",
+	  "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "FlexographyColumn",
+      "fields": [
+        {
+          "title": "cost",
+          "lookupField": "cost"
+        }
+      ]
+    }
+  ]
+}

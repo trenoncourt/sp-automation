@@ -1,0 +1,33 @@
+{
+  "title": "MultipleColumn",
+  "fields": [
+    {
+      "title": "offsetSTT",
+      "type": "text"
+    },
+	{
+      "title": "quantityPacked",
+      "type": "integer"
+    },
+	{
+      "title": "provider",
+      "type": "text"
+    },
+	{
+      "title": "paperType",
+      "type": "text"
+    },
+	{
+      "title": "companyCost",
+      "type": "integer"
+    },
+	{
+      "title": "applicationFees",
+      "type": "integer"
+    },
+	{
+      "title": "total",
+      "type": "integer"
+    }
+  ]
+}
