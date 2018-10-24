@@ -6,11 +6,30 @@
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "SemLandmarks"
+      "lookupList": "SemLandmarks",
+      "fields": [
+        {
+          "title": "Id",
+          "lookupField": "Id"
+        }
+      ]
+    },
+    {
+      "title": "annexAttachments",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "SemOutputDataAttachments",
+      "fields": [
+        {
+          "title": "name",
+          "lookupField": "name"
+        }
+      ]
     },
     {
       "title": "information",
-      "type": "text"
+      "type": "note"
     },
     {
       "title": "sicalConception",

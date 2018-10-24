@@ -6,6 +6,19 @@
       "type": "text"
     },
     {
+      "title": "semOutputDataAttachments",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "SemOutputDataAttachments",
+      "fields": [
+        {
+          "title": "name",
+          "lookupField": "name"
+        }
+      ]
+    },
+    {
       "title": "processSical",
       "type": "boolean"
     },

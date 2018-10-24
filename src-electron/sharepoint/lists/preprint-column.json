@@ -5,31 +5,31 @@
       "title": "quantityEmb",
       "type": "integer"
     },
-	{
+    {
       "title": "provider",
       "type": "text"
     },
-	{
+    {
       "title": "paperType",
       "type": "text"
     },
-	{
+    {
       "title": "widthOfCoil",
       "type": "integer"
     },
-	{
+    {
       "title": "taxedLdc",
       "type": "integer"
     },
-	{
+    {
       "title": "surfaceArea",
       "type": "integer"
     },
-	{
+    {
       "title": "price",
       "type": "integer"
     },
-	{
+    {
       "title": "clicheCost",
       "type": "integer"
     }

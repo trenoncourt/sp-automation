@@ -10,6 +10,18 @@
       "type": "integer"
     },
     {
+      "title": "labOutputDataId",
+      "type": "integer"
+    },
+    {
+      "title": "simOutputDataId",
+      "type": "integer"
+    },
+    {
+      "title": "quoteOutputDataId",
+      "type": "integer"
+    },
+    {
       "title": "deComIndex",
       "type": "text"
     },

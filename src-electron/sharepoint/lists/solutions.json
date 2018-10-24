@@ -5,55 +5,55 @@
       "title": "attachmentType",
       "type": "text"
     },
-	    {
+    {
       "title": "imageSrc",
       "type": "text"
     },
-	{
+    {
       "title": "pdfSrc",
       "type": "text"
     },
-	{
+    {
       "title": "otherVarnish",
       "type": "text"
     },
-	{
+    {
       "title": "insideOtherVarnish",
       "type": "text"
     },
-	{
+    {
       "title": "spotted",
       "type": "boolean"
     },
-	{
+    {
       "title": "insideSpotted",
       "type": "boolean"
     },
-	{
+    {
       "title": "varnish",
       "type": "boolean"
     },
-	{
+    {
       "title": "insideVarnish",
       "type": "boolean"
     },
-	{
+    {
       "title": "commentary",
       "type": "text"
     },
-	{
+    {
       "title": "mac",
       "type": "text"
     },
-	{
+    {
       "title": "inking",
       "type": "text"
     },
-		{
+    {
       "title": "insideInking",
       "type": "text"
     },
-	{
+    {
       "title": "printType",
       "type": "lookup",
       "multiple": true,
@@ -87,7 +87,7 @@
         }
       ]
     },
-	{
+    {
       "title": "metallicColorType",
       "type": "lookup",
       "multiple": true,
@@ -104,7 +104,7 @@
         }
       ]
     },
-	{
+    {
       "title": "insideMetallicColorType",
       "type": "lookup",
       "multiple": true,
@@ -121,7 +121,7 @@
         }
       ]
     },
-		{
+    {
       "title": "tenColorType",
       "type": "lookup",
       "multiple": true,
@@ -138,7 +138,7 @@
         }
       ]
     },
-	{
+    {
       "title": "insideTenColorType",
       "type": "lookup",
       "multiple": true,
@@ -155,7 +155,7 @@
         }
       ]
     },
-	{
+    {
       "title": "printInsideOutsideType",
       "type": "lookup",
       "multiple": true,
@@ -172,7 +172,7 @@
         }
       ]
     },
-	{
+    {
       "title": "outputDataAttachement",
       "type": "lookup",
       "multiple": true,
@@ -184,6 +184,6 @@
           "lookupField": "label"
         }
       ]
-    },
-	]
+    }
+  ]
 }

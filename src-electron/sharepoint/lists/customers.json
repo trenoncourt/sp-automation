@@ -1,50 +1,49 @@
 {
   "title": "Customers",
-  "fields":
-[
-  {
-    "title": "title",
-    "type": "text"
-  },
-  {
-    "title": "name",
-    "type": "text"
-  },
-  {
-    "title": "code",
-    "type": "text"
-  },
-  {
-    "title": "address",
-    "type": "text"
-  },
-  {
-    "title": "address2",
-    "type": "text"
-  },
-  {
-    "title": "address3",
-    "type": "text"
-  },
-  {
-    "title": "zipCode",
-    "type": "text"
-  },
-  {
-    "title": "city",
-    "type": "text"
-  },
-  {
-    "title": "phone",
-    "type": "text"
-  },
-  {
-    "title": "billingAddress",
-    "type": "text"
-  },
-  {
-    "title": "Personne ou groupe",
-    "type": "user"
-  }
-]
+  "fields": [
+    {
+      "title": "title",
+      "type": "text"
+    },
+    {
+      "title": "name",
+      "type": "text"
+    },
+    {
+      "title": "code",
+      "type": "text"
+    },
+    {
+      "title": "address",
+      "type": "text"
+    },
+    {
+      "title": "address2",
+      "type": "text"
+    },
+    {
+      "title": "address3",
+      "type": "text"
+    },
+    {
+      "title": "zipCode",
+      "type": "text"
+    },
+    {
+      "title": "city",
+      "type": "text"
+    },
+    {
+      "title": "phone",
+      "type": "text"
+    },
+    {
+      "title": "billingAddress",
+      "type": "text"
+    },
+    {
+      "title": "Personne ou groupe",
+      "type": "user"
+    }
+  ]
 }

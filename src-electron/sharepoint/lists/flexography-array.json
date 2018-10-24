@@ -1,10 +1,10 @@
 {
   "title": "FlexographyArray",
   "fields": [
-	{
+    {
       "title": "Column",
       "type": "lookup",
-	  "multiple": true,
+      "multiple": true,
       "lookupField": "ID",
       "lookupList": "FlexographyColumn",
       "fields": [

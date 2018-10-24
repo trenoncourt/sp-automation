@@ -1,22 +1,22 @@
 {
-  "title": "OutputDataAttachements",
+  "title": "SemOutputDataAttachments",
   "fields": [
     {
       "title": "fileName",
       "type": "text"
     },
     {
-      "title": "outputDataAttachementType",
+      "title": "outputDataAttachmentType",
       "type": "lookup",
       "lookupField": "ID",
       "lookupList": "OutputDataAttachmentTypes",
       "fields": [
         {
-          "title": "outputDataAttachementTypeLabel",
+          "title": "outputDataAttachmentTypeLabel",
           "lookupField": "label"
         },
         {
-          "title": "outputDataAttachementTypeValue",
+          "title": "outputDataAttachmentTypeValue",
           "lookupField": "value"
         }
       ]
