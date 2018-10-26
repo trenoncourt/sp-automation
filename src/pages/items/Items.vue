@@ -9,7 +9,6 @@
           :data="tableData"
           :columns="tableColumns"
           :pagination.sync="tablePagination"
-          @refresh="refresh"
           row-key="name">
             <template slot="top-left" slot-scope="props">
               <q-search
@@ -71,7 +70,6 @@
 </template>
 
 <script>
-
 import InsertItems from 'src/components/InsertItems.vue'
 
 export default {
@@ -81,7 +79,7 @@ export default {
   data () {
     return {
       Fields: [],
-      idItemModif: 0,
+      itemModif: [],
       isAdd: false,
       Data: [],
       titleList: '',
@@ -104,17 +102,12 @@ export default {
     }
   },
   methods: {
-    refresh (done) {
-      this.timeout = setTimeout(() => {
-        done()
-      }, 5000)
-    },
     addItem () {
       this.isAdd = true
       this.$refs.InsertItems.open()
     },
     modifItem (item) {
-      this.idItemModif = item.Id
+      this.itemModif = item
       this.isAdd = false
       this.$refs.InsertItems.open()
     },
@@ -138,7 +131,6 @@ export default {
         cancel: 'Ne pas supprimer'
       }).then(() => {
         this.$http.api.lists.deleteItem(this.idList, item.Id)
-        console.log(this.tableData)
         this.$q.notify({
           message: `L'item ${item.Title} a été supprimer de la liste`,
           color: 'positive',

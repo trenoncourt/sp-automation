@@ -37,7 +37,8 @@
           </q-field>
         </div>
       </div>
-      <q-btn class="q-mt-md float-right" color="primary" @click="add()">valider</q-btn>
+      <q-btn class="q-mt-md float-right" v-if="this.$parent.isAdd" color="primary" @click="add()">valider</q-btn>
+      <q-btn class="q-mt-md float-right" v-else color="primary" @click="modifier()">modifier</q-btn>
     </q-modal>
   </div>
 </template>
@@ -66,20 +67,34 @@ export default {
       allSelect: []
     }
   },
-  computed: {
-  /*  verifSelect (type) {
-      for (let i = 0; i < allSelectData.length; i++ ) {
-          if (this.allSelectData[i].length > 1 && this.allSelectData[i].type === type ) {
-            this.actifSelect = this.allSelectData[i]
-            return true
-          }
-      }
-      return false
-    } */
-  },
   methods: {
     getItemTypeForListName (name) {
       return 'SP.Data.' + name.charAt(0).toUpperCase() + name.split(' ').join('').slice(1) + 'ListItem'
+    },
+    modifier () {
+      let list = this.$store.state.changeVue
+      let tasks = []
+      let item = {}
+      item.__metadata = {type: this.getItemTypeForListName(list.Title)}
+      for (let j = 0; j < this.mappedData.length; j++) {
+        if (this.mappedData[j].data !== '') {
+          item[this.mappedData[j].nameForPost] = this.mappedData[j].data
+        }
+      }
+
+      let updateTask = this.$http.api.lists.modifItem(list.Id, item, this.$parent.itemModif.Id)
+      tasks.push(updateTask)
+
+      Promise.all(tasks).then(_ => {
+        this.$q.notify({
+          message: `Modifications réalisé avec succès`,
+          color: 'positive',
+          timeout: 4000,
+          icon: 'check',
+          position: 'top'
+        })
+      })
+      this.$refs.modal.hide()
     },
     add () {
       let list = this.$store.state.changeVue
@@ -91,40 +106,42 @@ export default {
           item[this.mappedData[j].nameForPost] = this.mappedData[j].data
         }
       }
-      if (this.$parent.isAdd) {
-        let createTask = this.$http.api.lists.createItem(list.Id, item)
-        tasks.push(createTask)
+      let createTask = this.$http.api.lists.createItem(list.Id, item)
+      tasks.push(createTask)
 
-        Promise.all(tasks).then(_ => {
-          this.$q.notify({
-            message: `Ajout réalisé avec succès`,
-            color: 'positive',
-            timeout: 4000,
-            icon: 'check',
-            position: 'top'
-          })
+      Promise.all(tasks).then(_ => {
+        this.$q.notify({
+          message: `Ajout réalisé avec succès`,
+          color: 'positive',
+          timeout: 4000,
+          icon: 'check',
+          position: 'top'
         })
-      } else {
-        let updateTask = this.$http.api.lists.modifItem(list.Id, item, this.$parent.idItemModif)
-        tasks.push(updateTask)
-
-        Promise.all(tasks).then(_ => {
-          this.$q.notify({
-            message: `Ajout réalisé avec succès`,
-            color: 'positive',
-            timeout: 4000,
-            icon: 'check',
-            position: 'top'
-          })
-        })
-      }
+      })
       this.$refs.modal.hide()
     },
     open () {
       let vm = this
       this.mappedData = []
-      for (let i = 0; i < this.$parent.Fields.length; i++) {
-        vm.mappedData.push({nameForPost: this.$parent.Fields[i].name, fieldName: this.$parent.Fields[i].label, data: '', type: this.$parent.Fields[i].type})
+      if (this.$parent.isAdd) {
+        for (let i = 0; i < this.$parent.Fields.length; i++) {
+          let field = this.$parent.Fields[i]
+          vm.mappedData.push({nameForPost: field.name, fieldName: field.label, data: '', type: field.type})
+        }
+      } else {
+        for (let i = 0; i < this.$parent.Fields.length; i++) {
+          let field = this.$parent.Fields[i]
+          let types = Object.keys(this.$parent.itemModif)
+          let dataModif = ''
+          let y = 0
+          while (y < types.length && dataModif === '') {
+            if (types[y] === field.name) {
+              dataModif = Object.values(this.$parent.itemModif)[y]
+            }
+            y++
+          }
+          vm.mappedData.push({nameForPost: field.name, fieldName: field.label, data: dataModif, type: field.type})
+        }
       }
       this.$refs.modal.show()
     },
@@ -151,12 +168,6 @@ export default {
     },
     selected (item) {
       this.$q.notify(`Selected suggestion "${item.id}"`)
-    },
-    findType (type) {
-      let typeSharepoint = type
-      if (typeSharepoint === 'Text') {
-        return 'text'
-      }
     },
     getUsersAndGroups () {
       this.$http.api.lists.getUsers().then(response => {
@@ -202,7 +213,7 @@ export default {
           idLookupList = response.value[i].LookupList
         }
         if (idLookupList.startsWith('{') && response.value[i].Hidden === false && response.value[i].ReadOnlyField === false && idLookupList !== undefined) {
-          this.listSelects.push([ { entity: response.value[i].EntityPropertyName, label: '( Aucun )', id: idLookupList.replace(regex, '') } ])
+          this.listSelects.push([ { entity: response.value[i].EntityPropertyName, label: '( Aucun )', id: idLookupList.replace(regex, ''), value: 0 } ])
         }
       }
       this.getUsersAndGroups()
