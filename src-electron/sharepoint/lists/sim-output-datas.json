@@ -1,0 +1,18 @@
+{
+  "title": "SimOutputDatas",
+  "fields": [
+    {
+      "title": "landmarks",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "SimLandmarks",
+      "fields": [
+        {
+          "title": "ID",
+          "lookupField": "ID"
+        }
+      ]
+    }
+  ]
+}

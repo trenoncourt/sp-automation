@@ -2,18 +2,6 @@
   "title": "Solutions",
   "fields": [
     {
-      "title": "attachmentType",
-      "type": "text"
-    },
-    {
-      "title": "imageSrc",
-      "type": "text"
-    },
-    {
-      "title": "pdfSrc",
-      "type": "text"
-    },
-    {
       "title": "otherVarnish",
       "type": "text"
     },
@@ -56,7 +44,6 @@
     {
       "title": "printType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "PrintTypes",
       "fields": [
@@ -73,7 +60,6 @@
     {
       "title": "insidePrintType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "PrintTypes",
       "fields": [
@@ -90,7 +76,6 @@
     {
       "title": "metallicColorType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "MetallicColorTypes",
       "fields": [
@@ -107,7 +92,6 @@
     {
       "title": "insideMetallicColorType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "MetallicColorTypes",
       "fields": [
@@ -124,7 +108,6 @@
     {
       "title": "tenColorType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "TenColorTypes",
       "fields": [
@@ -141,7 +124,6 @@
     {
       "title": "insideTenColorType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "TenColorTypes",
       "fields": [
@@ -158,12 +140,11 @@
     {
       "title": "printInsideOutsideType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
-      "lookupList": "printInsideOutsideTypes",
+      "lookupList": "PrintInsideOutsideTypes",
       "fields": [
         {
-          "title": "iprintInsideOutsideTypeLabel",
+          "title": "printInsideOutsideTypeLabel",
           "lookupField": "label"
         },
         {
@@ -173,11 +154,11 @@
       ]
     },
     {
-      "title": "outputDataAttachement",
+      "title": "simOutputDataAttachement",
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "OutputDataAttachements",
+      "lookupList": "SimOutputDataAttachments",
       "fields": [
         {
           "title": "OutputDataAttachmentTypesLabel",
