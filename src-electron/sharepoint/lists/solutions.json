@@ -165,6 +165,54 @@
           "lookupField": "label"
         }
       ]
+    },
+    {
+      "title": "insideFlexographyArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "FlexographyArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
+    },
+    {
+      "title": "outsideFlexographyArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "FlexographyArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
+    },
+    {
+      "title": "insidePrePrintArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PreprintArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
+    },
+    {
+      "title": "outsidePrePrintArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PreprintArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
     }
   ]
 }

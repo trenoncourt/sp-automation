@@ -1,12 +1,12 @@
 {
-  "title": "FlexographyArray",
+  "title": "FlexographyArrays",
   "fields": [
     {
-      "title": "Column",
+      "title": "column",
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "FlexographyColumn",
+      "lookupList": "FlexographyColumns",
       "fields": [
         {
           "title": "cost",
