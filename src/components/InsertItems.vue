@@ -86,6 +86,7 @@ export default {
       tasks.push(updateTask)
 
       Promise.all(tasks).then(_ => {
+        this.$emit('refreshitem', 0)
         this.$q.notify({
           message: `Modifications réalisé avec succès`,
           color: 'positive',
@@ -110,6 +111,7 @@ export default {
       tasks.push(createTask)
 
       Promise.all(tasks).then(_ => {
+        this.$emit('refreshitem', 1)
         this.$q.notify({
           message: `Ajout réalisé avec succès`,
           color: 'positive',
@@ -118,6 +120,7 @@ export default {
           position: 'top'
         })
       })
+
       this.$refs.modal.hide()
     },
     open () {
