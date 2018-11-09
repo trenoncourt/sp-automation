@@ -71,7 +71,6 @@
 
 <script>
 import InsertItems from 'src/components/InsertItems.vue'
-
 export default {
   components: {
     InsertItems
@@ -112,15 +111,30 @@ export default {
       this.$refs.InsertItems.open()
     },
     dellAllItems () {
-      for (let i = 0; i < this.Data.length; i++) {
-        this.$http.api.lists.deleteItem(this.idList, this.Data[i].Id)
-      }
-      this.$q.notify({
-        message: `Tous les items de la liste sont supprimer`,
-        color: 'positive',
-        timeout: 4000,
-        icon: 'check',
-        position: 'top'
+      this.$q.dialog({
+        title: 'Confirm',
+        message: 'êtes-vous sûr de vouloir supprimer tous les items ?',
+        ok: 'Supprimer',
+        cancel: 'Ne pas supprimer'
+      }).then(() => {
+        for (let i = 0; i < this.Data.length; i++) {
+          this.$http.api.lists.deleteItem(this.idList, this.Data[i].Id)
+        }
+        this.$q.notify({
+          message: `Tous les items de la liste sont supprimer`,
+          color: 'positive',
+          timeout: 4000,
+          icon: 'check',
+          position: 'top'
+        })
+      }).catch(() => {
+        this.$q.notify({
+          message: `Aucun item n'a été supprimé`,
+          color: 'negative',
+          timeout: 4000,
+          icon: 'check',
+          position: 'top'
+        })
       })
     },
     deleteItem (item) {
@@ -141,7 +155,7 @@ export default {
       }).catch(() => {
         this.$q.notify({
           message: `L'item ${item.Title} n'a pas été supprimer de la liste`,
-          color: 'positive',
+          color: 'negative',
           timeout: 4000,
           icon: 'check',
           position: 'top'
