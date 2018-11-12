@@ -5,24 +5,15 @@
 </template>
 
 <script>
-import { ipcRenderer } from 'electron'
-import { UPDATE_JSON_LISTS, UPDATE_ENVIRONMENT, UPDATE_ENVIRONMENTS } from 'src/store/mutation-types'
-import settings from 'electron-settings'
+import { listMixin } from 'src/store/modules/list'
+import { environmentMixin } from 'src/store/modules/environment'
 
 export default {
   name: 'App',
+  mixins: [listMixin, environmentMixin],
   created () {
-    ipcRenderer.on('sp-sites-update', (event, arg) => {
-      // console.log(arg)
-      this.$store.commit(UPDATE_JSON_LISTS, arg)
-    })
-    ipcRenderer.send('readJsonFiles')
-    const environments = settings.get('environments') || []
-    const environment = settings.get('environment')
-    this.$store.commit(UPDATE_ENVIRONMENTS, environments)
-    if (environment) {
-      this.$store.commit(UPDATE_ENVIRONMENT, environment)
-    }
+    this.fetchEnvironments()
+    this.selectEnvironment()
   }
 }
 </script>

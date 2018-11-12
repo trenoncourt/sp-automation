@@ -11,4 +11,5 @@ let _http = {
 export default ({Vue}) => {
   Vue.prototype.$http = _http
   Vue.$http = _http
+  window.http = _http
 }

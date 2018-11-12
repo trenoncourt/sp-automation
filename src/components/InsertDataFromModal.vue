@@ -3,9 +3,9 @@
     <q-modal ref="modal" :content-css="{padding: '35px', minWidth: '75vw'}">
       <h5>Insertion de données depuis un autre environement</h5>
       <q-select v-model="insertDataFromEnvironment"
-                :options="environments"
+                :options="envsOptions"
                 float-label="Environement"
-                @change="onEnvironmentChange"></q-select>
+                @input="onEnvironmentChange"></q-select>
       <q-select v-if="insertDataFromEnvironment"
                 v-model="insertDataFromList"
                 :options="environmentLists"
@@ -19,40 +19,28 @@
 
 <script>
 
-import { UPDATE_INSERT_DATA_FROM_ENVIRONMENT, UPDATE_INSERT_DATA_FROM_LIST } from 'src/store/mutation-types'
 import listService from '../services/listService'
 import listItemService from '../services/listItemService'
+import { environmentMixin } from 'src/store/modules/environment'
+import { listMixin } from 'src/store/modules/list'
 
 export default {
+  mixins: [listMixin, environmentMixin],
   data () {
     return {
-      environmentLists: []
+      environmentLists: [],
+      insertDataFromEnvironment: null,
+      insertDataFromList: null
     }
   },
   computed: {
-    environments () {
-      return this.$store.state.environments.map(e => {
+    envsOptions () {
+      return this.environments.map(e => {
         return {
           label: e.name,
           value: e
         }
       })
-    },
-    insertDataFromEnvironment: {
-      get () {
-        return this.$store.state.insertDataFromEnvironment
-      },
-      set (value) {
-        this.$store.commit(UPDATE_INSERT_DATA_FROM_ENVIRONMENT, value)
-      }
-    },
-    insertDataFromList: {
-      get () {
-        return this.$store.state.insertDataFromList
-      },
-      set (value) {
-        this.$store.commit(UPDATE_INSERT_DATA_FROM_LIST, value)
-      }
     }
   },
   methods: {
@@ -63,7 +51,6 @@ export default {
       this.$refs.modal.hide()
     },
     onEnvironmentChange (e) {
-      console.log(this.insertDataFromEnvironment, e)
       listService.getByEnvironment(e).then(data => {
         this.environmentLists = data.map(e => {
           return {
@@ -79,7 +66,7 @@ export default {
       listItemService.getByListIdAndEnvironment(this.insertDataFromList, this.insertDataFromEnvironment).then(data => {
         console.log(data)
         for (const item of data) {
-          listItemService.add(this.$store.state.insertDataToList, item)
+          listItemService.add(this.insertDataToList, item)
         }
       })
     }

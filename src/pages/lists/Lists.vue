@@ -37,15 +37,18 @@
             </q-item>
           </q-td>
           <q-td slot="body-cell-title" slot-scope="props" :props="props">
-            <q-chip v-if="!props.row.jsonList" small color="primary">{{ props.value }}</q-chip>
-            <q-chip v-else-if="listExist(props.row)" small color="positive">{{ props.value }}</q-chip>
-            <q-chip v-else="" small color="orange">{{ props.value }}</q-chip>
+            <q-chip v-if="!props.row.jsonFileExist && !props.row.jsonList" small color="primary">{{ props.value }}</q-chip>
+            <q-chip v-else-if="props.row.jsonFileExist && !props.row.jsonList" small color="positive">{{ props.value }}</q-chip>
+            <q-chip v-else="" small color="red">{{ props.value }}</q-chip>
           </q-td>
           <q-td slot='body-cell-action' slot-scope="props" :props="props">
             <div v-if="!props.row.jsonList">
               <!-- Items generation -->
               <q-btn class="q-mr-xs" color="primary" size="12px" round>
                 <q-icon name="shuffle"/>
+                <q-tooltip>
+                  Création items Randoms/Update avec import fichier Json/Excel ou un autre environement
+                </q-tooltip>
                 <q-popover :ref="'popover-random-items-' + props.row.Id">
                   <q-list link separator class="scroll" style="min-width: 100px">
                     <q-item
@@ -74,21 +77,22 @@
                     </q-item>
                   </q-list>
                 </q-popover>
-                <q-tooltip>
-                  Création items Randoms/Update avec import fichier Json/Excel ou un autre environement
-                </q-tooltip>
               </q-btn>
               <!-- Download list -->
               <q-btn :loading="props.row.btnDownloadListLoading" class="q-mr-xs" @click="downloadList(props.row)" size="12px" round
                      color="primary">
+                  <q-icon name="file_download" />
                   <q-tooltip>
                       Telecharge au format Json les infos sur la liste(Field/Type)
                   </q-tooltip>
-                  <q-icon name="file_download" />
               </q-btn>
               <!-- Get list Fields -->
               <q-btn :loading="props.row.btnListFieldsLoading" class="q-mr-xs" color="primary"
                      @click="updateListFields(props.row)" size="12px" round>
+                <q-icon name="assignment"/>
+                <q-tooltip>
+                  Afficher les fields de la liste
+                </q-tooltip>
                 <q-popover :ref="'popover-json-lists' + props.row.Id">
                   <q-list link separator class="scroll" style="min-width: 100px">
                     <q-item
@@ -100,16 +104,12 @@
                     </q-item>
                   </q-list>
                 </q-popover>
-                  <q-tooltip>
-                    Afficher les fields de la liste
-                  </q-tooltip>
-                  <q-icon name="assignment"/>
               </q-btn>
-              <q-btn class="q-mr-xs" color="negative" @click="deleteList(props.row)" size="12px" round>
+              <q-btn class="q-mr-xs" color="negative" @click="removeList(props.row)" size="12px" round>
+                <q-icon name="clear"/>
                 <q-tooltip>
                   Supprimer une liste
                 </q-tooltip>
-                <q-icon name="clear"/>
               </q-btn>
             </div>
             <div v-else="">
@@ -126,13 +126,7 @@
                   </q-list>
                 </q-popover>
               </q-btn>
-              <q-btn class="q-mr-xs" v-if="listExist(props.row)" size="12px" round color="positive">
-                <q-tooltip>
-                  Déjà Ajouté à la liste
-                </q-tooltip>
-                <q-icon name="playlist_add"></q-icon>
-              </q-btn>
-              <q-btn class="q-mr-xs" v-else="" size="12px" round @click="addToLists(props.row)">
+              <q-btn class="q-mr-xs" size="12px" color="purple" round @click="addToLists(props.row)">
                 <q-tooltip>
                   Ajouter la liste
                 </q-tooltip>
@@ -185,15 +179,6 @@
 <script>
 
 import List from '../../models/List'
-import {
-  UPDATE_LISTS,
-  UPDATE_LIST_FIELDS_IN_LISTS,
-  CREATE_LIST,
-  CREATE_LIST_FIELD,
-  CREATE_LIST_ITEMS,
-  DELETE_LIST,
-  UPDATE_INSERT_DATA_TO_LIST
-} from 'src/store/mutation-types'
 import PrimaryLookupField from '../../models/PrimaryLookupField'
 import SecondaryLookupField from '../../models/SecondaryLookupField'
 import Field from '../../models/Field'
@@ -201,8 +186,10 @@ import { fieldType } from '../../utils/enums'
 import InsertDataFromModal from 'src/components/InsertDataFromModal.vue'
 import InsertDataFromFileModal from 'src/components/InsertDataFromFileModal.vue'
 import { ipcRenderer } from 'electron'
+import { listMixin } from 'src/store/modules/list'
 
 export default {
+  mixins: [listMixin],
   components: {
     InsertDataFromModal,
     InsertDataFromFileModal
@@ -264,7 +251,7 @@ export default {
     async updateListFields (list) {
       this.$set(list, 'btnListFieldsLoading', true)
       try {
-        await this.$store.dispatch(UPDATE_LIST_FIELDS_IN_LISTS, list)
+        await this.updateListFieldsInLists(list)
       } catch (e) {
         console.log(e)
       }
@@ -287,7 +274,7 @@ export default {
           label: 'Oui',
           color: 'positive'
         }
-      }).then(() => {
+      }).then(async () => {
         // check if dependencies exists
         const dependencies = [...new Set(list.fields
           .filter(f => f.lookupList && !vm.lists.some(l => l.Title === f.lookupList))
@@ -304,28 +291,26 @@ export default {
         }
         const l = new List(list.title, list.description)
         this.$q.loading.show({message: `Création de la liste ${list.title}`})
-        vm.$store.dispatch(CREATE_LIST, l)
-          .then(async id => {
-            for (const f of list.fields) {
-              this.$q.loading.show({message: `Création du champs ${f.title} dans la liste ${list.title}`})
-              if (f.lookupList) {
-                const lookupListId = vm.lists.find(l => l.Title === f.lookupList).Id
-                const field = new PrimaryLookupField(f.title, f.type, f.lookupField, lookupListId, f.multiple)
-                const primaryLookupFieldId = await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: field})
-                if (f.fieldType) {
-                  for (const sf of f.fields) {
-                    this.$q.loading.show({message: `Création du champs ${sf.title} dans la liste ${list.title}`})
-                    const subField = new SecondaryLookupField(sf.title, fieldType.lookup.label, sf.lookupField, lookupListId, primaryLookupFieldId, f.multiple)
-                    await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: subField})
-                  }
-                }
-              } else {
-                const field = new Field(f.title, f.type)
-                await vm.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: field})
+        let id = await this.createList(l)
+        for (const f of list.fields) {
+          this.$q.loading.show({message: `Création du champs ${f.title} dans la liste ${list.title}`})
+          if (f.lookupList) {
+            const lookupListId = vm.lists.find(l => l.Title === f.lookupList).Id
+            const field = new PrimaryLookupField(f.title, f.type, f.lookupField, lookupListId, f.multiple)
+            const primaryLookupFieldId = await this.createListField({id: id, field: field})
+            if (f.fieldType) {
+              for (const sf of f.fields) {
+                this.$q.loading.show({message: `Création du champs ${sf.title} dans la liste ${list.title}`})
+                const subField = new SecondaryLookupField(sf.title, fieldType.lookup.label, sf.lookupField, lookupListId, primaryLookupFieldId, f.multiple)
+                await this.createListField({id: id, field: subField})
               }
             }
-            this.$q.loading.hide()
-          })
+          } else {
+            const field = new Field(f.title, f.type)
+            await this.createListField({id: id, field: field})
+          }
+        }
+        this.$q.loading.hide()
       })
     },
     addAllLists () {
@@ -337,7 +322,7 @@ export default {
     },
     // converters
     listExist (list) {
-      return this.lists.some(l => l.Title === list.title)
+      return this.lists.some(l => l.Title === list.title && !l.jsonList)
     },
     async generateRandomItems (list, count) {
       const jlist = this.jsonLists.find(jl => jl.title === list.Title)
@@ -392,19 +377,17 @@ export default {
       } else {
         this.$q.loading.show({message: `Ajout de ${count} éléments simultanément dans la liste ${list.Title}`})
       }
-      this.$store.dispatch(CREATE_LIST_ITEMS, {list, count, fieldGroups, lookupFields})
-        .then(() => {
-          this.$q.loading.hide()
-          this.$q.notify({
-            message: `Ajout réalisé avec succès`,
-            color: 'positive',
-            timeout: 4000,
-            icon: 'check',
-            position: 'top'
-          })
-        })
+      await this.createListItems({list, count, fieldGroups, lookupFields})
+      this.$q.loading.hide()
+      this.$q.notify({
+        message: `Ajout réalisé avec succès`,
+        color: 'positive',
+        timeout: 4000,
+        icon: 'check',
+        position: 'top'
+      })
     },
-    deleteList (list) {
+    removeList (list) {
       const vm = this
       this.$q.dialog({
         title: `Suppression de ${list.Title}`,
@@ -421,15 +404,15 @@ export default {
           color: 'positive'
         }
       }).then(() => {
-        vm.$store.dispatch(DELETE_LIST, list)
+        vm.deleteList(list)
       })
     },
     insertDataFrom (list) {
-      this.$store.commit(UPDATE_INSERT_DATA_TO_LIST, list)
+      this.updateInsertDataToList(list)
       this.$refs.insertDataFromModal.open()
     },
     insertDataFromFile (list) {
-      this.$store.commit(UPDATE_INSERT_DATA_TO_LIST, list)
+      this.updateInsertDataToList(list)
       this.$refs.insertDataFromFileModal.open()
     },
     goToItems (list) {
@@ -462,14 +445,15 @@ export default {
         position: 'bottom'
       })
     },
-    refresh () {
+    async refresh () {
       this.$q.loading.show({message: 'Récupérations des données..'})
-      this.$store.dispatch(UPDATE_LISTS).then(_ => {
-        ipcRenderer.send('readJsonFiles')
-        this.$q.loading.hide()
-      })
+      await this.fetchLists()
+      // this.$store.dispatch(UPDATE_LISTS).then(_ => {
+      //   ipcRenderer.send('readJsonFiles')
+      this.$q.loading.hide()
+      // })
     },
-    __addTolists (list) {
+    async __addTolists (list) {
       const dependencies = [...new Set(list.fields
         .filter(f => f.lookupList && !this.lists.some(l => l.Title === f.lookupList))
         .map(f => f.lookupList))]
@@ -485,52 +469,37 @@ export default {
       }
       const l = new List(list.title, list.description)
       this.$q.loading.show({message: `Création de la liste ${list.title}`})
-      this.$store.dispatch(CREATE_LIST, l)
-        .then(async id => {
-          for (const f of list.fields) {
-            this.$q.loading.show({message: `Création du champs ${f.title} dans la liste ${list.title}`})
-            if (f.lookupList) {
-              const lookupListId = this.lists.find(l => l.Title === f.lookupList).Id
-              const field = new PrimaryLookupField(f.title, f.type, f.lookupField, lookupListId, f.multiple)
-              const primaryLookupFieldId = await this.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: field})
-              if (f.fieldType) {
-                for (const sf of f.fields) {
-                  this.$q.loading.show({message: `Création du champs ${sf.title} dans la liste ${list.title}`})
-                  const subField = new SecondaryLookupField(sf.title, fieldType.lookup.label, sf.lookupField, lookupListId, primaryLookupFieldId, f.multiple)
-                  await this.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: subField})
-                }
-              }
-            } else {
-              const field = new Field(f.title, f.type)
-              await this.$store.dispatch(CREATE_LIST_FIELD, {id: id, field: field})
+      let id = await this.createList(l)
+      for (const f of list.fields) {
+        this.$q.loading.show({message: `Création du champs ${f.title} dans la liste ${list.title}`})
+        if (f.lookupList) {
+          const lookupListId = this.lists.find(l => l.Title === f.lookupList).Id
+          const field = new PrimaryLookupField(f.title, f.type, f.lookupField, lookupListId, f.multiple)
+          const primaryLookupFieldId = this.createListField({id: id, field: field})
+          if (f.fieldType) {
+            for (const sf of f.fields) {
+              this.$q.loading.show({message: `Création du champs ${sf.title} dans la liste ${list.title}`})
+              const subField = new SecondaryLookupField(sf.title, fieldType.lookup.label, sf.lookupField, lookupListId, primaryLookupFieldId, f.multiple)
+              await this.createListField({id: id, field: subField})
             }
           }
-          this.$q.loading.hide()
-        })
+        } else {
+          const field = new Field(f.title, f.type)
+          await this.createListField({id: id, field: field})
+        }
+      }
+      this.$q.loading.hide()
     }
   },
   computed: {
     lists () {
-      return this.$store.getters.visibleLists
-    },
-    jsonLists () {
-      return this.$store.state.jsonLists
+      return this.visibleLists
     },
     tableData () {
-      let newJsonLists = this.jsonLists.map(x => {
-        return {
-          ...x,
-          jsonList: true,
-          Title: x.title
-        }
-      })
-      return [...this.lists, ...newJsonLists]
+      return this.lists
     }
   },
   created () {
-    if (!this.lists.length) {
-      this.$store.dispatch(UPDATE_LISTS)
-    }
     this.refresh()
   }
 }

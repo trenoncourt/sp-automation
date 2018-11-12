@@ -9,10 +9,10 @@
         </q-toolbar-title>
 
         <q-btn ref="target" flat>
-          {{$store.state.environment ? $store.state.environment.name : 'Aucun environement'}}
+          {{environment ? environment.name : 'Aucun environement'}}
           <q-popover ref="environment-popover">
             <q-list highlight link>
-              <q-item v-for="env in $store.state.environments" :key="env.name"
+              <q-item v-for="env in environments" :key="env.name"
                       @click.native="changeEnvironment(env), $refs['environment-popover'].hide()">
                 <q-item-main :label="env.name"/>
               </q-item>
@@ -20,8 +20,8 @@
               <q-item @click.native="$refs['environment-modal'].open()">
                 <q-item-main label="Ajouter un environement"/>
               </q-item>
-              <q-item-separator v-if="$store.state.environment"/>
-              <q-item v-if="$store.state.environment"
+              <q-item-separator v-if="environment"/>
+              <q-item v-if="environment"
                       @click.native="quitCurrentEnvironment(), $refs['environment-popover'].hide()">
                 <q-item-main label="quiter l'environement"/>
               </q-item>
@@ -29,15 +29,16 @@
           </q-popover>
         </q-btn>
 
+        <!--
         <q-btn ref="target" flat>
-          {{$store.state.me ? $store.me.name : ''}}
+          {{me ? me.name : ''}}
           <q-popover ref="popover">
             <q-list highlight link>
               <q-item>
               </q-item>
             </q-list>
           </q-popover>
-        </q-btn>
+        </q-btn> -->
       </q-toolbar>
 
     </q-layout-header>
@@ -53,7 +54,7 @@
           <q-item-side icon="home" />
           <q-item-main label="Home" sublabel="Home" />
         </q-item>
-        <q-item v-if="$store.state.environment" item :to="{name: 'lists'}">
+        <q-item v-if="environment" item :to="{name: 'lists'}">
           <q-item-side icon="list" />
           <q-item-main label="Lists" sublabel="Lists" />
         </q-item>
@@ -73,10 +74,13 @@
 <script>
 
 import EnvironmentModal from 'components/EnvironmentModal.vue'
-import settings from 'electron-settings'
-import { RESET_ENVIRONMENT, UPDATE_ENVIRONMENT } from '../store/mutation-types'
+// import settings from 'electron-settings'
+// import { RESET_ENVIRONMENT, UPDATE_ENVIRONMENT } from '../store/mutation-types'
+import { authMixin } from 'src/store/modules/auth'
+import { environmentMixin } from 'src/store/modules/environment'
 
 export default {
+  mixins: [authMixin, environmentMixin],
   components: {
     EnvironmentModal
   },
@@ -87,12 +91,18 @@ export default {
   },
   methods: {
     changeEnvironment (env) {
-      settings.set('environment', env)
-      this.$store.commit(UPDATE_ENVIRONMENT, env)
+      // settings.set('environment', env)
+      // this.$store.commit(UPDATE_ENVIRONMENT, env)
+      this.selectEnvironment(env)
     },
     quitCurrentEnvironment () {
       this.$router.push({name: 'home'})
-      this.$store.commit(RESET_ENVIRONMENT)
+      this.resetEnvironment()
+      // this.$store.commit(RESET_ENVIRONMENT)
+    },
+    created () {
+      debugger
+      console.log(this.environments)
     }
   }
 }

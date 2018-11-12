@@ -92,7 +92,7 @@
         </div>
       </div>
       <br>
-      <q-btn class="float-right" color="primary" @click="createEnvironment()">Ajouter l'environement</q-btn>
+      <q-btn class="float-right" color="primary" @click="saveEnvironment()">Ajouter l'environement</q-btn>
     </q-modal>
   </div>
 </template>
@@ -100,10 +100,12 @@
 <script>
 
 import { envAuthTypes } from 'src/utils/enums'
-import settings from 'electron-settings'
-import { UPDATE_ENVIRONMENTS } from 'src/store/mutation-types'
+// import settings from 'electron-settings'
+// import { UPDATE_ENVIRONMENTS } from 'src/store/mutation-types'
+import { environmentMixin } from 'src/store/modules/environment'
 
 export default {
+  mixins: [environmentMixin],
   data () {
     return {
       env: {
@@ -130,11 +132,12 @@ export default {
     close () {
       this.$refs.modal.hide()
     },
-    createEnvironment () {
-      const environments = settings.get('environments') || []
-      environments.push(this.env)
-      settings.set('environments', environments)
-      this.$store.commit(UPDATE_ENVIRONMENTS, environments)
+    saveEnvironment () {
+      // const environments = settings.get('environments') || []
+      // environments.push(this.env)
+      // settings.set('environments', environments)
+      // this.$store.commit(UPDATE_ENVIRONMENTS, environments)
+      this.createEnvironment(this.env)
       this.close()
     }
   }

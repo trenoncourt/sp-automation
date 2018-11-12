@@ -24,11 +24,11 @@
 
 <script>
 
-import { UPDATE_INSERT_DATA_TO_LIST } from 'src/store/mutation-types'
 import XLSX from 'XLSX'
-import { UPDATE_LIST_FIELDS_IN_LISTS } from '../store/mutation-types'
+import { listMixin } from 'src/store/modules/list'
 
 export default {
+  mixins: [listMixin],
   data () {
     return {
       environmentLists: [],
@@ -36,16 +36,6 @@ export default {
       xlsxFieldNames: [],
       xlsxData: [],
       mappedRows: []
-    }
-  },
-  computed: {
-    insertDataToList: {
-      get () {
-        return this.$store.state.insertDataToList
-      },
-      set (value) {
-        this.$store.commit(UPDATE_INSERT_DATA_TO_LIST, value)
-      }
     }
   },
   methods: {
@@ -145,7 +135,7 @@ export default {
       let vm = this
       this.spFieldNames = []
       this.xlsxFieldNames = []
-      const updateListTask = this.$store.dispatch(UPDATE_LIST_FIELDS_IN_LISTS, list)
+      const updateListTask = this.updateListFieldsInLists(list)
       reader.onload = async (e) => {
         let file = e.target.result
 

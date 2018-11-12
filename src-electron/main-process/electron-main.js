@@ -20,6 +20,8 @@ let mainWindow
 
 ipcMain.on('readJsonFiles', function (event, arg) {
   const environment = settings.get('environment')
+  if (!environment) return
+
   readFiles(environment.path, event)
     .then(files => {
       event.sender.send('sp-sites-update', files)
