@@ -1,12 +1,12 @@
 {
-  "title": "MultipleArray",
+  "title": "MultipleArrays",
   "fields": [
     {
-      "title": "Column",
+      "title": "column",
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "MultipleColumn",
+      "lookupList": "MultipleColumns",
       "fields": [
         {
           "title": "offsetSTT",

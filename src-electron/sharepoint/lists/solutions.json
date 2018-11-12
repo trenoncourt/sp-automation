@@ -2,6 +2,14 @@
   "title": "Solutions",
   "fields": [
     {
+      "title": "tracerCost",
+      "type": "integer"
+    },
+    {
+      "title": "GMGCost",
+      "type": "integer"
+    },
+    {
       "title": "otherVarnish",
       "type": "text"
     },
@@ -35,11 +43,11 @@
     },
     {
       "title": "inking",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "insideInking",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "printType",
@@ -53,6 +61,38 @@
         },
         {
           "title": "printTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "varnishType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "VarnishesTypes",
+      "fields": [
+        {
+          "title": "varnishTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "varnishTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "insideVarnishType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "VarnishesTypes",
+      "fields": [
+        {
+          "title": "varnishTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "varnishTypeValue",
           "lookupField": "value"
         }
       ]
@@ -154,7 +194,7 @@
       ]
     },
     {
-      "title": "simOutputDataAttachement",
+      "title": "simOutputDataAttachments",
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
@@ -207,6 +247,30 @@
       "type": "lookup",
       "lookupField": "ID",
       "lookupList": "PreprintArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
+    },
+    {
+      "title": "insideMultipleArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "MultipleArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
+    },
+    {
+      "title": "outsideMultipleArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "MultipleArrays",
       "fields": [
         {
           "title": "column",

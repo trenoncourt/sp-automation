@@ -1,0 +1,34 @@
+{
+  "title": "LabOutputData",
+  "fields": [
+    {
+      "title": "analyzes",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "Analyzes"
+    }, {
+      "title": "rcvs",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "Rcvs"
+    }, {
+      "title": "comment",
+      "type": "text"
+    },
+    {
+      "title": "annexAttachments",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "SemOutputDataAttachments",
+      "fields": [
+        {
+          "title": "fileName",
+          "lookupField": "name"
+        }
+      ]
+    }
+  ]
+}
