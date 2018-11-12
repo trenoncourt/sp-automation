@@ -1,0 +1,86 @@
+{
+  "title": "Rcvs",
+  "fields": [
+    {
+      "title": "hygrometry",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "Hygrometry",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "quality",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "comment",
+      "type": "text"
+    },
+    {
+      "title": "type",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "RcvTypes",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "values",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "RcvValues",
+      "fields": [
+      {
+        "title": "value",
+        "type": "integer"
+      }
+    ]
+    },
+    {
+      "title": "minValue",
+      "type": "integer"
+    },
+    {
+      "title": "maxValue",
+      "type": "integer"
+    },
+    {
+      "title": "averageValue",
+      "type": "number"
+    },
+    {
+      "title": "standardDeviation",
+      "type": "number"
+    }
+  ]
+}

@@ -1,8 +1,12 @@
 {
-  "title": "PreprintColumn",
+  "title": "MultipleColumns",
   "fields": [
     {
-      "title": "quantityEmb",
+      "title": "offsetSTT",
+      "type": "text"
+    },
+    {
+      "title": "quantityPacked",
       "type": "integer"
     },
     {
@@ -14,23 +18,15 @@
       "type": "text"
     },
     {
-      "title": "widthOfCoil",
+      "title": "companyCost",
       "type": "integer"
     },
     {
-      "title": "taxedLdc",
+      "title": "applicationFees",
       "type": "integer"
     },
     {
-      "title": "surfaceArea",
-      "type": "integer"
-    },
-    {
-      "title": "price",
-      "type": "integer"
-    },
-    {
-      "title": "clicheCost",
+      "title": "total",
       "type": "integer"
     }
   ]

@@ -38,7 +38,7 @@
         </q-table>
       </div>
     </div>
-     <insert-items ref="InsertItems" ></insert-items>
+     <insert-items ref="InsertItems" @refreshitem='refreshitem' ></insert-items>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
     <q-fab
         color="primary"
@@ -71,7 +71,6 @@
 
 <script>
 import InsertItems from 'src/components/InsertItems.vue'
-
 export default {
   components: {
     InsertItems
@@ -83,6 +82,7 @@ export default {
       isAdd: false,
       Data: [],
       titleList: '',
+      nbitems: 0,
       idList: '',
       tablePagination: {
         rowsPerPage: 10,
@@ -111,16 +111,40 @@ export default {
       this.isAdd = false
       this.$refs.InsertItems.open()
     },
+    refreshitem (value) {
+      this.idList = this.$store.state.changeVue.Id
+      this.nbitems = this.nbitems + value
+      this.$http.api.lists.getItems(this.idList, this.nbitems).then(response => {
+        this.Data = response.value
+      })
+    },
     dellAllItems () {
-      for (let i = 0; i < this.Data.length; i++) {
-        this.$http.api.lists.deleteItem(this.idList, this.Data[i].Id)
-      }
-      this.$q.notify({
-        message: `Tous les items de la liste sont supprimer`,
-        color: 'positive',
-        timeout: 4000,
-        icon: 'check',
-        position: 'top'
+      this.$q.dialog({
+        title: 'Confirm',
+        message: 'êtes-vous sûr de vouloir supprimer tous les items ?',
+        ok: 'Supprimer',
+        cancel: 'Ne pas supprimer'
+      }).then(() => {
+        for (let i = 0; i < this.Data.length; i++) {
+          this.$http.api.lists.deleteItem(this.idList, this.Data[i].Id).then(response => {
+            this.refreshitem(-1)
+          })
+        }
+        this.$q.notify({
+          message: `Tous les items de la liste sont supprimer`,
+          color: 'positive',
+          timeout: 4000,
+          icon: 'check',
+          position: 'top'
+        })
+      }).catch(() => {
+        this.$q.notify({
+          message: `Aucun item n'a été supprimé`,
+          color: 'negative',
+          timeout: 4000,
+          icon: 'check',
+          position: 'top'
+        })
       })
     },
     deleteItem (item) {
@@ -130,7 +154,9 @@ export default {
         ok: 'Supprimer',
         cancel: 'Ne pas supprimer'
       }).then(() => {
-        this.$http.api.lists.deleteItem(this.idList, item.Id)
+        this.$http.api.lists.deleteItem(this.idList, item.Id).then(response => {
+          this.refreshitem(-1)
+        })
         this.$q.notify({
           message: `L'item ${item.Title} a été supprimer de la liste`,
           color: 'positive',
@@ -141,7 +167,7 @@ export default {
       }).catch(() => {
         this.$q.notify({
           message: `L'item ${item.Title} n'a pas été supprimer de la liste`,
-          color: 'positive',
+          color: 'negative',
           timeout: 4000,
           icon: 'check',
           position: 'top'
@@ -157,7 +183,7 @@ export default {
   created () {
     this.idList = this.$store.state.changeVue.Id
     this.titleList = this.$store.state.changeVue.Title
-    let nbItemsList = this.$store.state.changeVue.ItemCount
+    this.nbitems = this.$store.state.changeVue.ItemCount
     this.$http.api.lists.getFields(this.idList).then(response => {
       let fields = response.value
       for (let i = 0; i < fields.length; i++) {
@@ -173,7 +199,7 @@ export default {
         this.tableColumns.push({name: this.Fields[i].name, label: this.Fields[i].label, field: this.Fields[i].name})
       }
     })
-    this.$http.api.lists.getItems(this.idList, nbItemsList).then(response => {
+    this.$http.api.lists.getItems(this.idList, this.nbitems).then(response => {
       this.Data = response.value
     })
   }

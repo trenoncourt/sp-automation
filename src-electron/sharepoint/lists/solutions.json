@@ -2,16 +2,12 @@
   "title": "Solutions",
   "fields": [
     {
-      "title": "attachmentType",
-      "type": "text"
+      "title": "tracerCost",
+      "type": "integer"
     },
     {
-      "title": "imageSrc",
-      "type": "text"
-    },
-    {
-      "title": "pdfSrc",
-      "type": "text"
+      "title": "GMGCost",
+      "type": "integer"
     },
     {
       "title": "otherVarnish",
@@ -47,16 +43,15 @@
     },
     {
       "title": "inking",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "insideInking",
-      "type": "text"
+      "type": "integer"
     },
     {
       "title": "printType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "PrintTypes",
       "fields": [
@@ -71,9 +66,40 @@
       ]
     },
     {
+      "title": "varnishType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "VarnishesTypes",
+      "fields": [
+        {
+          "title": "varnishTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "varnishTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "insideVarnishType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "VarnishesTypes",
+      "fields": [
+        {
+          "title": "varnishTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "varnishTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
       "title": "insidePrintType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "PrintTypes",
       "fields": [
@@ -90,7 +116,6 @@
     {
       "title": "metallicColorType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "MetallicColorTypes",
       "fields": [
@@ -107,7 +132,6 @@
     {
       "title": "insideMetallicColorType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "MetallicColorTypes",
       "fields": [
@@ -124,7 +148,6 @@
     {
       "title": "tenColorType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "TenColorTypes",
       "fields": [
@@ -141,7 +164,6 @@
     {
       "title": "insideTenColorType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
       "lookupList": "TenColorTypes",
       "fields": [
@@ -158,12 +180,11 @@
     {
       "title": "printInsideOutsideType",
       "type": "lookup",
-      "multiple": true,
       "lookupField": "ID",
-      "lookupList": "printInsideOutsideTypes",
+      "lookupList": "PrintInsideOutsideTypes",
       "fields": [
         {
-          "title": "iprintInsideOutsideTypeLabel",
+          "title": "printInsideOutsideTypeLabel",
           "lookupField": "label"
         },
         {
@@ -173,15 +194,87 @@
       ]
     },
     {
-      "title": "outputDataAttachement",
+      "title": "simOutputDataAttachments",
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "OutputDataAttachements",
+      "lookupList": "SimOutputDataAttachments",
       "fields": [
         {
           "title": "OutputDataAttachmentTypesLabel",
           "lookupField": "label"
+        }
+      ]
+    },
+    {
+      "title": "insideFlexographyArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "FlexographyArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
+    },
+    {
+      "title": "outsideFlexographyArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "FlexographyArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
+    },
+    {
+      "title": "insidePrePrintArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PreprintArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
+    },
+    {
+      "title": "outsidePrePrintArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PreprintArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
+    },
+    {
+      "title": "insideMultipleArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "MultipleArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
+        }
+      ]
+    },
+    {
+      "title": "outsideMultipleArray",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "MultipleArrays",
+      "fields": [
+        {
+          "title": "column",
+          "lookupField": "column"
         }
       ]
     }

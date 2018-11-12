@@ -1,12 +1,12 @@
 {
-  "title": "PreprintArray",
+  "title": "PreprintArrays",
   "fields": [
     {
-      "title": "Column",
+      "title": "column",
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "PreprintColumn",
+      "lookupList": "PreprintColumns",
       "fields": [
         {
           "title": "quantityEmb",

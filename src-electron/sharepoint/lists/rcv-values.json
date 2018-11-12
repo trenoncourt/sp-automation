@@ -1,0 +1,9 @@
+{
+  "title": "RcvValues",
+  "fields": [
+    {
+      "title": "value",
+      "type": "integer"
+    }
+  ]
+}

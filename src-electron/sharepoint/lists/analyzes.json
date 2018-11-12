@@ -1,0 +1,178 @@
+{
+  "title": "Analyzes",
+  "fields": [
+    {
+      "title": "name",
+      "type": "text"
+    },
+    {
+      "title": "mass",
+      "type": "text"
+    },
+    {
+      "title": "bursting",
+      "type": "text"
+    },
+    {
+      "title": "groove",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PackageSpline",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "ect",
+      "type": "text"
+    },
+    {
+      "title": "comment",
+      "type": "text"
+    },
+    {
+      "title": "qualities",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "PackageSplineONU",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "paperType1",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PaperTypes",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "paperType2",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PaperTypes",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "paperType3",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PaperTypes",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "paperType4",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PaperTypes",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "paperType5",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PaperTypes",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "paperType6",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PaperTypes",
+      "fields": [
+        {
+          "title": "label",
+          "type": "text"
+        },
+        {
+          "title": "value",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "title": "value1",
+      "type": "integer"
+    },
+    {
+      "title": "value2",
+      "type": "integer"
+    },
+    {
+      "title": "value3",
+      "type": "integer"
+    },
+    {
+      "title": "value4",
+      "type": "integer"
+    },
+    {
+      "title": "value5",
+      "type": "integer"
+    },
+    {
+      "title": "value6",
+      "type": "integer"
+    }
+  ]
+}

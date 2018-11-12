@@ -1,0 +1,25 @@
+{
+  "title": "LabOutputDataAttachments",
+  "fields": [
+    {
+      "title": "fileName",
+      "type": "text"
+    },
+    {
+      "title": "outputDataAttachmentType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "OutputDataAttachmentTypes",
+      "fields": [
+        {
+          "title": "outputDataAttachmentTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "outputDataAttachmentTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    }
+  ]
+}

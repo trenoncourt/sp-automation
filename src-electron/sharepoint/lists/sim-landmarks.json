@@ -1,0 +1,34 @@
+{
+  "title": "SimLandmarks",
+  "fields": [
+    {
+      "title": "name",
+      "type": "text"
+    },
+    {
+      "title": "deSem",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "SemLandmarks",
+      "fields": [
+        {
+          "title": "Id",
+          "lookupField": "Id"
+        }
+      ]
+    },
+    {
+      "title": "solutions",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "Solutions",
+      "fields": [
+        {
+          "title": "commentary",
+          "lookupField": "commentary"
+        }
+      ]
+    }
+  ]
+}
