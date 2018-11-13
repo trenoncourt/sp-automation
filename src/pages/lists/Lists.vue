@@ -32,7 +32,7 @@
             />
           </template>
           <q-td slot="body-cell-id" slot-scope="props" :props="props">
-            <q-item @click.native="goToItems(props.row)" v-if="$store.state.environment" item :to="{name: 'items' }">
+            <q-item @click.native="goToItems(props.row)" v-if="environment" item :to="{name: 'items' }">
               {{ props.value }}
             </q-item>
           </q-td>
@@ -79,12 +79,24 @@
                 </q-popover>
               </q-btn>
               <!-- Download list -->
-              <q-btn :loading="props.row.btnDownloadListLoading" class="q-mr-xs" @click="downloadList(props.row)" size="12px" round
+              <q-btn :loading="props.row.btnDownloadListLoading" class="q-mr-xs" size="12px" round
                      color="primary">
-                  <q-icon name="file_download" />
-                  <q-tooltip>
-                      Telecharge au format Json les infos sur la liste(Field/Type)
-                  </q-tooltip>
+                <q-icon name="file_download" />
+                <q-tooltip>
+                    Telecharge au format Json les infos sur la liste(Field/Type)
+                </q-tooltip>
+                <q-popover :ref="'popover-download-' + props.row.Id">
+                  <q-list link separator class="scroll" style="min-width: 100px">
+                    <q-item
+                      @click.native="downloadList(props.row), $refs['popover-download-' + props.row.Id].hide()">
+                      <q-item-main label="Télécharge le modèle de la liste"/>
+                    </q-item>
+                    <q-item
+                      @click.native="downloadListItems(props.row), $refs['popover-download-' + props.row.Id].hide()">
+                      <q-item-main label="Télécharge les données de la liste"/>
+                    </q-item>
+                  </q-list>
+                </q-popover>
               </q-btn>
               <!-- Get list Fields -->
               <q-btn :loading="props.row.btnListFieldsLoading" class="q-mr-xs" color="primary"
@@ -187,9 +199,11 @@ import InsertDataFromModal from 'src/components/InsertDataFromModal.vue'
 import InsertDataFromFileModal from 'src/components/InsertDataFromFileModal.vue'
 import { ipcRenderer } from 'electron'
 import { listMixin } from 'src/store/modules/list'
+import { environmentMixin } from 'src/store/modules/environment'
+import xlsxHelper from '../../utils/xlsx-helper'
 
 export default {
-  mixins: [listMixin],
+  mixins: [environmentMixin, listMixin],
   components: {
     InsertDataFromModal,
     InsertDataFromFileModal
@@ -417,6 +431,37 @@ export default {
     },
     goToItems (list) {
       this.$store.state.changeVue = list
+    },
+    async downloadListItems (list) {
+      let response = await this.$http.api.lists.getItems(list.Id, 99999)
+      const items = response.value
+
+      response = await this.$http.api.lists.getFields(list.Id)
+      const fields = []
+      const values = response.value.filter(v => !v.Hidden && !v.ReadOnlyField && !v.FromBaseType)
+      for (let i of values) {
+        if (i.FieldTypeKind === 7) {
+          console.log('lookup')
+        }
+        fields.push({
+          title: i.Title,
+          type: fieldType.find(i.FieldTypeKind).label
+        })
+      }
+
+      let colNames = fields.map(x => x.title)
+
+      let map = items.map(x => {
+        let obj = {}
+        for (let col of colNames) {
+          obj[col] = x[col]
+        }
+        return obj
+      })
+
+      let final = Array.from(map, x => Object.values(x))
+
+      xlsxHelper.exportXLSX(colNames, final, null)
     },
     async downloadList (list) {
       this.$set(list, 'btnDownloadListLoading', true)

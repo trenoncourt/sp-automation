@@ -16,6 +16,7 @@
     "axios": "^0.18.0",
     "electron-settings": "^3.2.0",
     "file-loader": "^2.0.0",
+    "file-saver": "^2.0.0-rc.4",
     "require": "^2.4.20",
     "vue-i18n": "^7.3.3",
     "vuex-persistedstate": "^2.5.4",
