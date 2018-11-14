@@ -44,6 +44,7 @@ export default {
     },
     open () {
       this.mappedRows = []
+      this.$refs.uploader.reset()
       this.$refs.modal.show()
     },
     close () {
