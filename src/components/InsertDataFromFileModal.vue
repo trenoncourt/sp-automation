@@ -81,7 +81,12 @@ export default {
           let createTask = this.$http.api.lists.createItem(list.Id, item)
           tasks.push(createTask)
         }
+
+        this.$q.loading.show({message: `Import des données en cours`})
+
         Promise.all(tasks).then(_ => {
+          this.$q.loading.hide()
+
           this.$q.notify({
             message: `Import réalisé avec succès`,
             color: 'positive',
@@ -90,6 +95,17 @@ export default {
             position: 'top'
           })
           this.close()
+        }, error => {
+          this.$q.loading.hide()
+
+          this.$q.notify({
+            message: `Une erreur est survenue lors de l'import`,
+            color: 'negative',
+            timeout: 4000,
+            icon: 'check',
+            position: 'top'
+          })
+          console.log(error)
         })
       }
     },
@@ -120,7 +136,11 @@ export default {
       }
 
       if (isAffected) {
+        this.$q.loading.show({message: `Import des données en cours`})
+
         Promise.all(tasks).then(_ => {
+          this.$q.loading.hide()
+
           this.$q.notify({
             message: `Import réalisé avec succès`,
             color: 'positive',
@@ -129,6 +149,17 @@ export default {
             position: 'top'
           })
           this.close()
+        }, error => {
+          this.$q.loading.hide()
+
+          this.$q.notify({
+            message: `Une erreur est survenue lors de l'import`,
+            color: 'negative',
+            timeout: 4000,
+            icon: 'check',
+            position: 'top'
+          })
+          console.log(error)
         })
       }
     },
