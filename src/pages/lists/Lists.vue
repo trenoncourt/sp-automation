@@ -545,7 +545,9 @@ export default {
     }
   },
   created () {
-    this.refresh()
+    if (this.lists.length === 0) {
+      this.refresh()
+    }
   }
 }
 </script>

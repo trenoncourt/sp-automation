@@ -78,9 +78,10 @@ import EnvironmentModal from 'components/EnvironmentModal.vue'
 // import { RESET_ENVIRONMENT, UPDATE_ENVIRONMENT } from '../store/mutation-types'
 import { authMixin } from 'src/store/modules/auth'
 import { environmentMixin } from 'src/store/modules/environment'
+import { listMixin } from 'src/store/modules/list'
 
 export default {
-  mixins: [authMixin, environmentMixin],
+  mixins: [authMixin, environmentMixin, listMixin],
   components: {
     EnvironmentModal
   },
@@ -94,6 +95,7 @@ export default {
       // settings.set('environment', env)
       // this.$store.commit(UPDATE_ENVIRONMENT, env)
       this.selectEnvironment(env)
+      this.fetchLists()
     },
     quitCurrentEnvironment () {
       this.$router.push({name: 'home'})

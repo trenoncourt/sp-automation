@@ -48,7 +48,6 @@ export const actions = {
     }
   },
   syncEnvironments (store) {
-    settings.set('environment', store.state.environment)
     settings.set('environments', store.state.environments)
   },
   resetEnvironment ({commit}) {

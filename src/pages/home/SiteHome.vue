@@ -128,6 +128,7 @@ export default {
   },
   methods: {
     save () {
+      this.updateEnvironment(this.environment)
       this.syncEnvironments()
 
       Notify.create({
