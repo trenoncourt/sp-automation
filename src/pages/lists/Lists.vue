@@ -37,8 +37,11 @@
             </q-item>
           </q-td>
           <q-td slot="body-cell-title" slot-scope="props" :props="props">
-            <q-chip v-if="!props.row.jsonFileExist && !props.row.jsonList" small color="primary">{{ props.value }}</q-chip>
-            <q-chip v-else-if="props.row.jsonFileExist && !props.row.jsonList" small color="positive">{{ props.value }}</q-chip>
+            <q-chip v-if="!props.row.jsonFileExist && !props.row.jsonList" small color="primary">{{ props.value }}
+            </q-chip>
+            <q-chip v-else-if="props.row.jsonFileExist && !props.row.jsonList" small color="positive">{{ props.value
+              }}
+            </q-chip>
             <q-chip v-else="" small color="red">{{ props.value }}</q-chip>
           </q-td>
           <q-td slot='body-cell-action' slot-scope="props" :props="props">
@@ -46,9 +49,6 @@
               <!-- Items generation -->
               <q-btn class="q-mr-xs" color="primary" size="12px" round>
                 <q-icon name="shuffle"/>
-                <q-tooltip>
-                  Création items Randoms/Update avec import fichier Json/Excel ou un autre environement
-                </q-tooltip>
                 <q-popover :ref="'popover-random-items-' + props.row.Id">
                   <q-list link separator class="scroll" style="min-width: 100px">
                     <q-item
@@ -79,12 +79,9 @@
                 </q-popover>
               </q-btn>
               <!-- Download list -->
-              <q-btn :loading="props.row.btnDownloadListLoading" class="q-mr-xs" size="12px" round
+              <q-btn class="q-mr-xs" size="12px" round
                      color="primary">
-                <q-icon name="file_download" />
-                <q-tooltip>
-                    Telecharge au format Json les infos sur la liste(Field/Type)
-                </q-tooltip>
+                <q-icon name="file_download"/>
                 <q-popover :ref="'popover-download-' + props.row.Id">
                   <q-list link separator class="scroll" style="min-width: 100px">
                     <q-item
@@ -99,12 +96,9 @@
                 </q-popover>
               </q-btn>
               <!-- Get list Fields -->
-              <q-btn :loading="props.row.btnListFieldsLoading" class="q-mr-xs" color="primary"
+              <q-btn class="q-mr-xs" color="primary"
                      @click="updateListFields(props.row)" size="12px" round>
                 <q-icon name="assignment"/>
-                <q-tooltip>
-                  Afficher les fields de la liste
-                </q-tooltip>
                 <q-popover :ref="'popover-json-lists' + props.row.Id">
                   <q-list link separator class="scroll" style="min-width: 100px">
                     <q-item
@@ -119,9 +113,6 @@
               </q-btn>
               <q-btn class="q-mr-xs" color="negative" @click="removeList(props.row)" size="12px" round>
                 <q-icon name="clear"/>
-                <q-tooltip>
-                  Supprimer une liste
-                </q-tooltip>
               </q-btn>
             </div>
             <div v-else="">
@@ -139,9 +130,6 @@
                 </q-popover>
               </q-btn>
               <q-btn class="q-mr-xs" size="12px" color="purple" round @click="addToLists(props.row)">
-                <q-tooltip>
-                  Ajouter la liste
-                </q-tooltip>
                 <q-icon name="playlist_add"/>
               </q-btn>
             </div>
@@ -161,9 +149,9 @@
         icon="sync"
         size="18px"
         @click="refresh">
-           <q-tooltip anchor="top middle" self="bottom middle" :offset="[10, 10]">
-              Synchroniser
-          </q-tooltip>
+        <q-tooltip anchor="top middle" self="bottom middle" :offset="[10, 10]">
+          Synchroniser
+        </q-tooltip>
       </q-btn>
     </q-page-sticky>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
@@ -291,7 +279,7 @@ export default {
       }).then(async () => {
         // check if dependencies exists
         const dependencies = [...new Set(list.fields
-          .filter(f => f.lookupList && !vm.lists.some(l => l.Title === f.lookupList))
+          .filter(f => f.lookupList && !vm.lists.some(l => l.Title === f.lookupList && !l.jsonList))
           .map(f => f.lookupList))]
         if (dependencies.length) {
           this.$q.notify({
