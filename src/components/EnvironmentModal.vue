@@ -108,6 +108,9 @@ export default {
   mixins: [environmentMixin],
   data () {
     return {
+      nameAlreadyExist: false,
+      TypeAuthNtlm: false,
+      TypeAuthBearer: false,
       env: {
         name: '',
         url: '',
@@ -137,8 +140,59 @@ export default {
       // environments.push(this.env)
       // settings.set('environments', environments)
       // this.$store.commit(UPDATE_ENVIRONMENTS, environments)
-      this.createEnvironment(this.env)
-      this.close()
+      for (let y = 0; y < this.environments.length; y++) {
+        if (this.environments[y].name === this.env.name) {
+          this.nameAlreadyExist = true
+          break
+        }
+      }
+      if (this.env.useCurrentUser) {
+        this.env.username = this.environment.username
+        this.env.password = this.environment.password
+      }
+      if (this.env.authType === 1) {
+        if (this.env.username === '' || this.env.password === '') {
+          this.TypeAuthNtlm = true
+        }
+      }
+      if (this.env.authType === 2) {
+        if (this.env.tenantId === '' || this.env.clientId === '' || this.env.certPrivateKey === '' || this.env.certThumbprint === '') {
+          this.TypeAuthBearer = true
+        }
+      }
+
+      if (this.env.authType == null || this.env.name === '' || this.nameAlreadyExist || this.env.url === '' || this.TypeAuthBearer || this.TypeAuthNtlm) {
+        this.nameAlreadyExist = false
+        this.TypeAuthNtlm = false
+        this.TypeAuthBearer = false
+        this.$q.notify({
+          message: `Champs requis non remplis ou Nom déjà utilisé`,
+          color: 'negative',
+          timeout: 4000,
+          icon: 'warning',
+          position: 'top'
+        })
+        console.log(this.TypeAuthNtlm)
+      } else {
+        this.nameAlreadyExist = false
+        this.TypeAuthNtlm = false
+        this.TypeAuthBearer = false
+        this.createEnvironment(this.env)
+        this.env = {
+          name: '',
+          url: '',
+          authType: null,
+          useCurrentUser: false,
+          username: '',
+          password: '',
+          tenantId: '',
+          clientId: '',
+          resource: '',
+          certPrivateKey: '',
+          certThumbprint: ''
+        }
+        this.close()
+      }
     }
   }
 }
