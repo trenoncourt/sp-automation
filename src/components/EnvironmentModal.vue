@@ -172,7 +172,6 @@ export default {
           icon: 'warning',
           position: 'top'
         })
-        console.log(this.TypeAuthNtlm)
       } else {
         this.nameAlreadyExist = false
         this.TypeAuthNtlm = false

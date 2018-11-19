@@ -97,10 +97,6 @@ export default {
     }
   },
   methods: {
-    test () {
-      // console.log(this.environments)
-      // this.delEnvironment('test')
-    },
     changeEnvironment (env) {
       // settings.set('environment', env)
       // this.$store.commit(UPDATE_ENVIRONMENT, env)

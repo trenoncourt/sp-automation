@@ -35,7 +35,6 @@ export const actions = {
   },
   delEnvironment ({ commit }, env) {
     const environments = settings.get('environments') || []
-
     for (let i = 0; i < environments.length; i++) {
       if (environments[i].name === env) {
         environments.splice(i, 1)
