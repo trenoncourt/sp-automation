@@ -1,0 +1,57 @@
+{
+  "title": "SettingSheets",
+  "fields": [
+    {
+      "title": "deSemIndex",
+      "type": "text"
+    },
+    {
+      "title": "laize",
+      "type": "integer"
+    },
+    {
+      "title": "ldc",
+      "type": "integer"
+    },
+    {
+      "title": "laizeOND",
+      "type": "integer"
+    },
+    {
+      "title": "ldcOND",
+      "type": "integer"
+    },
+    {
+      "title": "nbInstallation",
+      "type": "integer"
+    },
+    {
+      "title": "tb",
+      "type": "boolean"
+    },
+    {
+      "title": "st",
+      "type": "boolean"
+    },
+    {
+      "title": "imb",
+      "type": "boolean"
+    },
+    {
+      "title": "toolCost",
+      "type": "text"
+    },
+    {
+      "title": "circuit",
+      "type": "text"
+    },
+    {
+      "title": "process",
+      "type": "note"
+    },
+    {
+      "title": "observation",
+      "type": "note"
+    }
+  ]
+}

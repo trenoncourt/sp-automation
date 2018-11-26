@@ -19,6 +19,14 @@
       ]
     },
     {
+      "title": "settingSheetId",
+      "type": "integer"
+    },
+    {
+      "title": "process",
+      "type": "text"
+    },
+    {
       "title": "processSical",
       "type": "boolean"
     },
