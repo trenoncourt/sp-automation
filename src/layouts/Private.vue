@@ -20,6 +20,9 @@
               <q-item @click.native="$refs['environment-modal'].open()">
                 <q-item-main label="Ajouter un environement"/>
               </q-item>
+              <q-item @click.native="$refs['delete-environment'].open()">
+                <q-item-main label="Supprimer un environement"/>
+              </q-item>
               <q-item-separator v-if="environment"/>
               <q-item v-if="environment"
                       @click.native="quitCurrentEnvironment(), $refs['environment-popover'].hide()">
@@ -67,6 +70,7 @@
       </transition>
     </q-page-container>
 
+    <delete-environment ref="delete-environment"></delete-environment>
     <environment-modal ref="environment-modal"></environment-modal>
   </q-layout>
 </template>
@@ -74,6 +78,7 @@
 <script>
 
 import EnvironmentModal from 'components/EnvironmentModal.vue'
+import DeleteEnvironment from 'components/DeleteEnvironment.vue'
 // import settings from 'electron-settings'
 // import { RESET_ENVIRONMENT, UPDATE_ENVIRONMENT } from '../store/mutation-types'
 import { authMixin } from 'src/store/modules/auth'
@@ -83,6 +88,7 @@ import { listMixin } from 'src/store/modules/list'
 export default {
   mixins: [authMixin, environmentMixin, listMixin],
   components: {
+    DeleteEnvironment,
     EnvironmentModal
   },
   data () {

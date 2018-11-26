@@ -1056,14 +1056,6 @@
       "type": "integer"
     },
     {
-      "title": "insideNbGMG",
-      "type": "integer"
-    },
-    {
-      "title": "insideNbTracer",
-      "type": "integer"
-    },
-    {
       "title": "pantone",
       "type": "boolean"
     },

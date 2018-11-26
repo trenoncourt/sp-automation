@@ -11,6 +11,9 @@ export const mutations = {
   SET_ENVIRONMENTS (state, newValue) {
     state.environments = newValue
   },
+  DEL_ENVIRONMENT (state, newValue) {
+    state.environments = newValue
+  },
   SET_ENVIRONMENT (state, newValue) {
     state.environment = newValue
   },
@@ -29,6 +32,17 @@ export const actions = {
     environments.push(env)
     settings.set('environments', environments)
     commit('SET_ENVIRONMENTS', environments)
+  },
+  delEnvironment ({ commit }, env) {
+    const environments = settings.get('environments') || []
+    for (let i = 0; i < environments.length; i++) {
+      if (environments[i].name === env) {
+        environments.splice(i, 1)
+        break
+      }
+    }
+    settings.set('environments', environments)
+    commit('DEL_ENVIRONMENT', environments)
   },
   updateEnvironment ({commit}, env) {
     settings.set('environment', env)
@@ -62,6 +76,6 @@ export const environmentMixin = {
   },
   methods: {
     ...mapActions('environment', ['createEnvironment', 'updateEnvironment', 'fetchEnvironments',
-      'selectEnvironment', 'syncEnvironments', 'resetEnvironment'])
+      'selectEnvironment', 'syncEnvironments', 'resetEnvironment', 'delEnvironment'])
   }
 }
