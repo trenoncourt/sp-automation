@@ -23,8 +23,16 @@
       "type": "integer"
     },
     {
+      "title": "existantDeSemId",
+      "type": "integer"
+    },
+    {
       "title": "process",
       "type": "text"
+    },
+    {
+      "title": "inArtios",
+      "type": "boolean"
     },
     {
       "title": "processSical",

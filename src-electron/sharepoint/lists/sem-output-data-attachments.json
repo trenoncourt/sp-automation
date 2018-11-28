@@ -6,6 +6,14 @@
       "type": "text"
     },
     {
+      "title": "fullPath",
+      "type": "text"
+    },
+    {
+      "title": "inSp",
+      "type": "boolean"
+    },
+    {
       "title": "outputDataAttachmentType",
       "type": "lookup",
       "lookupField": "ID",
