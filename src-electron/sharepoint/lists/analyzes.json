@@ -11,7 +11,11 @@
     },
     {
       "title": "bursting",
-      "type": "text"
+      "type": "integer"
+    },
+    {
+      "title": "bursting2",
+      "type": "integer"
     },
     {
       "title": "groove",
@@ -31,7 +35,11 @@
     },
     {
       "title": "ect",
-      "type": "text"
+      "type": "integer"
+    },
+    {
+      "title": "ectt2",
+      "type": "integer"
     },
     {
       "title": "comment",

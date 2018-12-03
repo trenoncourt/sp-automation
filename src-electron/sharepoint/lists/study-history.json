@@ -83,7 +83,7 @@
     },
     {
       "title": "comment",
-      "type": "text"
+      "type": "note"
     },
     {
       "title": "sendMail",

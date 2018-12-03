@@ -7,13 +7,15 @@
       "multiple": true,
       "lookupField": "ID",
       "lookupList": "Analyzes"
-    }, {
+    },
+    {
       "title": "rcvs",
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
       "lookupList": "Rcvs"
-    }, {
+    },
+    {
       "title": "comment",
       "type": "text"
     },
@@ -22,7 +24,7 @@
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
-      "lookupList": "SemOutputDataAttachments",
+      "lookupList": "LabOutputDataAttachments",
       "fields": [
         {
           "title": "fileName",
