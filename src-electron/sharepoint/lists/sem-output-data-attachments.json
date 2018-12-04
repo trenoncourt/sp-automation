@@ -18,10 +18,6 @@
       "type": "boolean"
     },
     {
-      "title": "actionDone",
-      "type": "boolean"
-    },
-    {
       "title": "outputDataAttachmentType",
       "type": "lookup",
       "lookupField": "ID",
