@@ -2,6 +2,10 @@
   "title": "Rcvs",
   "fields": [
     {
+      "title": "fbiNumber",
+      "type": "integer"
+    },
+    {
       "title": "hygrometry",
       "type": "lookup",
       "lookupField": "ID",
