@@ -6,6 +6,10 @@
       "type": "text"
     },
     {
+      "title": "doughGluedOutside",
+      "type": "boolean"
+    },
+    {
       "title": "landmark",
       "type": "integer"
     },

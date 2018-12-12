@@ -1,0 +1,193 @@
+{
+  "title": "Solutions",
+  "fields": [
+    {
+      "title": "attachmentType",
+      "type": "text"
+    },
+	    {
+      "title": "imageSrc",
+      "type": "text"
+    },
+	{
+      "title": "pdfSrc",
+      "type": "text"
+    },
+	{
+      "title": "otherVarnish",
+      "type": "text"
+    },
+	{
+      "title": "insideOtherVarnish",
+      "type": "text"
+    },
+	{
+      "title": "spotted",
+      "type": "boolean"
+    },
+	{
+      "title": "insideSpotted",
+      "type": "boolean"
+    },
+	{
+      "title": "varnish",
+      "type": "boolean"
+    },
+	{
+      "title": "insideVarnish",
+      "type": "boolean"
+    },
+	{
+      "title": "commentary",
+      "type": "text"
+    },
+	{
+      "title": "mac",
+      "type": "text"
+    },
+	{
+      "title": "inking",
+      "type": "text"
+    },
+		{
+      "title": "insideInking",
+      "type": "text"
+    },
+	{
+      "title": "printType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "PrintTypes",
+      "fields": [
+        {
+          "title": "printTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "printTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "insidePrintType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "PrintTypes",
+      "fields": [
+        {
+          "title": "insidePrintTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "insidePrintTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+	{
+      "title": "metallicColorType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "MetallicColorTypes",
+      "fields": [
+        {
+          "title": "metallicColorTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "metallicColorTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+	{
+      "title": "insideMetallicColorType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "MetallicColorTypes",
+      "fields": [
+        {
+          "title": "insideMetallicColorTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "insideMetallicColorTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+		{
+      "title": "tenColorType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "TenColorTypes",
+      "fields": [
+        {
+          "title": "tenColorTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "tenColorTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+	{
+      "title": "insideTenColorType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "TenColorTypes",
+      "fields": [
+        {
+          "title": "insideTenColorTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "insideTenColorTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+	{
+      "title": "printInsideOutsideType",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "PrintInsideOutsideTypes",
+      "fields": [
+        {
+          "title": "iprintInsideOutsideTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "printInsideOutsideTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+	{
+      "title": "simOutputDataAttachement",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "SimOutputDataAttachments",
+      "fields": [
+        {
+          "title": "fileName",
+          "lookupField": "fileName"
+        },
+		{
+          "title": "outputDataAttachmentType",
+          "lookupField": "outputDataAttachmentType"
+        }
+      ]
+    }
+	]
+}

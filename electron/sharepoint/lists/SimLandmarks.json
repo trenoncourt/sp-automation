@@ -1,0 +1,18 @@
+{
+  "title": "SimLandmarks",
+  "fields": [
+	{
+      "title": "solution",
+      "type": "lookup",
+	  "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "Solutions",
+      "fields": [
+        {
+          "title": "attachmentType",
+          "lookupField": "attachmentType"
+        }
+      ]
+    }
+	]
+}
