@@ -16,6 +16,18 @@
     {
       "title": "value",
       "type": "integer"
+    },
+    {
+      "title": "isONU",
+      "type": "boolean"
+    },
+    {
+      "title": "stamp1",
+      "type": "text"
+    },
+    {
+      "title": "stamp2",
+      "type": "text"
     }
   ]
 }
