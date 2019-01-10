@@ -6,6 +6,10 @@
       "type": "text"
     },
     {
+      "title": "description",
+      "type": "text"
+    },
+    {
       "title": "doughGluedOutside",
       "type": "boolean"
     },
