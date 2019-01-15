@@ -1230,11 +1230,11 @@
     },
     {
       "title": "maxHeight",
-      "type": "integer"
+      "type": "number"
     },
     {
       "title": "nbLayer",
-      "type": "integer"
+      "type": "number"
     },
     {
       "title": "otherPrecisionPallet",
@@ -1242,7 +1242,7 @@
     },
     {
       "title": "humidity",
-      "type": "integer"
+      "type": "number"
     },
     {
       "title": "stackingPallet",
@@ -1254,7 +1254,7 @@
     },
     {
       "title": "maxPeriod",
-      "type": "integer"
+      "type": "number"
     },
     {
       "title": "stackingPalletTransportValue",
@@ -1282,7 +1282,7 @@
     },
     {
       "title": "nbBulkBreaking",
-      "type": "integer"
+      "type": "number"
     },
     {
       "title": "transportPeriod",
