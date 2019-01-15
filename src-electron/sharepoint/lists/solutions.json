@@ -42,6 +42,22 @@
       "type": "text"
     },
     {
+      "title": "insideInkingObservation",
+      "type": "text"
+    },
+    {
+      "title": "inkingObservation",
+      "type": "text"
+    },
+    {
+      "title": "insideFlexoCostObservation",
+      "type": "text"
+    },
+    {
+      "title": "flexoCostObservation",
+      "type": "text"
+    },
+    {
       "title": "inking",
       "type": "integer"
     },
