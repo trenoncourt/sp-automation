@@ -790,7 +790,7 @@
       "type": "boolean"
     },
     {
-      "title": "requestGraphicImplantation",
+      "title": "isGraphicImplantation",
       "type": "boolean"
     },
     {
