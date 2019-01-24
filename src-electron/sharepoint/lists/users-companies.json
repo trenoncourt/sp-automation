@@ -1,0 +1,13 @@
+{
+  "title": "CommercialsCompanies",
+  "fields": [
+    {
+      "title": "idPrintCompany",
+      "type": "number"
+    },
+    {
+      "title": "idUser",
+      "type": "number"
+    }
+  ]
+}
