@@ -1080,6 +1080,10 @@
       "type": "boolean"
     },
     {
+      "title": "packagingToKeep",
+      "type:": "boolean"
+    },
+    {
       "title": "rcvType",
       "type": "lookup",
       "multiple": true,
