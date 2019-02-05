@@ -1041,11 +1041,11 @@
     },
     {
       "title": "printingType",
-      "type": "text"
+      "type": "note"
     },
     {
       "title": "insidePrintingType",
-      "type": "text"
+      "type": "note"
     },
     {
       "title": "colorPattern",
