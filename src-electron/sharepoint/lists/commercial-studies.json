@@ -1281,6 +1281,10 @@
       "type": "boolean"
     },
     {
+      "title": "packagingToKeep",
+      "type:": "boolean"
+    },
+    {
       "title": "nbBulkBreaking",
       "type": "number"
     },
