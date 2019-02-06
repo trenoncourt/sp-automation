@@ -366,6 +366,10 @@
       "type": "boolean"
     },
     {
+      "title": "isUrgentPriceRequest",
+      "type": "boolean"
+    },
+    {
       "title": "isBidSolicitation",
       "type": "boolean"
     },
