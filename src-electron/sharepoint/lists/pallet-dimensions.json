@@ -1,0 +1,13 @@
+{
+  "title": "PalletDimensions",
+  "fields": [
+    {
+      "title": "length",
+      "type": "integer"
+    },
+    {
+      "title": "width",
+      "type": "integer"
+    }
+  ]
+}
