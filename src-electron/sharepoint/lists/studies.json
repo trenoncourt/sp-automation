@@ -1085,11 +1085,11 @@
     },
     {
       "title": "packagingToKeep",
-      "type:": "boolean"
+      "type": "boolean"
     },
     {
       "title": "truckFullObservation",
-      "type:": "note"
+      "type": "note"
     },
     {
       "title": "rcvType",
