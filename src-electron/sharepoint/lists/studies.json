@@ -495,7 +495,7 @@
     },
     {
       "title": "quantityImperative",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "stock",
@@ -1082,6 +1082,14 @@
     {
       "title": "rcv",
       "type": "boolean"
+    },
+    {
+      "title": "packagingToKeep",
+      "type:": "boolean"
+    },
+    {
+      "title": "truckFullObservation",
+      "type:": "note"
     },
     {
       "title": "rcvType",

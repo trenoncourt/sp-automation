@@ -491,7 +491,7 @@
     },
     {
       "title": "quantityImperative",
-      "type": "text"
+      "type": "boolean"
     },
     {
       "title": "stock",
@@ -1283,6 +1283,14 @@
     {
       "title": "bulkBreaking",
       "type": "boolean"
+    },
+    {
+      "title": "packagingToKeep",
+      "type:": "boolean"
+    },
+    {
+      "title": "truckFullObservation",
+      "type:": "note"
     },
     {
       "title": "nbBulkBreaking",
