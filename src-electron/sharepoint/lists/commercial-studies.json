@@ -1475,6 +1475,53 @@
     {
       "title": "otherDeliveryCity",
       "type": "text"
+    },
+    {
+      "title": "imposedPallet",
+      "type": "boolean"
+    },
+    {
+      "title": "palletManagement",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PalletManagement",
+      "fields": [
+        {
+          "title": "palletManagementLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "palletManagementValue",
+          "lookupField": "value"
+        }
+      ]
+    }, {
+      "title": "palletDimension",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "PalletDimensions",
+      "fields": [
+        {
+          "title": "palletDimensionsLength",
+          "lookupField": "length"
+        },
+        {
+          "title": "palletDimensionsWidth",
+          "lookupField": "width"
+        }
+      ]
+    },
+    {
+      "title": "palletizingComment",
+      "type": "text"
+    },
+    {
+      "title": "overflowMax",
+      "type": "integer"
+    },
+    {"title": "palletizingStacking",
+      "type": "boolean"
     }
   ]
 }
