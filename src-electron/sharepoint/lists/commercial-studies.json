@@ -1496,7 +1496,7 @@
         }
       ]
     }, {
-      "title": "palletDimension",
+      "title": "palletDimensions",
       "type": "lookup",
       "multiple": true,
       "lookupField": "ID",
