@@ -1532,6 +1532,22 @@
     {
       "title": "palletizingStacking",
       "type": "boolean"
+    },
+    {
+      "title": "quoteEmergencyValidation",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "QuoteEmergencyActions",
+      "fields": [
+        {
+          "title": "quoteEmergencyLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "quoteEmergencyValue",
+          "lookupField": "value"
+        }
+      ]
     }
   ]
 }
