@@ -293,6 +293,38 @@
           "lookupField": "column"
         }
       ]
+    },
+    {
+      "title": "sttType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "SttTypes",
+      "fields": [
+        {
+          "title": "sttTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "sttTypeValue",
+          "lookupField": "value"
+        }
+      ]
+    },
+    {
+      "title": "insideSttTypeType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "SttTypes",
+      "fields": [
+        {
+          "title": "insideSttTypeLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "insideSttTypeValue",
+          "lookupField": "value"
+        }
+      ]
     }
   ]
 }
