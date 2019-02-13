@@ -311,7 +311,7 @@
       ]
     },
     {
-      "title": "insideSttTypeType",
+      "title": "insideSttType",
       "type": "lookup",
       "lookupField": "ID",
       "lookupList": "SttTypes",
