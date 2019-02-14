@@ -2,7 +2,7 @@
   "title": "MultipleColumns",
   "fields": [
     {
-      "title": "offsetSTT",
+      "title": "cardboardQuality",
       "type": "text"
     },
     {
