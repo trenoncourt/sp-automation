@@ -39,6 +39,10 @@
       "type": "boolean"
     },
     {
+      "title": "processSicalCreil",
+      "type": "boolean"
+    },
+    {
       "title": "processNordCarton",
       "type": "boolean"
     },
