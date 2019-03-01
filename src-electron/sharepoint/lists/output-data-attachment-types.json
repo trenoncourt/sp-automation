@@ -8,6 +8,21 @@
     {
       "title": "value",
       "type": "integer"
+    },    {
+      "title": "printCompany",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PrintCompanies",
+      "fields": [
+        {
+          "title": "printCompanyValue",
+          "lookupField": "value"
+        },
+        {
+          "title": "printCompanyLabel",
+          "lookupField": "label"
+        }
+      ]
     }
   ]
 }
