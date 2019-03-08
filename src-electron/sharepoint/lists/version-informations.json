@@ -1,0 +1,30 @@
+{
+  "title": "VersionInformations",
+  "fields": [
+    {
+      "title": "version",
+      "type": "text"
+    },
+    {
+      "title": "description",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "VersionDescription",
+      "fields": [
+        {
+          "title": "title",
+          "lookupField": "title"
+        },
+        {
+          "title": "description",
+          "lookupField": "description"
+        },
+        {
+          "title": "type",
+          "lookupField": "type"
+        }
+      ]
+    }
+  ]
+}
