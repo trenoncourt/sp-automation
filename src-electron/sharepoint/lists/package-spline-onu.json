@@ -28,6 +28,30 @@
     {
       "title": "stamp2",
       "type": "text"
+    },
+    {
+      "title": "order",
+      "type": "integer"
+    },
+    {
+      "title": "visible",
+      "type": "boolean"
+    },
+    {
+      "title": "printCompany",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "PrintCompanies",
+      "fields": [
+        {
+          "title": "printCompanyLabel",
+          "lookupField": "label"
+        },
+        {
+          "title": "printCompanyValue",
+          "lookupField": "value"
+        }
+      ]
     }
   ]
 }
