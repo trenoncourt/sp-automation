@@ -8,6 +8,10 @@
     {
       "title": "value",
       "type": "integer"
+    },
+    {
+      "title": "visible",
+      "type": "boolean"
     }
   ]
 }

@@ -23,6 +23,10 @@
           "lookupField": "label"
         }
       ]
+    },
+    {
+      "title": "visible",
+      "type": "boolean"
     }
   ]
 }
