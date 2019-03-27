@@ -1,0 +1,20 @@
+{
+  "title": "ReleaseInformations",
+  "fields": [
+    {
+      "title": "version",
+      "type": "text"
+    },
+    {
+      "title": "releaseDate",
+      "type": "dateTime"
+    },
+    {
+      "title": "features",
+      "type": "lookup",
+      "multiple": true,
+      "lookupField": "ID",
+      "lookupList": "ReleaseFeatures"
+    }
+  ]
+}

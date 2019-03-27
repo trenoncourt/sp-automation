@@ -35,7 +35,7 @@
     },
     {
       "title": "commentary",
-      "type": "text"
+      "type": "note"
     },
     {
       "title": "mac",

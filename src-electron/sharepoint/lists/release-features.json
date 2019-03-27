@@ -1,0 +1,19 @@
+{
+  "title": "ReleaseFeatures",
+  "fields": [
+    {
+      "title": "featureType",
+      "type": "lookup",
+      "lookupField": "ID",
+      "lookupList": "FeatureTypes"
+    },
+    {
+      "title": "label",
+      "type": "text"
+    },
+    {
+      "title": "description",
+      "type": "note"
+    }
+  ]
+}
