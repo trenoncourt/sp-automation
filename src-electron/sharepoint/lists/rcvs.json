@@ -39,7 +39,7 @@
     },
     {
       "title": "comment",
-      "type": "text"
+      "type": "note"
     },
     {
       "title": "type",
