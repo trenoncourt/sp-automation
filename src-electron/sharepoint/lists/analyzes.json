@@ -181,6 +181,10 @@
     {
       "title": "value6",
       "type": "integer"
+    },
+    {
+      "title": "thickness",
+      "type": "integer"
     }
   ]
 }
