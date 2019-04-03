@@ -19,7 +19,7 @@
     },
     {
       "title": "companyCost",
-      "type": "integer"
+      "type": "number"
     },
     {
       "title": "applicationFees",
